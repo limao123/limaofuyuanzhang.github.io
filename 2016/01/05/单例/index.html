@@ -51,16 +51,19 @@
 
 
 
-<meta name="description" content="介绍1、官方文档写法">
+<meta name="description" content="介绍1、官方文档写法
+123456static AccountManager *DefaultManager = nil; + (AccountManager *)defaultManager &amp;#123;    if (!DefaultManager) DefaultManager = [[self allocWithZone:NULL] init];    return DefaultMana">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例">
 <meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/05/单例/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="介绍1、官方文档写法">
-<meta property="og:updated_time" content="2016-01-05T05:33:16.000Z">
+<meta property="og:description" content="介绍1、官方文档写法
+123456static AccountManager *DefaultManager = nil; + (AccountManager *)defaultManager &amp;#123;    if (!DefaultManager) DefaultManager = [[self allocWithZone:NULL] init];    return DefaultMana">
+<meta property="og:updated_time" content="2016-01-05T05:35:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="介绍1、官方文档写法">
+<meta name="twitter:description" content="介绍1、官方文档写法
+123456static AccountManager *DefaultManager = nil; + (AccountManager *)defaultManager &amp;#123;    if (!DefaultManager) DefaultManager = [[self allocWithZone:NULL] init];    return DefaultMana">
 
 
 
@@ -252,7 +255,7 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-05T13:33:16+08:00" content="2016-01-05">
+            <time itemprop="dateCreated" datetime="2016-01-05T13:35:36+08:00" content="2016-01-05">
               2016-01-05
             </time>
           </span>
@@ -298,8 +301,8 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
-<a id="more"></a>
+        <span itemprop="articleBody"><a id="more"></a>
+<h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> AccountManager *DefaultManager = <span class="literal">nil</span>;</span><br><span class="line"> </span><br><span class="line">+ (AccountManager *)defaultManager &#123;</span><br><span class="line">    <span class="keyword">if</span> (!DefaultManager) DefaultManager = [[<span class="keyword">self</span> allocWithZone:<span class="literal">NULL</span>] init];</span><br><span class="line">    <span class="keyword">return</span> DefaultManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>2、来自 objcolumnist</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (AccountManager *)sharedManager</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">static</span> AccountManager *sharedAccountManagerInstance = <span class="literal">nil</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">        <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">                sharedAccountManagerInstance = [[<span class="keyword">self</span> alloc] init]; </span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedAccountManagerInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -323,20 +326,6 @@
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/01/05/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
       
 
       
@@ -405,7 +394,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
