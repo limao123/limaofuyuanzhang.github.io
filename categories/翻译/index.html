@@ -26,21 +26,13 @@
 
 
 
-  
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-
-  <meta name="description" content="欢迎吐槽～～～" />
-
-
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -74,7 +66,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post',
+    sidebar: 'always',
     motion: true
   };
 </script>
@@ -153,21 +145,11 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -178,6 +160,16 @@
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
           </a>
         </li>
       
@@ -301,7 +293,7 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="林涛" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="林涛" itemprop="image"/>
           <p class="site-author-name" itemprop="name">林涛</p>
         </div>
         <p class="site-description motion-element" itemprop="description">欢迎吐槽～～～</p>
@@ -314,7 +306,7 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/categories">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               </a>

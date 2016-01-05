@@ -26,21 +26,13 @@
 
 
 
-  
-    <link href='//fonts.lug.ustc.edu.cn/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-  
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-
-  <meta name="description" content="欢迎吐槽～～～" />
-
-
 
 
   <meta name="keywords" content="Parse," />
@@ -75,7 +67,7 @@
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post',
+    sidebar: 'always',
     motion: true
   };
 </script>
@@ -154,21 +146,11 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
             分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
           </a>
         </li>
       
@@ -179,6 +161,16 @@
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
           </a>
         </li>
       
@@ -233,6 +225,10 @@
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
   
   
 
@@ -458,25 +454,6 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/01/05/翻译/Parse iOS SDK 使用文档/"
-     data-title="Parse iOS SDK 使用文档 - Object"
-     data-content=""
-     data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/05/翻译/Parse iOS SDK 使用文档/">
-  <div class="ds-share-inline">
-    <ul  class="ds-share-icons-16">
-
-      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
-      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
-      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
-      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
-      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
-
-    </ul>
-    <div class="ds-share-icons-more">
-    </div>
-  </div>
-</div>
-      
     </div>
   </div>
 
@@ -527,7 +504,7 @@
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="林涛" itemprop="image"/>
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="林涛" itemprop="image"/>
           <p class="site-author-name" itemprop="name">林涛</p>
         </div>
         <p class="site-description motion-element" itemprop="description">欢迎吐槽～～～</p>
@@ -540,7 +517,7 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/categories/">
+            <a href="/categories">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
               </a>
@@ -588,7 +565,9 @@
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
             
               
@@ -597,7 +576,9 @@
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Getting_Started__u5F00_u59CB"><span class="nav-number">1.</span> <span class="nav-text">Getting Started 开始</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Objects"><span class="nav-number">2.</span> <span class="nav-text">Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The_PFObject"><span class="nav-number">2.1.</span> <span class="nav-text">The PFObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Saving_Objects"><span class="nav-number">2.2.</span> <span class="nav-text">Saving Objects</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrieving_Objects"><span class="nav-number">2.3.</span> <span class="nav-text">Retrieving Objects</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The_Local_Datastore__u672C_u5730_u6570_u636E_u5E93"><span class="nav-number">3.</span> <span class="nav-text">The Local Datastore 本地数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RETRIEVING_OBJECTS_FROM_THE_LOCAL_DATASTORE__u4ECE_u672C_u5730_u5B58_u50A8_u4E2D_u68C0_u7D22_u5BF9_u8C61"><span class="nav-number">3.1.</span> <span class="nav-text">RETRIEVING OBJECTS FROM THE LOCAL DATASTORE 从本地存储中检索对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UNPINNING_OBJECTS_Unpin_u5BF9_u8C61"><span class="nav-number">3.2.</span> <span class="nav-text">UNPINNING OBJECTS Unpin对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Saving_Objects_Offline__u79BB_u7EBF_u5B58_u50A8_u5BF9_u8C61"><span class="nav-number">3.3.</span> <span class="nav-text">Saving Objects Offline 离线存储对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Updating_Objects"><span class="nav-number">3.4.</span> <span class="nav-text">Updating Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#COUNTERS"><span class="nav-number">3.4.1.</span> <span class="nav-text">COUNTERS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARRAYS__u6570_u7EC4"><span class="nav-number">3.4.2.</span> <span class="nav-text">ARRAYS 数组</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deleting_Objects__u5220_u9664_u5BF9_u8C61"><span class="nav-number">3.5.</span> <span class="nav-text">Deleting Objects 删除对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relational_Data__u5173_u8054_u6570_u636E"><span class="nav-number">3.6.</span> <span class="nav-text">Relational Data 关联数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data_Types__u6570_u636E_u7C7B_u578B"><span class="nav-number">3.7.</span> <span class="nav-text">Data Types 数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subclasses"><span class="nav-number">3.8.</span> <span class="nav-text">Subclasses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Subclassing_PFObject__u5B50_u7C7B_u5316_PFObject"><span class="nav-number">3.9.</span> <span class="nav-text">Subclassing PFObject 子类化 PFObject</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Properties__26amp_3B_Methods__u5C5E_u6027_u548C_u65B9_u6CD5"><span class="nav-number">3.10.</span> <span class="nav-text">Properties & Methods 属性和方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Initializing_Subclasses"><span class="nav-number">3.11.</span> <span class="nav-text">Initializing Subclasses</span></a></li></ol></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -768,7 +749,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
