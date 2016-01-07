@@ -262,7 +262,7 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-07T21:39:19+08:00" content="2016-01-07">
+            <time itemprop="dateCreated" datetime="2016-01-07T21:40:37+08:00" content="2016-01-07">
               2016-01-07
             </time>
           </span>
@@ -309,28 +309,12 @@
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。</p>
-<ul>
-<li><p>layer.borderWidth 设置边框宽度</p>
-</li>
-<li><p>layer.borderColorFromUIColor 设置边框颜色，需添加以下文件</p>
-</li>
-</ul>
-<p>CALayer+Addition.h</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;QuartzCore/QuartzCore.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CALayer</span> (<span class="title">Addition</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *borderColorFrom<span class="built_in">UIColor</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setBorderColorFrom<span class="built_in">UIColor</span>:(<span class="built_in">UIColor</span> *)color;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>CALayer+Addition.m</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"CALayer+Addition.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CALayer</span> (<span class="title">Addition</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIColor</span> *)borderColorFrom<span class="built_in">UIColor</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(borderColorFrom<span class="built_in">UIColor</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)setBorderColorFrom<span class="built_in">UIColor</span>:(<span class="built_in">UIColor</span> *)color&#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(borderColorFrom<span class="built_in">UIColor</span>), color, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line">    [<span class="keyword">self</span> setBorderColorFromUI: <span class="keyword">self</span><span class="variable">.borderColorFromUIColor</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setBorderColorFromUI:(<span class="built_in">UIColor</span> *)color&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.borderColor</span> = color<span class="variable">.CGColor</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>layer.cornerRadius 设置圆角</p>
-</li>
-<li><p>layer.masksToBounds UIImageView设置圆角时需要添加该属性并设置为true才能显示圆角</p>
-</li>
-</ul>
-
-            
-          </span>
+          <p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/07/UIView_layer_Setting/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
