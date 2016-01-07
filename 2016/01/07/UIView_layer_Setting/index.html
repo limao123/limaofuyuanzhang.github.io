@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,layer," />
 
 
 
@@ -51,25 +51,40 @@
 
 
 
-<meta name="description" content="title: UIView layer属性tags: 
-- iOS 
-- layer
-categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
+<meta name="description" content="在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。
+
+layer.borderWidth 设置边框宽度
+
+layer.borderColorFromUIColor 设置边框颜色，需添加以下文件
+
+
+CALayer+Addition.h
+12345678910#import &amp;lt;QuartzCore/QuartzCore.h&amp;gt;#i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="狸猫副园长的技术窝">
+<meta property="og:title" content="UIView layer属性">
 <meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/07/UIView_layer_Setting/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="title: UIView layer属性tags: 
-- iOS 
-- layer
-categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
-<meta property="og:updated_time" content="2016-01-07T13:38:07.000Z">
+<meta property="og:description" content="在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。
+
+layer.borderWidth 设置边框宽度
+
+layer.borderColorFromUIColor 设置边框颜色，需添加以下文件
+
+
+CALayer+Addition.h
+12345678910#import &amp;lt;QuartzCore/QuartzCore.h&amp;gt;#i">
+<meta property="og:updated_time" content="2016-01-07T13:39:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="狸猫副园长的技术窝">
-<meta name="twitter:description" content="title: UIView layer属性tags: 
-- iOS 
-- layer
-categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
+<meta name="twitter:title" content="UIView layer属性">
+<meta name="twitter:description" content="在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。
+
+layer.borderWidth 设置边框宽度
+
+layer.borderColorFromUIColor 设置边框颜色，需添加以下文件
+
+
+CALayer+Addition.h
+12345678910#import &amp;lt;QuartzCore/QuartzCore.h&amp;gt;#i">
 
 
 
@@ -81,7 +96,7 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
   };
 </script>
 
-  <title>  | 狸猫副园长的技术窝 </title>
+  <title> UIView layer属性 | 狸猫副园长的技术窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -252,7 +267,7 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
             
             
               
-                
+                UIView layer属性
               
             
           </h1>
@@ -261,11 +276,26 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-07T21:38:07+08:00" content="2016-01-07">
+            <time itemprop="dateCreated" datetime="2016-01-07T21:39:19+08:00" content="2016-01-07">
               2016-01-07
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -292,11 +322,7 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
       
 
       
-        <span itemprop="articleBody"><hr>
-<p>title: UIView layer属性<br>tags: </p>
-<pre><code>- iOS 
-- layer
-</code></pre><h2 id="categories_3A_iOS"><a href="#categories_3A_iOS" class="headerlink" title="categories: iOS"></a>categories: iOS</h2><p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。<br><a id="more"></a></p>
+        <span itemprop="articleBody"><p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。</p>
 <ul>
 <li><p>layer.borderWidth 设置边框宽度</p>
 </li>
@@ -318,6 +344,14 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
+          
+            <a href="/tags/layer/" rel="tag">#layer</a>
+          
+        </div>
       
 
       
@@ -358,7 +392,7 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2016/01/07/UIView_layer_Setting/"
-           data-title="" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/07/UIView_layer_Setting/">
+           data-title="UIView layer属性" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/07/UIView_layer_Setting/">
       </div>
     
   </div>
@@ -409,14 +443,14 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">6</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -464,7 +498,7 @@ categories: iOS在xil和storyboard中我们可以直接设置UIView 及其子类
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#categories_3A_iOS"><span class="nav-number">1.</span> <span class="nav-text">categories: iOS</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
