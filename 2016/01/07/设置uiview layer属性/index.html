@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS,单例,设计模式," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -51,16 +51,28 @@
 
 
 
-<meta name="description" content="关于单例在iOS中的使用。">
+<meta name="description" content="title: UIView layer属性tags: 
+- iOS 
+- layer
+categories: iOS
+description: 在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/index.html">
+<meta property="og:title" content="狸猫副园长的技术窝">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/07/设置uiview layer属性/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="关于单例在iOS中的使用。">
-<meta property="og:updated_time" content="2016-01-06T03:42:40.000Z">
+<meta property="og:description" content="title: UIView layer属性tags: 
+- iOS 
+- layer
+categories: iOS
+description: 在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
+<meta property="og:updated_time" content="2016-01-07T13:33:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="关于单例在iOS中的使用。">
+<meta name="twitter:title" content="狸猫副园长的技术窝">
+<meta name="twitter:description" content="title: UIView layer属性tags: 
+- iOS 
+- layer
+categories: iOS
+description: 在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。">
 
 
 
@@ -72,7 +84,7 @@
   };
 </script>
 
-  <title> 单例 | 狸猫副园长的技术窝 </title>
+  <title>  | 狸猫副园长的技术窝 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -243,7 +255,7 @@
             
             
               
-                单例
+                
               
             
           </h1>
@@ -252,34 +264,19 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-06T11:42:40+08:00" content="2016-01-06">
-              2016-01-06
+            <time itemprop="dateCreated" datetime="2016-01-07T21:33:49+08:00" content="2016-01-07">
+              2016-01-07
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/设计模式/" itemprop="url" rel="index">
-                    <span itemprop="name">设计模式</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/06/单例/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/06/单例/" itemprop="commentsCount"></span>
+                <a href="/2016/01/07/设置uiview layer属性/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/07/设置uiview layer属性/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,41 +295,47 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> AccountManager *DefaultManager = <span class="literal">nil</span>;</span><br><span class="line"> </span><br><span class="line">+ (AccountManager *)defaultManager &#123;</span><br><span class="line">    <span class="keyword">if</span> (!DefaultManager) DefaultManager = [[<span class="keyword">self</span> allocWithZone:<span class="literal">NULL</span>] init];</span><br><span class="line">    <span class="keyword">return</span> DefaultManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、来自 objcolumnist</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (AccountManager *)sharedManager</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">static</span> AccountManager *sharedAccountManagerInstance = <span class="literal">nil</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">        <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">                sharedAccountManagerInstance = [[<span class="keyword">self</span> alloc] init]; </span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedAccountManagerInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该写法满足三个特性：<br>1）线程安全。<br>2）满足静态分析器的要求。<br>3）兼容了ARC</p>
-<h1 id="u6837_u4F8B"><a href="#u6837_u4F8B" class="headerlink" title="样例"></a>样例</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BmobIMNetwork</span> ()&lt;<span class="title">GCDAsyncSocketDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) GCDAsyncSocket *gcdAsyncSocket;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableData</span> *packet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BmobIMNetwork</span></span></span><br><span class="line"></span><br><span class="line">+ (BmobIMNetwork *)sharedBmobIMNetwork</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> BmobIMNetwork *sharedBmobIMNetworkInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">        sharedBmobIMNetworkInstance = [[<span class="keyword">self</span> alloc] initPritate];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedBmobIMNetworkInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)initPritate&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        _gcdAsyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">        _packet = [[<span class="built_in">NSData</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init&#123;</span><br><span class="line">    <span class="keyword">@throw</span> [[<span class="built_in">NSException</span> alloc] initWithName:<span class="string">@"Singleton"</span> reason:<span class="string">@"Use + [BmobIMNetwork sharedBmobIMNetwork]"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/ygm900/p/3607143.html" target="_blank" rel="external">iOS 创建单例的两种方法</a></p>
+        <span itemprop="articleBody"><hr>
+<p>title: UIView layer属性<br>tags: </p>
+<pre><code>- iOS 
+- layer
+</code></pre><p>categories: iOS</p>
+<h2 id="description_3A"><a href="#description_3A" class="headerlink" title="description:"></a>description: </h2><p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。</p>
+<a id="more"></a>
+<ol>
+<li><p>layer.borderWidth 设置边框宽度</p>
+</li>
+<li><p>layer.borderColorFromUIColor 设置边框颜色，需添加以下文件</p>
+</li>
+</ol>
+<p>CALayer+Addition.h</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;QuartzCore/QuartzCore.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CALayer</span> (<span class="title">Addition</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIColor</span> *borderColorFrom<span class="built_in">UIColor</span>;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setBorderColorFrom<span class="built_in">UIColor</span>:(<span class="built_in">UIColor</span> *)color;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>CALayer+Addition.m</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"CALayer+Addition.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">CALayer</span> (<span class="title">Addition</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UIColor</span> *)borderColorFrom<span class="built_in">UIColor</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> objc_getAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(borderColorFrom<span class="built_in">UIColor</span>));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)setBorderColorFrom<span class="built_in">UIColor</span>:(<span class="built_in">UIColor</span> *)color&#123;</span><br><span class="line">    objc_setAssociatedObject(<span class="keyword">self</span>, <span class="keyword">@selector</span>(borderColorFrom<span class="built_in">UIColor</span>), color, OBJC_ASSO<span class="built_in">CIATION_RETAIN_NONATOMIC</span>);</span><br><span class="line">    [<span class="keyword">self</span> setBorderColorFromUI: <span class="keyword">self</span><span class="variable">.borderColorFromUIColor</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setBorderColorFromUI:(<span class="built_in">UIColor</span> *)color&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.borderColor</span> = color<span class="variable">.CGColor</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>layer.cornerRadius 设置圆角</p>
+</li>
+<li><p>layer.masksToBounds UIImageView设置圆角时需要添加该属性并设置为true才能显示圆角</p>
+</li>
+</ol>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-            <a href="/tags/单例/" rel="tag">#单例</a>
-          
-            <a href="/tags/设计模式/" rel="tag">#设计模式</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/01/06/Bmob_Restful_API_Use/" rel="next" title="iOS开发中使用Bmob RESTful API">
+                <i class="fa fa-chevron-left"></i> iOS开发中使用Bmob RESTful API
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/06/Bmob_Restful_API_Use/" rel="prev" title="iOS开发中使用Bmob RESTful API">
-                iOS开发中使用Bmob RESTful API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -359,8 +362,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/06/单例/"
-           data-title="单例" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/">
+      <div class="ds-thread" data-thread-key="2016/01/07/设置uiview layer属性/"
+           data-title="" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/07/设置uiview layer属性/">
       </div>
     
   </div>
@@ -466,7 +469,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4ECB_u7ECD"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u6837_u4F8B"><span class="nav-number">2.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#description_3A"><span class="nav-number">1.</span> <span class="nav-text">description: </span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
