@@ -3,42 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>狸猫副园长的技术窝</title>
+  <title>Objective-C中枚举类型的写法 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: Objective-C中枚举类型的写法tags: 
-
-iOS
-枚举
-objccategories: iOSdescription: Objective-C中枚举类型的写法
-
-
-正文经常都会忘记 Objective-C 中枚举的写法，这里记录下来作为备忘。
-123456789101112131415//NS_ENUM，定义状态等普通枚举typedef NS_ENUM(NSUIntege">
+  <meta name="description" content="Objective-C中枚举类型的写法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="狸猫副园长的技术窝">
+<meta property="og:title" content="Objective-C中枚举类型的写法">
 <meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="title: Objective-C中枚举类型的写法tags: 
-
-iOS
-枚举
-objccategories: iOSdescription: Objective-C中枚举类型的写法
-
-
-正文经常都会忘记 Objective-C 中枚举的写法，这里记录下来作为备忘。
-123456789101112131415//NS_ENUM，定义状态等普通枚举typedef NS_ENUM(NSUIntege">
-<meta property="og:updated_time" content="2016-01-11T14:29:31.000Z">
+<meta property="og:description" content="Objective-C中枚举类型的写法">
+<meta property="og:updated_time" content="2016-01-11T14:30:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="狸猫副园长的技术窝">
-<meta name="twitter:description" content="title: Objective-C中枚举类型的写法tags: 
-
-iOS
-枚举
-objccategories: iOSdescription: Objective-C中枚举类型的写法
-
-
-正文经常都会忘记 Objective-C 中枚举的写法，这里记录下来作为备忘。
-123456789101112131415//NS_ENUM，定义状态等普通枚举typedef NS_ENUM(NSUIntege">
+<meta name="twitter:title" content="Objective-C中枚举类型的写法">
+<meta name="twitter:description" content="Objective-C中枚举类型的写法">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -164,7 +140,7 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 10px;">objc</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
                     </div>
                 </section>
                 
@@ -244,7 +220,7 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
   
     <div class="article-meta">
       <a href="/2016/01/11/枚举类型的写法/" class="article-date">
-      <time datetime="2016-01-11T14:29:31.000Z" itemprop="datePublished">2016-01-11</time>
+      <time datetime="2016-01-11T14:30:33.000Z" itemprop="datePublished">2016-01-11</time>
 </a>
     </div>
   
@@ -253,18 +229,36 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Objective-C中枚举类型的写法
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <hr>
-<p>title: Objective-C中枚举类型的写法<br>tags: </p>
-<ul>
-<li>iOS</li>
-<li>枚举</li>
-<li>objc<br>categories: iOS<br>description: Objective-C中枚举类型的写法</li>
-</ul>
-<hr>
-<h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>经常都会忘记 <code>Objective-C</code> 中枚举的写法，这里记录下来作为备忘。</p>
+        <h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>经常都会忘记 <code>Objective-C</code> 中枚举的写法，这里记录下来作为备忘。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NS_ENUM，定义状态等普通枚举</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_ENUM</span><span class="params">(NSUInteger, TTGState)</span> </span>&#123;</span><br><span class="line">  TTGStateOK = <span class="number">0</span>,</span><br><span class="line">  TTGStateError,</span><br><span class="line">  TTGStateUnknow</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//NS_OPTIONS，定义选项</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_OPTIONS</span><span class="params">(NSUInteger, TTGDirection)</span> </span>&#123;</span><br><span class="line">  TTGDirectionNone = <span class="number">0</span>,</span><br><span class="line">  TTGDirectionTop = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">  TTGDirectionLeft = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">  TTGDirectionRight = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">  TTGDirectionBottom = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://tutuge.me/2015/03/21/effective-objective-c-5-enum/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Enum-枚举的正确使用-Effective-Objective-C-读书笔记-Item-5</a></p>
 
@@ -275,12 +269,12 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/11/枚举类型的写法/"></a></p>
+        <p><span>本文标题:</span><a href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月11日 - 22时29分</p>
-        <p><span>最后更新:</span>2016年01月11日 - 22时29分</p>
+        <p><span>发布时间:</span>2016年01月11日 - 22时30分</p>
+        <p><span>最后更新:</span>2016年01月11日 - 22时30分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/11/枚举类型的写法/" title="">http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/</a>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/11/枚举类型的写法/" title="Objective-C中枚举类型的写法">http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/</a>
             <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
@@ -372,7 +366,7 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/11/枚举类型的写法/" data-title="" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/11/枚举类型的写法/" data-title="Objective-C中枚举类型的写法" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/枚举类型的写法/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -408,7 +402,7 @@ objccategories: iOSdescription: Objective-C中枚举类型的写法
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
