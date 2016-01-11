@@ -3,17 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>狸猫副园长的技术窝</title>
+  <title>如何修改git旧提交 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎吐槽～～～">
-<meta property="og:type" content="website">
-<meta property="og:title" content="狸猫副园长的技术窝">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/index.html">
+  <meta name="description" content="简单介绍如何在iOS开发中使用RESTful API。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何修改git旧提交">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="欢迎吐槽～～～">
+<meta property="og:description" content="简单介绍如何在iOS开发中使用RESTful API。">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525186208568.jpg">
+<meta property="og:updated_time" content="2016-01-11T13:36:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="狸猫副园长的技术窝">
-<meta name="twitter:description" content="欢迎吐槽～～～">
+<meta name="twitter:title" content="如何修改git旧提交">
+<meta name="twitter:description" content="简单介绍如何在iOS开发中使用RESTful API。">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -27,9 +29,6 @@
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
-    
-    
-  
   
       <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
   
@@ -37,8 +36,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -218,61 +217,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-枚举类型的写法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/11/枚举类型的写法/" class="article-date">
-      <time datetime="2016-01-11T13:48:15.000Z" itemprop="datePublished">2016-01-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <hr>
-<p>title: 枚举类型的写法<br>tags: </p>
-<ul>
-<li>iOS</li>
-<li>枚举</li>
-<li>objc<br>categories: iOS</li>
-</ul>
-<hr>
-<p>经常都会忘记objective-c中枚举的写法，这里记录下来作为备忘。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NS_ENUM，定义状态等普通枚举</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_ENUM</span><span class="params">(NSUInteger, TTGState)</span> </span>&#123;</span><br><span class="line">  TTGStateOK = <span class="number">0</span>,</span><br><span class="line">  TTGStateError,</span><br><span class="line">  TTGStateUnknow</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//NS_OPTIONS，定义选项</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_OPTIONS</span><span class="params">(NSUInteger, TTGDirection)</span> </span>&#123;</span><br><span class="line">  TTGDirectionNone = <span class="number">0</span>,</span><br><span class="line">  TTGDirectionTop = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">  TTGDirectionLeft = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">  TTGDirectionRight = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">  TTGDirectionBottom = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://tutuge.me/2015/03/21/effective-objective-c-5-enum/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Enum-枚举的正确使用-Effective-Objective-C-读书笔记-Item-5</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-git修改旧提交" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-git修改旧提交" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/01/11/git修改旧提交/" class="article-date">
@@ -288,251 +233,219 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a>
+    <h1 class="article-title" itemprop="name">
+      如何修改git旧提交
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              简单介绍如何在iOS开发中使用RESTful API。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/项目管理/">项目管理</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
     </div>
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/11/git修改旧提交/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-UIView_layer_Setting" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/07/UIView_layer_Setting/" class="article-date">
-      <time datetime="2016-01-07T13:40:37.000Z" itemprop="datePublished">2016-01-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a>
-    </h1>
-  
-
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
           
-              <p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-    </div>
-
+        <h1 id="u573A_u666F"><a href="#u573A_u666F" class="headerlink" title="场景"></a>场景</h1><p>我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。</p>
+<h1 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h1><p>总结下来为以下几步</p>
+<p>1.使用git rebase命令，其中commit-Id为你需要修改的commit的ID，你会进入到git的默认编辑器，在您需要修改的提交前将pick修改为edit，如下图。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -<span class="tag">i</span> <span class="string">'commit-Id^'</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/14525186208568.jpg" alt=""></p>
+<p>2.进行修改</p>
+<p>3.提交<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> -A</span><br><span class="line">git commit --<span class="keyword">all</span> --amend --<span class="keyword">no</span>-<span class="keyword">edit</span></span><br></pre></td></tr></table></figure></p>
+<p>4.返回至最新的提交<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit-in-git" target="_blank" rel="external">How to modify a specified commit in git?</a></p>
+<p><a href="http://backlogtool.com/git-guide/cn/stepup/stepup7_6.html" target="_blank" rel="external">6. 用rebase -i 修改提交</a></p>
+<p>如果想了解整个修改过程的原理，可以查看下面这篇文章。<br><a href="http://gitbook.liuhui998.com/4_3.html" target="_blank" rel="external">交互式rebase</a></p>
 
       
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layer/">layer</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/07/UIView_layer_Setting/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
   
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-Bmob_Restful_API_Use" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/06/Bmob_Restful_API_Use/" class="article-date">
-      <time datetime="2016-01-06T05:10:47.000Z" itemprop="datePublished">2016-01-06</time>
-</a>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
+        <p><span>发布时间:</span>2016年01月11日 - 21时36分</p>
+        <p><span>最后更新:</span>2016年01月11日 - 21时36分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/11/git修改旧提交/" title="如何修改git旧提交">http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+
+
+
+    <nav id="article-nav">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              简单介绍如何在iOS开发中使用RESTful API。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/Bmob使用/">Bmob使用</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bmob/">Bmob</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Restful/">Restful</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/06/Bmob_Restful_API_Use/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-单例" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/06/单例/" class="article-date">
-      <time datetime="2016-01-06T03:42:40.000Z" itemprop="datePublished">2016-01-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/01/11/枚举类型的写法/">
+                    
+                </a>
+            </div>
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/06/单例/">单例</a>
-    </h1>
-  
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/07/UIView_layer_Setting/">
+                    UIView layer属性
+                </a>
+            </div>
+        
+    </nav>
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              关于单例在iOS中的使用。
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/06/单例/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
   
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u573A_u666F"><span class="toc-number">1.</span> <span class="toc-text">场景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6848"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
 
 
 
-  
-  
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/01/11/git修改旧提交/" data-title="如何修改git旧提交" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"limaofuyuanzhang1"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/01/11/枚举类型的写法/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/01/07/UIView_layer_Setting/" title="下一篇: UIView layer属性">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
