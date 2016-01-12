@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>iOS开发证书介绍 | 狸猫副园长的技术窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在iOS开发中，涉及到真机调试、推送、内支付等功能时，通常都涉及到证书的申请和安装，在刚开始接触这块的时候，我是从网络上找到各种教程照着操作，但是由于过于急躁，往往只是照着操作，完成就算，从来没有仔细去理解各种证书及申请当中各种操作的作用，导致经常出现问题出现之后不知道怎么操作。因此，写下此文，细细理解证书申请过程中的各种步骤。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发证书介绍">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/iOS开发证书介绍/index.html">
+<meta property="og:site_name" content="狸猫副园长的技术窝">
+<meta property="og:description" content="在iOS开发中，涉及到真机调试、推送、内支付等功能时，通常都涉及到证书的申请和安装，在刚开始接触这块的时候，我是从网络上找到各种教程照着操作，但是由于过于急躁，往往只是照着操作，完成就算，从来没有仔细去理解各种证书及申请当中各种操作的作用，导致经常出现问题出现之后不知道怎么操作。因此，写下此文，细细理解证书申请过程中的各种步骤。">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507661784354.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507776294110.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507777597562.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507778813227.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507779793189.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507780298104.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507780794774.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507781116577.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507782028236.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507782137263.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507782526215.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507786306274.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507787591599.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507786996642.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507787747084.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507838878453.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/QQ20151222-1.png">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/QQ20151222-2.png">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/QQ20151222-3.png">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/QQ20151222-4.png">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507846170778.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507846569804.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507846802855.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507847495779.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507847811679.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507848044081.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14507848851431.jpg">
+<meta property="og:updated_time" content="2016-01-12T12:06:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发证书介绍">
+<meta name="twitter:description" content="在iOS开发中，涉及到真机调试、推送、内支付等功能时，通常都涉及到证书的申请和安装，在刚开始接触这块的时候，我是从网络上找到各种教程照着操作，但是由于过于急躁，往往只是照着操作，完成就算，从来没有仔细去理解各种证书及申请当中各种操作的作用，导致经常出现问题出现之后不知道怎么操作。因此，写下此文，细细理解证书申请过程中的各种步骤。">
+  
+    <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/avatar.png" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/">狸猫副园长</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">iOS开发，技术渣渣</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">归档文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/397524331@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 10px;">objc</a> <a href="/tags/swift/" style="font-size: 15px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">狸猫副园长</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img lazy-src="/img/avatar.png" class="js-avatar">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">狸猫副园长</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">iOS开发，技术渣渣</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">归档文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="Email"><a class="Email" target="_blank" href="/397524331@qq.com" title="Email"></a></li>
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="/#" title="GitHub"></a></li>
+                            
+                                <li id="RSS"><a class="RSS" target="_blank" href="/atom.xml" title="RSS"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-iOS开发证书介绍" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/iOS开发证书介绍/" class="article-date">
+      <time datetime="2016-01-12T12:06:31.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS开发证书介绍
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/证书/">证书</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>在iOS开发中，涉及到真机调试、推送、内支付等功能时，通常都涉及到证书的申请和安装，在刚开始接触这块的时候，我是从网络上找到各种教程照着操作，但是由于过于急躁，往往只是照着操作，完成就算，从来没有仔细去理解各种证书及申请当中各种操作的作用，导致经常出现问题出现之后不知道怎么操作。因此，写下此文，细细理解证书申请过程中的各种步骤。</p>
+<p>本文将以申请真机调试证书为例进行讲解。（注：本文以理解为主，因此不使用Xcode的自动处理，其实自Xcode 7后，非开发者账号只需要几步就可以进行真机调试了，具体可参考<a href="http://blog.k-res.net/archives/1862.html" target="_blank" rel="external">使用Xcode 7 beta免费真机调试iOS应用程序</a>）</p>
+<h1 id="u8BE6_u7EC6_u4ECB_u7ECD"><a href="#u8BE6_u7EC6_u4ECB_u7ECD" class="headerlink" title="详细介绍"></a>详细介绍</h1><p><img src="/images/14507661784354.jpg" alt=""></p>
+<p>如上图，进来开发者中心，可以看到，有Certificates、Identifiers、Devices和Provisioning Profiles 4个大选项可以操作，那么这4个选项都有什么用呢？</p>
+<ul>
+<li><p>Certificates:证书，含开发证书和发布证书，只有安装了相应证书才能够进行真机测试和制做测试版和发布版的程序。</p>
+</li>
+<li><p>Identifiers:一个应用的ID，用来表示一个app，该ID可以自己自由填写。</p>
+</li>
+<li><p>Devices:表示可调试的设备，需要填写设备的UDID和自由填写的一设备别名。</p>
+</li>
+<li><p>Provisioning Profiles:授权文件，记录的是设备的UDID和程序的App Id，即：使被授权的设备可以安装或调试Bundle identifier与授权文件中记录的App Id对应的程序。</p>
+</li>
+</ul>
+<p>如果要打包或者在真机上运行一个APP，一般要经历以下三步：<br>首先，需要指明它的App ID，并且验证Bundle ID是否与其一致；<br>其次，需要证书对应的私钥来进行签名，用于标识这个APP是合法、安全、完整的；<br>然后，如果是真机调试，需要确认这台设备是否授权运行该APP。</p>
+<p>接下来，我将说说我对这几个选项的理解，Identifiers和Device相当于把你账号下的应用和调试设备记录下来。而Certificates则用以控制哪些PC可以进行调试发布。Provisioning Profiles则是将这三者放在一块，只有满足Certificates、Identifiers、Devices都是Provisioning Profiles选择的值才允许运行调试或者发布。</p>
+<p>下面将以真机调试为例分别讲讲每一项的操作。</p>
+<h2 id="Certificates"><a href="#Certificates" class="headerlink" title="Certificates"></a>Certificates</h2><p>1.选择iOS App Development，点continue<br><img src="/images/14507776294110.jpg" alt=""></p>
+<p>2.创建CSR文件</p>
+<ul>
+<li>打开钥匙串访问，证书助理，点击 <code>从证书颁发机构请求证书</code><br><img src="/images/14507777597562.jpg" alt=""></li>
+</ul>
+<ul>
+<li>填写邮箱和常用名称，生成.certSigningRequest文件存储到磁盘。<br><img src="/images/14507778813227.jpg" alt=""></li>
+</ul>
+<p><img src="/images/14507779793189.jpg" alt=""></p>
+<p>3.上传刚刚生成的.certSigningRequest文件，点击Generate</p>
+<p><img src="/images/14507780298104.jpg" alt=""></p>
+<p><img src="/images/14507780794774.jpg" alt=""></p>
+<p>4.把证书下载下来，双击安装即可</p>
+<p><img src="/images/14507781116577.jpg" alt=""></p>
+<p><img src="/images/14507782028236.jpg" alt=""></p>
+<p><img src="/images/14507782137263.jpg" alt=""></p>
+<p>5.检查是否安装成功，打开钥匙串访问，如果看到刚刚生成的证书则说明安装成功，至此，该台设备已经具备进行iOS应用的真机调试的权限了，但是具体可以调试哪些应用，以及可以在哪台设备上运行应用还得再进一步设置说明。</p>
+<p><img src="/images/14507782526215.jpg" alt=""></p>
+<h2 id="Identifiers"><a href="#Identifiers" class="headerlink" title="Identifiers"></a>Identifiers</h2><p>1.填写App ID Description<br><img src="/images/14507786306274.jpg" alt=""></p>
+<p>2.填写App　ID</p>
+<p><img src="/images/14507787591599.jpg" alt=""></p>
+<p>3.选择允许的服务</p>
+<p><img src="/images/14507786996642.jpg" alt=""></p>
+<p>4.完成后，点击continue,检查后点击submit即可。<br><img src="/images/14507787747084.jpg" alt=""></p>
+<p>5.在对应应用下填写bundle id</p>
+<p><img src="/images/14507838878453.jpg" alt=""></p>
+<h2 id="Devices"><a href="#Devices" class="headerlink" title="Devices"></a>Devices</h2><p>1.连接设备，打开iTunes，点击设备图标</p>
+<p><img src="/images/QQ20151222-1.png" alt="QQ20151222-1"></p>
+<p>2.点击序列号，会出现UDID，右键拷贝</p>
+<p><img src="/images/QQ20151222-2.png" alt="QQ20151222-2"></p>
+<p><img src="/images/QQ20151222-3.png" alt="QQ20151222-3"></p>
+<p>3.填入刚刚拷贝的UDID，并且填入一个别名，然后点击提交即可。</p>
+<p><img src="/images/QQ20151222-4.png" alt="QQ20151222-4"></p>
+<h2 id="Provisioning_Profiles"><a href="#Provisioning_Profiles" class="headerlink" title="Provisioning Profiles"></a>Provisioning Profiles</h2><p>1.类型选择，选择iOS App Development</p>
+<p><img src="/images/14507846170778.jpg" alt=""></p>
+<p>2.配置</p>
+<ul>
+<li>选择应用ID</li>
+</ul>
+<p><img src="/images/14507846569804.jpg" alt=""></p>
+<ul>
+<li>选择证书</li>
+</ul>
+<p><img src="/images/14507846802855.jpg" alt=""></p>
+<ul>
+<li>选择可调试设备</li>
+</ul>
+<p><img src="/images/14507847495779.jpg" alt=""></p>
+<p>3.填写授权文件名并生成</p>
+<p><img src="/images/14507847811679.jpg" alt=""></p>
+<p>4.下载并双击安装</p>
+<p><img src="/images/14507848044081.jpg" alt=""></p>
+<p>5.在项目target/General/Code Signing/Provisioning Profile中选择刚刚安装的许可文件即可。</p>
+<p><img src="/images/14507848851431.jpg" alt=""></p>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://jingyan.baidu.com/article/ff411625b8141312e48237a7.html" target="_blank" rel="external">iOS开发：创建真机调试证书</a><br><a href="http://blog.csdn.net/phunxm/article/details/42685597" target="_blank" rel="external"> iOS Provisioning Profile(Certificate)与Code Signing详解</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
+        <p><span>发布时间:</span>2016年01月12日 - 20时06分</p>
+        <p><span>最后更新:</span>2016年01月12日 - 20时06分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/12/iOS开发证书介绍/" title="iOS开发证书介绍">http://limaofuyuanzhang.gitcafe.io/2016/01/12/iOS开发证书介绍/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/iOS开发证书介绍/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/12/添加pch文件/">
+                    
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BE6_u7EC6_u4ECB_u7ECD"><span class="toc-number">2.</span> <span class="toc-text">详细介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Certificates"><span class="toc-number">2.1.</span> <span class="toc-text">Certificates</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Identifiers"><span class="toc-number">2.2.</span> <span class="toc-text">Identifiers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Devices"><span class="toc-number">2.3.</span> <span class="toc-text">Devices</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Provisioning_Profiles"><span class="toc-number">2.4.</span> <span class="toc-text">Provisioning Profiles</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/01/12/iOS开发证书介绍/" data-title="iOS开发证书介绍" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/iOS开发证书介绍/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"limaofuyuanzhang1"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/01/12/添加pch文件/" title="下一篇: ">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/12/06/id和instancetype区别/">id和instancetype区别</a></li></ul>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 狸猫副园长
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        <div class="visit">
+            <span id="busuanzi_container_site_pv" style='display:none'>
+                <span id="site-visit" >本站到访数: 
+                    <span id="busuanzi_value_site_uv"></span>
+                </span>
+            </span>
+            <span id="busuanzi_container_page_pv" style='display:none'>
+                <span id="page-visit">, 本页阅读量: 
+                    <span id="busuanzi_value_page_pv"></span>
+                </span>
+            </span>
+        </div>
+    </div>
+</footer>
+    </div>
+    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+    <style>
+        body {
+          background: lightgray;
+        }
+        #container .left-col {
+          background: white;
+        }
+        .article-inner {
+          background: white;
+          margin-bottom: 1em;
+        }
+        .post-nav-button {
+          background: #ececec;
+        }
+        #header .header-nav .social #GitHub {
+          background-color: #bfd3ec;
+        }
+        #post-nav-button a {
+          background: rgba(215, 216, 215, .2);
+        }
+        .post-list {
+          background: white;
+        }
+    </style>
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>
