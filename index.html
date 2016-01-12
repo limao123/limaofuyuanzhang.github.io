@@ -142,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 10px;">objc</a> <a href="/tags/swift/" style="font-size: 15px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -220,6 +220,193 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-Object-C中各类空值的分析" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/Object-C中各类空值的分析/" class="article-date">
+      <time datetime="2016-01-12T12:09:13.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              Objective-C 中关于空值的分析。
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/空值/">空值</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/12/Object-C中各类空值的分析/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-id和instancetype区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/id和instancetype区别/" class="article-date">
+      <time datetime="2016-01-12T12:08:48.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <hr>
+<p>title: id和instancetype区别<br>tags: </p>
+<ul>
+<li>iOS<br>categories: iOS<br>description: 介绍 id 和 instancetype的区别</li>
+</ul>
+<hr>
+<h1 id="u4F5C_u7528"><a href="#u4F5C_u7528" class="headerlink" title="作用"></a>作用</h1><p>instancetype：可以返回明确的类型，但不能作为参数类型。</p>
+<p>id：可以用来表示变量和方法参数的类型。如果程序运行时无法确定一个对象的类型，就可以将该对象声明为id。</p>
+<h1 id="u5F02_u540C"><a href="#u5F02_u540C" class="headerlink" title="异同"></a>异同</h1><p>1、相同点<br>都可以作为方法的返回类型</p>
+<p>2、不同点</p>
+<ul>
+<li>instancetype可以返回和方法所在类相同类型的对象，id只能返回未知类型的对象；</li>
+<li>instancetype只能作为返回值，不能像id那样作为参数</li>
+</ul>
+<h1 id="u63A8_u8350_u7528_u6CD5"><a href="#u63A8_u8350_u7528_u6CD5" class="headerlink" title="推荐用法"></a>推荐用法</h1><p>作为返回值时，使用instancetype。<br>作为参数时，只能使用id。</p>
+<p><a href="http://zhuanlan.zhihu.com/Foundation/19569459" target="_blank" rel="external">用instancetype代替id作返回类型有什么好处？</a><br><a href="http://blog.csdn.net/kuizhang1/article/details/18048829#t2" target="_blank" rel="external">Objective-C中的instancetype和id区别</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+
+      
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-添加pch文件" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/12/添加pch文件/" class="article-date">
+      <time datetime="2016-01-12T12:08:05.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/添加pch文件/">添加pch文件</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>添加pch文件的方法<br>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/12/添加pch文件/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-iOS开发证书介绍" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -268,58 +455,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/01/12/iOS开发证书介绍/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-添加pch文件" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/12/添加pch文件/" class="article-date">
-      <time datetime="2016-01-12T12:00:22.000Z" itemprop="datePublished">2016-01-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <hr>
-<p>title:  添加pch文件<br>tags: </p>
-<ul>
-<li>iOS<br>categories: iOS</li>
-</ul>
-<hr>
-<p>添加pch文件的方法<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/12/添加pch文件/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -597,66 +732,6 @@
 
 
   
-    <article id="post-Object-C中各类空值的分析" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/11/Object-C中各类空值的分析/" class="article-date">
-      <time datetime="2016-01-11T14:58:20.000Z" itemprop="datePublished">2016-01-11</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <hr>
-<p>title: Object-C中各类空值的分析<br>tags: </p>
-<ul>
-<li>空值</li>
-<li>Objective-C</li>
-<li>objc</li>
-<li>iOS<br>categories: iOS</li>
-</ul>
-<hr>
-<h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>初次接触Object-C时，经常会遇到这样的困惑，使用空值时，什么时候使用nil，什么时候使用NSNULL？而且似乎用NULL也可以，另外Object-c中还有一个Nil。这么多的空值表示容易让人迷惑，下面将能过逐一分析来理清楚这4者的区别。</p>
-<h1 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h1><p>NULL本质上是：(void*)0,即指向地址为0x0的指针，用于表示C指针中的空值。</p>
-<h1 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h1><p>nil的本质上也是(void*)0，但它用于表示表示指向Objective-C中对象的指针的值为空。</p>
-<h1 id="Nil"><a href="#Nil" class="headerlink" title="Nil"></a>Nil</h1><p>本质上也是(void*)0,用于表示Objective-C类（Class）类型的变量值为空。</p>
-<h1 id="NSNull"><a href="#NSNull" class="headerlink" title="NSNull"></a>NSNull</h1><p>类定义如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">NSNull :</span> NSObject &lt;NSCopying, NSSecureCoding&gt;</span><br><span class="line"></span><br><span class="line">+ (NSNull *)<span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
-<p>其中<code>+ (NSNull *)null;</code> 返回一个单例对象，其表示空值。定义NSNull是由于集合对象中不能有nil值，所以用NSNull类来代表在集合对象中的null 值。英文解释：NSNull is a class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).<br>[NSNull null]: The singleton instance of NSNull。</p>
-<p>总结：从技术实现上来说，nil、NULL都是一样的。但是实际上这种定义能够增加代码的可读性。如果你给某人传递NULL值，那么某人就认为接收到的是C指针。如果是nil，那么认为接受的是一个对象。而Nil,则认为接受的是class。</p>
-<h1 id="Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><a href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B" class="headerlink" title="Objective-C与其它语言的空值的区别"></a>Objective-C与其它语言的空值的区别</h1><p>Objective-C允许向某个值为nil的变量发送消息，且不会发生任何事情。在其他语言中，向空指针（值为0的指针）发送消息是非法的，因此，通常要先检查指针是否为空。在Objective-C中，因为程序会忽略发送给nil的消息，所以无需做这样的检查，直接发送消息即可。</p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/dqjyong/article/details/7668001" target="_blank" rel="external">区分nil Nil NULL和NSNill（Objective C语言)</a><br><a href="http://blog.csdn.net/wzzvictory/article/details/18413519" target="_blank" rel="external">nil/Nil/NULL/NSNull的区别</a><br><a href="http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c</a><br><a href="http://stackoverflow.com/questions/1841983/what-describes-nil-best-whats-that-really" target="_blank" rel="external">What describes nil best? What’s that really?</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-枚举类型的写法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -770,71 +845,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/01/11/git修改旧提交/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-UIView_layer_Setting" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/07/UIView_layer_Setting/" class="article-date">
-      <time datetime="2016-01-07T13:40:37.000Z" itemprop="datePublished">2016-01-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              <p>在xil和storyboard中我们可以直接设置UIView 及其子类的layer属性，这里记录下常用的属性。<br>
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-    <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-    </div>
-
-
-      
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/layer/">layer</a></li></ul>
-    </div>
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/07/UIView_layer_Setting/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
