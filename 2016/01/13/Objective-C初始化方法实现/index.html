@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UIImageView适应模式 | 狸猫副园长的技术窝</title>
+  <title>Objective-C初始化方法实现 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单介绍如何在iOS开发中使用RESTful API。">
+  <meta name="description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIImageView适应模式">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView适应模式/index.html">
+<meta property="og:title" content="Objective-C初始化方法实现">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="简单介绍如何在iOS开发中使用RESTful API。">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525207311548.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525989704135.jpg">
-<meta property="og:updated_time" content="2016-01-12T11:42:59.000Z">
+<meta property="og:description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14490675730479.jpg">
+<meta property="og:updated_time" content="2016-01-13T13:53:20.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIImageView适应模式">
-<meta name="twitter:description" content="简单介绍如何在iOS开发中使用RESTful API。">
+<meta name="twitter:title" content="Objective-C初始化方法实现">
+<meta name="twitter:description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -218,11 +217,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-UIImageView适应模式" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Objective-C初始化方法实现" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/UIImageView适应模式/" class="article-date">
-      <time datetime="2016-01-12T11:42:59.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/13/Objective-C初始化方法实现/" class="article-date">
+      <time datetime="2016-01-13T13:53:20.000Z" itemprop="datePublished">2016-01-13</time>
 </a>
     </div>
   
@@ -235,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      UIImageView适应模式
+      Objective-C初始化方法实现
     </h1>
   
 
@@ -250,7 +249,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片适应模式/">图片适应模式</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -260,76 +259,29 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="UIContentView_u8BBE_u7F6E"><a href="#UIContentView_u8BBE_u7F6E" class="headerlink" title="UIContentView设置"></a>UIContentView设置</h1><p>UIContentView的值有以下几个，</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIViewContentMode</span>) &#123;</span><br><span class="line">    <span class="built_in">UIViewContentModeScaleToFill</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeScaleAspectFit</span>,      <span class="comment">// contents scaled to fit with fixed aspect. remainder is transparent</span></span><br><span class="line">    <span class="built_in">UIViewContentModeScaleAspectFill</span>,     <span class="comment">// contents scaled to fill with fixed aspect. some portion of content may be clipped.</span></span><br><span class="line">    <span class="built_in">UIViewContentModeRedraw</span>,              <span class="comment">// redraw on bounds change (calls -setNeedsDisplay)</span></span><br><span class="line">    <span class="built_in">UIViewContentModeCenter</span>,              <span class="comment">// contents remain same size. positioned adjusted.</span></span><br><span class="line">    <span class="built_in">UIViewContentModeTop</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottom</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeRight</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeTopLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeTopRight</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottomLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottomRight</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>设置方法如下：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imageView = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">imageView<span class="variable">.contentMode</span> =  <span class="built_in">UIViewContentModeScaleToFill</span>;</span><br></pre></td></tr></table></figure>
-<p>当然也可以直接在 <code>storyboard</code> 或者 <code>xil</code> 文件中设置，如下图：</p>
-<p><img src="/images/14525207311548.jpg" alt=""></p>
-<h1 id="UIContentView_u503C_u542B_u4E49"><a href="#UIContentView_u503C_u542B_u4E49" class="headerlink" title="UIContentView值含义"></a>UIContentView值含义</h1><table>
-<thead>
-<tr>
-<th style="text-align:left">值</th>
-<th style="text-align:left">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Scale To Fill</td>
-<td style="text-align:left">缩放图片,使图片充满容器。图片未必保持长宽比例协调，有可能会拉伸至变形。</td>
-</tr>
-<tr>
-<td style="text-align:left">Aspect Fit</td>
-<td style="text-align:left">在保持长宽比的前提下，缩放图片，使得图片在容器内完整显示出来。</td>
-</tr>
-<tr>
-<td style="text-align:left">Aspect Fill</td>
-<td style="text-align:left">在保持长宽比的前提下，缩放图片，使图片充满容器，但可能只显示图片的部分</td>
-</tr>
-<tr>
-<td style="text-align:left">Redraw</td>
-<td style="text-align:left">设备转动时就会 redraw，充满容器</td>
-</tr>
-<tr>
-<td style="text-align:left">Center</td>
-<td style="text-align:left">原图横纵居中</td>
-</tr>
-<tr>
-<td style="text-align:left">Top</td>
-<td style="text-align:left">原图居中靠上</td>
-</tr>
-<tr>
-<td style="text-align:left">Bottom</td>
-<td style="text-align:left">原图居中靠下</td>
-</tr>
-<tr>
-<td style="text-align:left">Left</td>
-<td style="text-align:left">原图居中靠左</td>
-</tr>
-<tr>
-<td style="text-align:left">Right</td>
-<td style="text-align:left">原图居中靠右</td>
-</tr>
-<tr>
-<td style="text-align:left">Top Left</td>
-<td style="text-align:left">原图左上</td>
-</tr>
-<tr>
-<td style="text-align:left">Top Right</td>
-<td style="text-align:left">原图右上</td>
-</tr>
-<tr>
-<td style="text-align:left">Bottom Left</td>
-<td style="text-align:left">原图左下</td>
-</tr>
-<tr>
-<td style="text-align:left">Bottom Right</td>
-<td style="text-align:left">原图右下</td>
-</tr>
-</tbody>
-</table>
-<p><img src="/images/14525989704135.jpg" alt=""></p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/annkie/article/details/49247755" target="_blank" rel="external"> iOS:Scale to Fill,Aspect Fit,Aspect Fill</a></p>
+        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。</p>
+<h1 id="u8BF4_u660E"><a href="#u8BF4_u660E" class="headerlink" title="说明"></a>说明</h1><p>这里以BNRItems类来进行讲解，这是一个用来表示一个商品的类。该类的结构如下，其中创建时间是只读的，在初始化后不能再次进行修改：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BNRItem</span> : <span class="title">NSObject</span></span>&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *_itemName;    <span class="comment">//名称</span></span><br><span class="line">    <span class="built_in">NSString</span> *_serialNumber;    <span class="comment">//序列号</span></span><br><span class="line">    <span class="keyword">int</span> _valueInDollars;    <span class="comment">//价值</span></span><br><span class="line">    <span class="built_in">NSDate</span> *_dateCreated;   <span class="comment">//创建时间</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u521D_u59CB_u5316_u65B9_u6CD5"><a href="#u521D_u59CB_u5316_u65B9_u6CD5" class="headerlink" title="初始化方法"></a>初始化方法</h1><p>BNRItem类目前还只能使用从NSObject类继承而来的init方法初始化对象。我们在使用该对象时可能会这样使用。</p>
+<figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BNRItem *apple = [[BNRItem alloc] init]<span class="comment">;</span></span><br><span class="line">apple.itemName = @"iphone5s"<span class="comment">;</span></span><br><span class="line">apple.serialNumber = @"xxxx"<span class="comment">;</span></span><br><span class="line">apple.valueInDollars = 500<span class="comment">;</span></span><br><span class="line">apple.dateCreated = [NSDate date]<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>这样看起来就代码就显示非常冗长，我们希望可以传入参数的初始化方法，这样就无需写多行代码。</p>
+<p>我们希望有以下两个初始化方法，根据传入参数的不同生成我们想要的BNRItem对象。</p>
+<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="pp">- <span class="params">(instancetype)</span>initWithItemName:<span class="params">(<span class="variable">NSString</span> *)</span>name  valueInDollars:<span class="params">(int)</span>value serialNumber:<span class="params">(<span class="variable">NSString</span> *)</span>sNumber;</span><br><span class="line"></span><br><span class="line">- <span class="params">(instancetype)</span>initWithItemName:<span class="params">(<span class="variable">NSString</span> *)</span>name;</span></span><br></pre></td></tr></table></figure>
+<p>在这之前，我们需要了解指定初始化方法的概念。</p>
+<h1 id="u6307_u5B9A_u521D_u59CB_u5316_u65B9_u6CD5"><a href="#u6307_u5B9A_u521D_u59CB_u5316_u65B9_u6CD5" class="headerlink" title="指定初始化方法"></a>指定初始化方法</h1><p>任何一个类，无论有多少个初始化方法，都必须选定其中的一个作为指定初始化（designated initializer）方法。指定初始化方法要确保对象的每一个实例变量都处在一个有效的状态。有效（valid）一词有很多不同的意思，这里是指向初始化后的对象发送消息时，输出结果是可预期的，并且不会有“坏事”发生。</p>
+<p>指定初始化方法的参数通常会和最重要的、最常用的实例变量相对应。以BNRItem类为例，它有四个实例变量，但是只有其中三个是可写的，因此BNRItem类的指定初始化方法应该有三个实参，并为_dateCreated赋值。</p>
+<p>实现如下：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)initWithItemName:(<span class="built_in">NSString</span> *)name valueInDollars:(<span class="keyword">int</span>)value serialNumber:(<span class="built_in">NSString</span> *)sNumber&#123;</span><br><span class="line">    <span class="comment">// 调用父类的指定初始化方法</span></span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 父类的指定初始化方法是否成功创建了父类对象？</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>)&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 为实例变量设定初始值</span></span><br><span class="line">        _itemName = name;</span><br><span class="line">        _serialNumber = sNumber;</span><br><span class="line">        _valueInDollars = value;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 设置_dateCreated的值为系统当前时间</span></span><br><span class="line">        _dateCreated = [[<span class="built_in">NSDate</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 返回初始化后的对象的新地址</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u5176_u4ED6_u521D_u59CB_u5316_u65B9_u6CD5_u4E0E_u521D_u59CB_u5316_u65B9_u6CD5_u94FE"><a href="#u5176_u4ED6_u521D_u59CB_u5316_u65B9_u6CD5_u4E0E_u521D_u59CB_u5316_u65B9_u6CD5_u94FE" class="headerlink" title="其他初始化方法与初始化方法链"></a>其他初始化方法与初始化方法链</h1><p>接下来实现BNRItem的第二个初始化方法。实现initWithItemName:方法时，不需要将指定初始化方法中的代码搬过来再重写一遍。它只需要调用指定初始化方法，将得到的实参作为_itemName传入，而其他实参则使用某个默认值传入。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)<span class="string">initWithItemName:</span>(NSString *)name&#123;</span><br><span class="line">    <span class="keyword">return</span> [self <span class="string">initWithItemName:</span>name <span class="string">valueInDollars:</span><span class="number">0</span> <span class="string">serialNumber:</span>@<span class="string">""</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>BNRItem还有第三个初始化方法——init，继承自父类NSObject。如果向某个BNRItem对象发送init消息，程序就不会调用之前创建的指定初始化方法。因此必须覆盖BNRItem类的init方法，将其和指定初始化方法“串联”起来。</p>
+<p>代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)<span class="keyword">init</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> initWithItemName:@<span class="string">"Item"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在，如果给BNRItem对象发送init消息，则会调用initWithItemName:方法，传入默认名称。而initWithItemName:方法又会调用initWithItemName:valueInDollars: serialNumber:方法并传入默认值和序列号。</p>
+<p>调用关系如下图所示，其中白色为指定初始化方法，灰色为其他初始化方法。<br><img src="/images/14490675730479.jpg" alt=""></p>
+<h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>串联（chain）使用初始化方法的机制可以减少错误，也更容易维护代码（修改初始化逻辑只需要修改一处）。在创建类时，需要先确定指定初始化方法，然后只在指定初始化方法中编写初始化的核心代码，其他初始化方法只需要调用指定初始化方法（直接或间接）并传入默认值即可。</p>
+<p>•类会继承父类所有的初始化方法，也可以为类加入任意数量的初始化方法。<br>•每个类都要选定一个指定初始化方法。   •在执行其他初始化工作之前，必须先用指定初始化方法调用父类的指定初始化方法（直接或间接）。（如果父类是按要求写的，那么这条规则必然会在子类中得到体现）   •其他初始化方法要调用指定初始化方法（直接或间接）。   •如果某个类所声明的指定初始化方法与其父类的不同，就必须覆盖父类的指定初始化方法并调用新的指定初始化方法（直接或间接）。</p>
+<h1 id="u8BF4_u660E-1"><a href="#u8BF4_u660E-1" class="headerlink" title="说明"></a>说明</h1><p>本文为阅读《iOS编程（第4版）》的笔记。</p>
 
       
     </div>
@@ -338,13 +290,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 19时42分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 19时42分</p>
+        <p><span>发布时间:</span>2016年01月13日 - 21时53分</p>
+        <p><span>最后更新:</span>2016年01月13日 - 21时53分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/UIImageView适应模式/" title="UIImageView适应模式">http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView适应模式/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView适应模式/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/13/Objective-C初始化方法实现/" title="Objective-C初始化方法实现">http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -357,16 +309,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/iOS开发证书介绍/">
-                    iOS开发证书介绍
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/swift 区间运算符/">
-                    swift区间运算符
+                <a href="/2016/01/12/swift字符串/">
+                    swift 字符串
                 </a>
             </div>
         
@@ -377,7 +323,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIContentView_u8BBE_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">UIContentView设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UIContentView_u503C_u542B_u4E49"><span class="toc-number">2.</span> <span class="toc-text">UIContentView值含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BF4_u660E"><span class="toc-number">2.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u521D_u59CB_u5316_u65B9_u6CD5"><span class="toc-number">3.</span> <span class="toc-text">初始化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6307_u5B9A_u521D_u59CB_u5316_u65B9_u6CD5"><span class="toc-number">4.</span> <span class="toc-text">指定初始化方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5176_u4ED6_u521D_u59CB_u5316_u65B9_u6CD5_u4E0E_u521D_u59CB_u5316_u65B9_u6CD5_u94FE"><span class="toc-number">5.</span> <span class="toc-text">其他初始化方法与初始化方法链</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u603B_u7ED3"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BF4_u660E-1"><span class="toc-number">7.</span> <span class="toc-text">说明</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -441,7 +387,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/UIImageView适应模式/" data-title="UIImageView适应模式" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView适应模式/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/13/Objective-C初始化方法实现/" data-title="Objective-C初始化方法实现" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -465,15 +411,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/iOS开发证书介绍/" title="上一篇: iOS开发证书介绍">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/swift 区间运算符/" title="下一篇: swift区间运算符">
+            <a href="/2016/01/12/swift字符串/" title="下一篇: swift 字符串">
                 <i class="fa fa-angle-right"></i>
             </a>
         
