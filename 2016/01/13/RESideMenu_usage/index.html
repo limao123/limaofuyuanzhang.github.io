@@ -3,18 +3,33 @@
 <head>
   <meta charset="utf-8">
   
-  <title>单例 | 狸猫副园长的技术窝</title>
+  <title>RESideMenu的使用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于单例在iOS中的使用。">
+  <meta name="description" content="简介不多说，直接上图看效果，RESideMenu就是这种点击一下左上角或者右上角就显示出菜单，而原来的界面进行缩放的效果。开源库的下载链接为https://github.com/romaonthego/RESideMenu
+
+使用说明1.先下载开源库将库导入至工程。
+
+2.创建主界面和目录界面，这里我创建了两个ViewController,一个是用以显示主界面PostDisplayViewCont">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/index.html">
+<meta property="og:title" content="RESideMenu的使用">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="关于单例在iOS中的使用。">
-<meta property="og:updated_time" content="2016-01-06T03:42:40.000Z">
+<meta property="og:description" content="简介不多说，直接上图看效果，RESideMenu就是这种点击一下左上角或者右上角就显示出菜单，而原来的界面进行缩放的效果。开源库的下载链接为https://github.com/romaonthego/RESideMenu
+
+使用说明1.先下载开源库将库导入至工程。
+
+2.创建主界面和目录界面，这里我创建了两个ViewController,一个是用以显示主界面PostDisplayViewCont">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863412422.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863548069.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863682908.jpg">
+<meta property="og:updated_time" content="2016-01-13T14:18:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="关于单例在iOS中的使用。">
+<meta name="twitter:title" content="RESideMenu的使用">
+<meta name="twitter:description" content="简介不多说，直接上图看效果，RESideMenu就是这种点击一下左上角或者右上角就显示出菜单，而原来的界面进行缩放的效果。开源库的下载链接为https://github.com/romaonthego/RESideMenu
+
+使用说明1.先下载开源库将库导入至工程。
+
+2.创建主界面和目录界面，这里我创建了两个ViewController,一个是用以显示主界面PostDisplayViewCont">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +231,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Singleton" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-RESideMenu_usage" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/06/Singleton/" class="article-date">
-      <time datetime="2016-01-06T03:42:40.000Z" itemprop="datePublished">2016-01-06</time>
+      <a href="/2016/01/13/RESideMenu_usage/" class="article-date">
+      <time datetime="2016-01-13T14:18:16.000Z" itemprop="datePublished">2016-01-13</time>
 </a>
     </div>
   
@@ -233,7 +248,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      单例
+      RESideMenu的使用
     </h1>
   
 
@@ -242,13 +257,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RESideMenu/">RESideMenu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,13 +273,27 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> AccountManager *DefaultManager = <span class="literal">nil</span>;</span><br><span class="line"> </span><br><span class="line">+ (AccountManager *)defaultManager &#123;</span><br><span class="line">    <span class="keyword">if</span> (!DefaultManager) DefaultManager = [[<span class="keyword">self</span> allocWithZone:<span class="literal">NULL</span>] init];</span><br><span class="line">    <span class="keyword">return</span> DefaultManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、来自 objcolumnist</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (AccountManager *)sharedManager</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">static</span> AccountManager *sharedAccountManagerInstance = <span class="literal">nil</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">        <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">                sharedAccountManagerInstance = [[<span class="keyword">self</span> alloc] init]; </span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedAccountManagerInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该写法满足三个特性：<br>1）线程安全。<br>2）满足静态分析器的要求。<br>3）兼容了ARC</p>
-<h1 id="u6837_u4F8B"><a href="#u6837_u4F8B" class="headerlink" title="样例"></a>样例</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BmobIMNetwork</span> ()&lt;<span class="title">GCDAsyncSocketDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) GCDAsyncSocket *gcdAsyncSocket;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableData</span> *packet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BmobIMNetwork</span></span></span><br><span class="line"></span><br><span class="line">+ (BmobIMNetwork *)sharedBmobIMNetwork</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> BmobIMNetwork *sharedBmobIMNetworkInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">        sharedBmobIMNetworkInstance = [[<span class="keyword">self</span> alloc] initPritate];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedBmobIMNetworkInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)initPritate&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        _gcdAsyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">        _packet = [[<span class="built_in">NSData</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init&#123;</span><br><span class="line">    <span class="keyword">@throw</span> [[<span class="built_in">NSException</span> alloc] initWithName:<span class="string">@"Singleton"</span> reason:<span class="string">@"Use + [BmobIMNetwork sharedBmobIMNetwork]"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/ygm900/p/3607143.html" target="_blank" rel="external">iOS 创建单例的两种方法</a></p>
+        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>不多说，直接上图看效果，RESideMenu就是这种点击一下左上角或者右上角就显示出菜单，而原来的界面进行缩放的效果。开源库的下载链接为<a href="https://github.com/romaonthego/RESideMenu" target="_blank" rel="external">https://github.com/romaonthego/RESideMenu</a></p>
+<p><img src="/images/14488863412422.jpg" alt=""></p>
+<h1 id="u4F7F_u7528_u8BF4_u660E"><a href="#u4F7F_u7528_u8BF4_u660E" class="headerlink" title="使用说明"></a>使用说明</h1><p>1.先下载开源库将库导入至工程。</p>
+<p><img src="/images/14488863548069.jpg" alt=""></p>
+<p>2.创建主界面和目录界面，这里我创建了两个ViewController,一个是用以显示主界面PostDisplayViewController，另一个用以显示侧边目录，叫MenuViewController。</p>
+<p><img src="/images/14488863682908.jpg" alt=""></p>
+<p>3.在AppDelegate.h中声明RESideMenu委托</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">AppDelegate </span>: UIResponder &lt;UIApplicationDelegate,RESideMenuDelegate&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) UIWindow *window;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
+<p>4.在AppDelegate.m中进行如下设置，这里的主要工作有以下几点</p>
+<ul>
+<li>告诉RESideMenu内容界面是哪个，左目录界面以及右目录界面（示例代码未加入右目录，读者可自行添加）；</li>
+<li>界面背景以及设置显示左右目录时，内容界面缩放后的阴影效果；</li>
+<li>设置移动手势以及在显示和关闭目录时的需要做的动作。</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//帖子界面，用导航视图控制器来显示，方便管理跳转</span></span><br><span class="line">    <span class="built_in">UINavigationController</span> *navigationController = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:[[PostDisplayViewController alloc] init]];</span><br><span class="line">    <span class="comment">//菜单界面</span></span><br><span class="line">    MenuViewController *menuViewController = [[MenuViewController alloc] init];</span><br><span class="line">    <span class="comment">//加入至sizeMenu中</span></span><br><span class="line">    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:menuViewController rightMenuViewController:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 属性设置 */</span></span><br><span class="line">    <span class="comment">//背景图像，左右目录都会使用这个图像</span></span><br><span class="line">    sideMenuViewController<span class="variable">.backgroundImage</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"Stars"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置StatusBarStyle类型</span></span><br><span class="line">    sideMenuViewController<span class="variable">.menuPreferredStatusBarStyle</span> = <span class="built_in">UIStatusBarStyleLightContent</span>;</span><br><span class="line">    <span class="comment">//设置委托</span></span><br><span class="line">    sideMenuViewController<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    <span class="comment">//设置阴影颜色</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">    <span class="comment">//设置阴影偏移</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowOffset</span> = <span class="built_in">CGSizeMake</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//设置阴影透明度</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowOpacity</span> = <span class="number">0.6</span>;</span><br><span class="line">    <span class="comment">//设置阴影半径</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowRadius</span> = <span class="number">12</span>;</span><br><span class="line">    <span class="comment">//开启阴影效果</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将sideMenuViewCOntroller设置为根视图</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = sideMenuViewController;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有需求可以实现以下委托</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测拖动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didRecognizePanGesture:(<span class="built_in">UIPanGestureRecognizer</span> *)recognizer;</span><br><span class="line"><span class="comment">//目录显示前</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录显示后</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录隐藏前</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录隐藏后</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在主视图加入左右按键用以显示左右目录，以下代码只演示了如何显示左目录，右目录的显示只需要将selector换成presentRightMenuViewController: 即可。</li>
+</ol>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    <span class="comment">//设置主视图信息</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.title</span> = <span class="string">@"内容界面"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"左目录"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(presentLeftMenuViewController:)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -273,13 +302,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/06/Singleton/">单例</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/13/RESideMenu_usage/">RESideMenu的使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月06日 - 11时42分</p>
-        <p><span>最后更新:</span>2016年01月06日 - 11时42分</p>
+        <p><span>发布时间:</span>2016年01月13日 - 22时18分</p>
+        <p><span>最后更新:</span>2016年01月13日 - 22时18分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/06/Singleton/" title="单例">http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/13/RESideMenu_usage/" title="RESideMenu的使用">http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -292,12 +321,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/06/Bmob_Restful_API_Use/">
-                    iOS开发中使用Bmob RESTful API
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/13/pragma_mark_use/">
+                    pragma mark的用法
                 </a>
             </div>
-        
         
     </nav>
 
@@ -306,7 +335,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6837_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F7F_u7528_u8BF4_u660E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +399,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/06/Singleton/" data-title="单例" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/13/RESideMenu_usage/" data-title="RESideMenu的使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -394,15 +423,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/06/Bmob_Restful_API_Use/" title="上一篇: iOS开发中使用Bmob RESTful API">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/01/13/pragma_mark_use/" title="下一篇: pragma mark的用法">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
