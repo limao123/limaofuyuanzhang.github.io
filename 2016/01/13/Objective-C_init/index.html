@@ -8,11 +8,11 @@
   <meta name="description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Objective-C初始化方法实现">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/index.html">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C_init/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
 <meta property="og:description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
 <meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14490675730479.jpg">
-<meta property="og:updated_time" content="2016-01-13T13:53:20.000Z">
+<meta property="og:updated_time" content="2016-01-13T13:54:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Objective-C初始化方法实现">
 <meta name="twitter:description" content="本文总结如何实现初始化方法，以及总结如何定义自定义初始化方法。">
@@ -141,7 +141,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/注释/" style="font-size: 10px;">注释</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -217,11 +217,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Objective-C初始化方法实现" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Objective-C_init" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/13/Objective-C初始化方法实现/" class="article-date">
-      <time datetime="2016-01-13T13:53:20.000Z" itemprop="datePublished">2016-01-13</time>
+      <a href="/2016/01/13/Objective-C_init/" class="article-date">
+      <time datetime="2016-01-13T13:54:44.000Z" itemprop="datePublished">2016-01-13</time>
 </a>
     </div>
   
@@ -278,9 +278,10 @@
 <p>代码如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)<span class="keyword">init</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span> initWithItemName:@<span class="string">"Item"</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在，如果给BNRItem对象发送init消息，则会调用initWithItemName:方法，传入默认名称。而initWithItemName:方法又会调用initWithItemName:valueInDollars: serialNumber:方法并传入默认值和序列号。</p>
-<p>调用关系如下图所示，其中白色为指定初始化方法，灰色为其他初始化方法。<br><img src="/images/14490675730479.jpg" alt=""></p>
+<p>调用关系如下图所示，其中白色为指定初始化方法，灰色为其他初始化方法。</p>
+<p><img src="/images/14490675730479.jpg" alt=""></p>
 <h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>串联（chain）使用初始化方法的机制可以减少错误，也更容易维护代码（修改初始化逻辑只需要修改一处）。在创建类时，需要先确定指定初始化方法，然后只在指定初始化方法中编写初始化的核心代码，其他初始化方法只需要调用指定初始化方法（直接或间接）并传入默认值即可。</p>
-<p>•类会继承父类所有的初始化方法，也可以为类加入任意数量的初始化方法。<br>•每个类都要选定一个指定初始化方法。   •在执行其他初始化工作之前，必须先用指定初始化方法调用父类的指定初始化方法（直接或间接）。（如果父类是按要求写的，那么这条规则必然会在子类中得到体现）   •其他初始化方法要调用指定初始化方法（直接或间接）。   •如果某个类所声明的指定初始化方法与其父类的不同，就必须覆盖父类的指定初始化方法并调用新的指定初始化方法（直接或间接）。</p>
+<p>•类会继承父类所有的初始化方法，也可以为类加入任意数量的初始化方法。<br>•每个类都要选定一个指定初始化方法。<br>•在执行其他初始化工作之前，必须先用指定初始化方法调用父类的指定初始化方法（直接或间接）。（如果父类是按要求写的，那么这条规则必然会在子类中得到体现）<br>•其他初始化方法要调用指定初始化方法（直接或间接）。<br>•如果某个类所声明的指定初始化方法与其父类的不同，就必须覆盖父类的指定初始化方法并调用新的指定初始化方法（直接或间接）。</p>
 <h1 id="u8BF4_u660E-1"><a href="#u8BF4_u660E-1" class="headerlink" title="说明"></a>说明</h1><p>本文为阅读《iOS编程（第4版）》的笔记。</p>
 
       
@@ -290,13 +291,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月13日 - 21时53分</p>
-        <p><span>最后更新:</span>2016年01月13日 - 21时53分</p>
+        <p><span>发布时间:</span>2016年01月13日 - 21时54分</p>
+        <p><span>最后更新:</span>2016年01月13日 - 21时54分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/13/Objective-C初始化方法实现/" title="Objective-C初始化方法实现">http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/13/Objective-C_init/" title="Objective-C初始化方法实现">http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C_init/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C_init/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -309,9 +310,15 @@
 
     <nav id="article-nav">
         
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/01/13/pragma_mark_use/">
+                    
+                </a>
+            </div>
+        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/swift字符串/">
+                <a href="/2016/01/12/swift_string/">
                     swift 字符串
                 </a>
             </div>
@@ -387,7 +394,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/13/Objective-C初始化方法实现/" data-title="Objective-C初始化方法实现" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C初始化方法实现/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/13/Objective-C_init/" data-title="Objective-C初始化方法实现" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/13/Objective-C_init/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -411,19 +418,21 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/01/13/pragma_mark_use/" title="上一篇: ">
+                <i class="fa fa-angle-left"></i>
+            </a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/swift字符串/" title="下一篇: swift 字符串">
+            <a href="/2016/01/12/swift_string/" title="下一篇: swift 字符串">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/id和instancetype区别/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma_mark_use</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

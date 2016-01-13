@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>单例 | 狸猫副园长的技术窝</title>
+  <title>UIImageView适应模式 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于单例在iOS中的使用。">
+  <meta name="description" content="简单介绍如何在iOS开发中使用RESTful API。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/index.html">
+<meta property="og:title" content="UIImageView适应模式">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView_UIContentView/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="关于单例在iOS中的使用。">
-<meta property="og:updated_time" content="2016-01-06T03:42:40.000Z">
+<meta property="og:description" content="简单介绍如何在iOS开发中使用RESTful API。">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525207311548.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525989704135.jpg">
+<meta property="og:updated_time" content="2016-01-12T11:42:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="关于单例在iOS中的使用。">
+<meta name="twitter:title" content="UIImageView适应模式">
+<meta name="twitter:description" content="简单介绍如何在iOS开发中使用RESTful API。">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -140,7 +142,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/注释/" style="font-size: 10px;">注释</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -216,11 +218,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-单例" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-UIImageView_UIContentView" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/06/单例/" class="article-date">
-      <time datetime="2016-01-06T03:42:40.000Z" itemprop="datePublished">2016-01-06</time>
+      <a href="/2016/01/12/UIImageView_UIContentView/" class="article-date">
+      <time datetime="2016-01-12T11:42:59.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     </div>
   
@@ -233,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      单例
+      UIImageView适应模式
     </h1>
   
 
@@ -242,13 +244,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图片适应模式/">图片适应模式</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,13 +260,76 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> AccountManager *DefaultManager = <span class="literal">nil</span>;</span><br><span class="line"> </span><br><span class="line">+ (AccountManager *)defaultManager &#123;</span><br><span class="line">    <span class="keyword">if</span> (!DefaultManager) DefaultManager = [[<span class="keyword">self</span> allocWithZone:<span class="literal">NULL</span>] init];</span><br><span class="line">    <span class="keyword">return</span> DefaultManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、来自 objcolumnist</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (AccountManager *)sharedManager</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">static</span> AccountManager *sharedAccountManagerInstance = <span class="literal">nil</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">        <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">                sharedAccountManagerInstance = [[<span class="keyword">self</span> alloc] init]; </span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedAccountManagerInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该写法满足三个特性：<br>1）线程安全。<br>2）满足静态分析器的要求。<br>3）兼容了ARC</p>
-<h1 id="u6837_u4F8B"><a href="#u6837_u4F8B" class="headerlink" title="样例"></a>样例</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BmobIMNetwork</span> ()&lt;<span class="title">GCDAsyncSocketDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) GCDAsyncSocket *gcdAsyncSocket;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableData</span> *packet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BmobIMNetwork</span></span></span><br><span class="line"></span><br><span class="line">+ (BmobIMNetwork *)sharedBmobIMNetwork</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> BmobIMNetwork *sharedBmobIMNetworkInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">        sharedBmobIMNetworkInstance = [[<span class="keyword">self</span> alloc] initPritate];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedBmobIMNetworkInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)initPritate&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        _gcdAsyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">        _packet = [[<span class="built_in">NSData</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init&#123;</span><br><span class="line">    <span class="keyword">@throw</span> [[<span class="built_in">NSException</span> alloc] initWithName:<span class="string">@"Singleton"</span> reason:<span class="string">@"Use + [BmobIMNetwork sharedBmobIMNetwork]"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/ygm900/p/3607143.html" target="_blank" rel="external">iOS 创建单例的两种方法</a></p>
+        <h1 id="UIContentView_u8BBE_u7F6E"><a href="#UIContentView_u8BBE_u7F6E" class="headerlink" title="UIContentView设置"></a>UIContentView设置</h1><p>UIContentView的值有以下几个，</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_ENUM</span>(<span class="built_in">NSInteger</span>, <span class="built_in">UIViewContentMode</span>) &#123;</span><br><span class="line">    <span class="built_in">UIViewContentModeScaleToFill</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeScaleAspectFit</span>,      <span class="comment">// contents scaled to fit with fixed aspect. remainder is transparent</span></span><br><span class="line">    <span class="built_in">UIViewContentModeScaleAspectFill</span>,     <span class="comment">// contents scaled to fill with fixed aspect. some portion of content may be clipped.</span></span><br><span class="line">    <span class="built_in">UIViewContentModeRedraw</span>,              <span class="comment">// redraw on bounds change (calls -setNeedsDisplay)</span></span><br><span class="line">    <span class="built_in">UIViewContentModeCenter</span>,              <span class="comment">// contents remain same size. positioned adjusted.</span></span><br><span class="line">    <span class="built_in">UIViewContentModeTop</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottom</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeRight</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeTopLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeTopRight</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottomLeft</span>,</span><br><span class="line">    <span class="built_in">UIViewContentModeBottomRight</span>,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>设置方法如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imageView = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">imageView<span class="variable">.contentMode</span> =  <span class="built_in">UIViewContentModeScaleToFill</span>;</span><br></pre></td></tr></table></figure>
+<p>当然也可以直接在 <code>storyboard</code> 或者 <code>xil</code> 文件中设置，如下图：</p>
+<p><img src="/images/14525207311548.jpg" alt=""></p>
+<h1 id="UIContentView_u503C_u542B_u4E49"><a href="#UIContentView_u503C_u542B_u4E49" class="headerlink" title="UIContentView值含义"></a>UIContentView值含义</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">值</th>
+<th style="text-align:left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Scale To Fill</td>
+<td style="text-align:left">缩放图片,使图片充满容器。图片未必保持长宽比例协调，有可能会拉伸至变形。</td>
+</tr>
+<tr>
+<td style="text-align:left">Aspect Fit</td>
+<td style="text-align:left">在保持长宽比的前提下，缩放图片，使得图片在容器内完整显示出来。</td>
+</tr>
+<tr>
+<td style="text-align:left">Aspect Fill</td>
+<td style="text-align:left">在保持长宽比的前提下，缩放图片，使图片充满容器，但可能只显示图片的部分</td>
+</tr>
+<tr>
+<td style="text-align:left">Redraw</td>
+<td style="text-align:left">设备转动时就会 redraw，充满容器</td>
+</tr>
+<tr>
+<td style="text-align:left">Center</td>
+<td style="text-align:left">原图横纵居中</td>
+</tr>
+<tr>
+<td style="text-align:left">Top</td>
+<td style="text-align:left">原图居中靠上</td>
+</tr>
+<tr>
+<td style="text-align:left">Bottom</td>
+<td style="text-align:left">原图居中靠下</td>
+</tr>
+<tr>
+<td style="text-align:left">Left</td>
+<td style="text-align:left">原图居中靠左</td>
+</tr>
+<tr>
+<td style="text-align:left">Right</td>
+<td style="text-align:left">原图居中靠右</td>
+</tr>
+<tr>
+<td style="text-align:left">Top Left</td>
+<td style="text-align:left">原图左上</td>
+</tr>
+<tr>
+<td style="text-align:left">Top Right</td>
+<td style="text-align:left">原图右上</td>
+</tr>
+<tr>
+<td style="text-align:left">Bottom Left</td>
+<td style="text-align:left">原图左下</td>
+</tr>
+<tr>
+<td style="text-align:left">Bottom Right</td>
+<td style="text-align:left">原图右下</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/14525989704135.jpg" alt=""></p>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/annkie/article/details/49247755" target="_blank" rel="external"> iOS:Scale to Fill,Aspect Fit,Aspect Fill</a></p>
 
       
     </div>
@@ -273,13 +338,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/06/单例/">单例</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月06日 - 11时42分</p>
-        <p><span>最后更新:</span>2016年01月06日 - 11时42分</p>
+        <p><span>发布时间:</span>2016年01月12日 - 19时42分</p>
+        <p><span>最后更新:</span>2016年01月12日 - 19时42分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/06/单例/" title="单例">http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/12/UIImageView_UIContentView/" title="UIImageView适应模式">http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView_UIContentView/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView_UIContentView/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -293,11 +358,17 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/06/Bmob_Restful_API_Use/">
-                    iOS开发中使用Bmob RESTful API
+                <a href="/2016/01/12/iOS_certificate/">
+                    iOS开发证书介绍
                 </a>
             </div>
         
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/12/swift_range_operator/">
+                    swift区间运算符
+                </a>
+            </div>
         
     </nav>
 
@@ -306,7 +377,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6837_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UIContentView_u8BBE_u7F6E"><span class="toc-number">1.</span> <span class="toc-text">UIContentView设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UIContentView_u503C_u542B_u4E49"><span class="toc-number">2.</span> <span class="toc-text">UIContentView值含义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +441,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/06/单例/" data-title="单例" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/06/单例/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/12/UIImageView_UIContentView/" data-title="UIImageView适应模式" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/UIImageView_UIContentView/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -394,7 +465,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/06/Bmob_Restful_API_Use/" title="上一篇: iOS开发中使用Bmob RESTful API">
+            <a href="/2016/01/12/iOS_certificate/" title="上一篇: iOS开发证书介绍">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -402,11 +473,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/01/12/swift_range_operator/" title="下一篇: swift区间运算符">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/id和instancetype区别/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma_mark_use</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

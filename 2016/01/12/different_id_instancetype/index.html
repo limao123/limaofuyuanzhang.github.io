@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何修改git旧提交 | 狸猫副园长的技术窝</title>
+  <title>id和instancetype区别 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
+  <meta name="description" content="介绍 id 和 instancetype 的区别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何修改git旧提交">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/index.html">
+<meta property="og:title" content="id和instancetype区别">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/different_id_instancetype/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525186208568.jpg">
-<meta property="og:updated_time" content="2016-01-11T14:25:16.000Z">
+<meta property="og:description" content="介绍 id 和 instancetype 的区别">
+<meta property="og:updated_time" content="2016-01-12T12:10:04.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何修改git旧提交">
-<meta name="twitter:description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
+<meta name="twitter:title" content="id和instancetype区别">
+<meta name="twitter:description" content="介绍 id 和 instancetype 的区别">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -141,7 +140,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/注释/" style="font-size: 10px;">注释</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -217,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git修改旧提交" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-different_id_instancetype" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/11/git修改旧提交/" class="article-date">
-      <time datetime="2016-01-11T14:25:16.000Z" itemprop="datePublished">2016-01-11</time>
+      <a href="/2016/01/12/different_id_instancetype/" class="article-date">
+      <time datetime="2016-01-12T12:10:04.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     </div>
   
@@ -234,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何修改git旧提交
+      id和instancetype区别
     </h1>
   
 
@@ -243,13 +242,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/项目管理/">项目管理</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -259,17 +258,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。</p>
-<a id="more"></a>
-<h1 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h1><p>总结下来为以下几步</p>
-<p>1.使用git rebase命令，其中commit-Id为你需要修改的commit的ID，你会进入到git的默认编辑器，在您需要修改的提交前将pick修改为edit，如下图。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -<span class="tag">i</span> <span class="string">'commit-Id^'</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/14525186208568.jpg" alt=""></p>
-<p>2.进行修改</p>
-<p>3.提交<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> -A</span><br><span class="line">git commit --<span class="keyword">all</span> --amend --<span class="keyword">no</span>-<span class="keyword">edit</span></span><br></pre></td></tr></table></figure></p>
-<p>4.返回至最新的提交<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit-in-git" target="_blank" rel="external">How to modify a specified commit in git?</a></p>
-<p><a href="http://backlogtool.com/git-guide/cn/stepup/stepup7_6.html" target="_blank" rel="external">6. 用rebase -i 修改提交</a></p>
-<p>如果想了解整个修改过程的原理，可以查看下面这篇文章。<br><a href="http://gitbook.liuhui998.com/4_3.html" target="_blank" rel="external">交互式rebase</a></p>
+        <h1 id="u4F5C_u7528"><a href="#u4F5C_u7528" class="headerlink" title="作用"></a>作用</h1><p>instancetype：可以返回明确的类型，但不能作为参数类型。</p>
+<p>id：可以用来表示变量和方法参数的类型。如果程序运行时无法确定一个对象的类型，就可以将该对象声明为id。</p>
+<h1 id="u5F02_u540C"><a href="#u5F02_u540C" class="headerlink" title="异同"></a>异同</h1><p>1、相同点<br>都可以作为方法的返回类型</p>
+<p>2、不同点</p>
+<ul>
+<li>instancetype可以返回和方法所在类相同类型的对象，id只能返回未知类型的对象；</li>
+<li>instancetype只能作为返回值，不能像id那样作为参数</li>
+</ul>
+<h1 id="u63A8_u8350_u7528_u6CD5"><a href="#u63A8_u8350_u7528_u6CD5" class="headerlink" title="推荐用法"></a>推荐用法</h1><p>作为返回值时，使用instancetype。<br>作为参数时，只能使用id。</p>
+<p><a href="http://zhuanlan.zhihu.com/Foundation/19569459" target="_blank" rel="external">用instancetype代替id作返回类型有什么好处？</a><br><a href="http://blog.csdn.net/kuizhang1/article/details/18048829#t2" target="_blank" rel="external">Objective-C中的instancetype和id区别</a></p>
 
       
     </div>
@@ -278,13 +276,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月11日 - 22时25分</p>
-        <p><span>最后更新:</span>2016年01月11日 - 22时25分</p>
+        <p><span>发布时间:</span>2016年01月12日 - 20时10分</p>
+        <p><span>最后更新:</span>2016年01月12日 - 20时10分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/11/git修改旧提交/" title="如何修改git旧提交">http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/12/different_id_instancetype/" title="id和instancetype区别">http://limaofuyuanzhang.gitcafe.io/2016/01/12/different_id_instancetype/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/different_id_instancetype/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -298,15 +296,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/11/枚举类型的写法/">
-                    Objective-C中枚举类型的写法
+                <a href="/2016/01/12/swift_string/">
+                    swift 字符串
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/07/UIView_layer_Setting/">
-                    UIView layer属性
+                <a href="/2016/01/12/Objective-C_nil/">
+                    Object-C中各类空值的分析
                 </a>
             </div>
         
@@ -317,7 +315,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6848"><span class="toc-number">1.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F5C_u7528"><span class="toc-number">1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F02_u540C"><span class="toc-number">2.</span> <span class="toc-text">异同</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u63A8_u8350_u7528_u6CD5"><span class="toc-number">3.</span> <span class="toc-text">推荐用法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +379,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/11/git修改旧提交/" data-title="如何修改git旧提交" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git修改旧提交/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/12/different_id_instancetype/" data-title="id和instancetype区别" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/different_id_instancetype/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,7 +403,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/11/枚举类型的写法/" title="上一篇: Objective-C中枚举类型的写法">
+            <a href="/2016/01/12/swift_string/" title="上一篇: swift 字符串">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -413,13 +411,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/07/UIView_layer_Setting/" title="下一篇: UIView layer属性">
+            <a href="/2016/01/12/Objective-C_nil/" title="下一篇: Object-C中各类空值的分析">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/id和instancetype区别/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma_mark_use</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

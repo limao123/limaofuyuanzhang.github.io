@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift区间运算符 | 狸猫副园长的技术窝</title>
+  <title>swift可选类型 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+  <meta name="description" content="swift可选类型学习～">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift区间运算符">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift 区间运算符/index.html">
+<meta property="og:title" content="swift可选类型">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
-<meta property="og:updated_time" content="2016-01-11T23:44:23.000Z">
+<meta property="og:description" content="swift可选类型学习～">
+<meta property="og:updated_time" content="2016-01-11T23:30:13.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift区间运算符">
-<meta name="twitter:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+<meta name="twitter:title" content="swift可选类型">
+<meta name="twitter:description" content="swift可选类型学习～">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -140,7 +140,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/注释/" style="font-size: 10px;">注释</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -216,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swift 区间运算符" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-swift_optional" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/swift 区间运算符/" class="article-date">
-      <time datetime="2016-01-11T23:44:23.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/12/swift_optional/" class="article-date">
+      <time datetime="2016-01-11T23:30:13.000Z" itemprop="datePublished">2016-01-12</time>
 </a>
     </div>
   
@@ -233,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift区间运算符
+      swift可选类型
     </h1>
   
 
@@ -258,18 +258,36 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Swift 提供了两个方便表达一个区间的值的运算符。</p>
-<a id="more"></a>
-<h1 id="u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="闭区间运算符"></a>闭区间运算符</h1><p>闭区间运算符（a…b）定义一个包含从a到b(包括a和b)的所有值的区间，b必须大于等于a。 ‌ 闭区间运算符在迭代一个区间的所有值时是非常有用的，如在for-in循环中：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
-<h1 id="u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="半开区间运算符"></a>半开区间运算符</h1><p>半开区间（a..&lt;b）定义一个从a到b但不包括b的区间。 之所以称为半开区间，是因为该区“间包含第一个值而不包括最后的值。</p>
-<p>半开区间的实用性在于当你使用一个从0开始的列表(如数组)时，非常方便地从0数到列表的长度。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = names.<span class="built_in">count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"第 <span class="subst">\(i + <span class="number">1</span>)</span> 个人叫 <span class="subst">\(names[i])</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br><span class="line">数组有<span class="number">4</span>个元素，但<span class="number">0</span>..&lt;<span class="built_in">count</span>只数到<span class="number">3</span>(最后一个元素的下标)，因为它是半开区间。</span><br></pre></td></tr></table></figure>
-<h1 id="u901F_u8BB0"><a href="#u901F_u8BB0" class="headerlink" title="速记"></a>速记</h1><ul>
-<li>闭区间表示 <code>a...b</code> 含ab</li>
-<li>半开区间表示 <code>a..&lt;b</code> 只含a</li>
+        <h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>在 Objective-C 中，我们用 <code>nil</code> 来表示对象为空。而在 swift 中 <code>nil</code> 则有不同的含义。</p>
+<p>首先，介绍一下可选类型。可选类型表示</p>
+<ul>
+<li>无值</li>
+<li>有值，等于x</li>
 </ul>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/chapter2.html" target="_blank" rel="external">The Swift Programming Language 中文版</a></p>
+<p>如声明如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var varName: Type? (=x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一个有值的可选整型 </span></span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一个无值的可选整型</span></span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>?</span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>? = <span class="literal">nil</span></span><br></pre></td></tr></table></figure>
+<p>在 swift 中，<code>nil</code> 表示的是值缺失。</p>
+<h1 id="if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><a href="#if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790" class="headerlink" title="if 语句以及强制解析"></a>if 语句以及强制解析</h1><p>可选类型可在 if 语句中与 <code>nil</code> 进入比较，如果不为 <code>nil</code> ，可在变量名后面加 <code>!</code> 进行强制输出。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> i != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="comment">//!强制输出，需要确保可选类型不为空</span></span><br><span class="line">    <span class="built_in">print</span>(i!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u53EF_u9009_u7ED1_u5B9A"><a href="#u53EF_u9009_u7ED1_u5B9A" class="headerlink" title="可选绑定"></a>可选绑定</h1><p>使用可选绑定（optional binding）来判断可选类型是否包含值，如果包含就把值赋给一个临时可选绑定可以用在if和while语句中，这条语句不仅可以用来判断可选类型中是否有值，同时可以将可选类型中的值赋给一个常量或者变量。</p>
+<p>一般可用在返回是可选类型的方法中，代码如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleNumber = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> actualNumber = <span class="type">Int</span>(possibleNumber) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\'<span class="subst">\(possibleNumber)</span>\' has an integer value of <span class="subst">\(actualNumber)</span>"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\'<span class="subst">\(possibleNumber)</span>\' could not be converted to an integer"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出 "'123' has an integer value of 123”</span></span><br></pre></td></tr></table></figure>
+<p>这段代码可以被理解为：</p>
+<p>如果Int(possibleNumber)返回的可选Int包含一个值，创建一个叫做actualNumber的新常量并将可选包含的值赋给它。</p>
+<p>如果转换成功，actualNumber常量可以在if语句的第一个分支中使用。它已经被可选类型包含的值初始化过，所以不需要再使用!后缀来获取它的值。在这个例子中，actualNumber只被用来输出转换结果。</p>
+<h1 id="u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><a href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B" class="headerlink" title="隐式解析可选类型"></a>隐式解析可选类型</h1><p>有时候在程序架构中，第一次被赋值之后，可以确定一个可选类型总会有值。在这种情况下，每次都要判断和解析可选值是非常低效的，因为可以确定它总会有值。</p>
+<p>这种类型的可选状态被定义为隐式解析可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号（String?）改成感叹号（String!）来声明一个隐式解析可选类型。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="built_in">String</span>? = <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="built_in">String</span> = possibleString! <span class="comment">// 需要惊叹号来获取值</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="built_in">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="built_in">String</span> = assumedString  <span class="comment">// 不需要感叹号</span></span><br></pre></td></tr></table></figure>
+<h1 id="u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29"><a href="#u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29" class="headerlink" title="空合运算符(Nil Coalescing Operator)"></a>空合运算符(Nil Coalescing Operator)</h1><p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
+<ul>
+<li>表达式a必须是Optional类型</li>
+<li>默认值b的类型必须要和a存储值的类型保持一致</li>
+</ul>
+<p>观察以下两个例子：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="type">String</span>?   <span class="comment">//默认值为 nil</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName</span><br><span class="line"><span class="comment">// userDefinedColorName 的值为空，所以 colorNameToUse 的值为 "red"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userDefinedColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = userDefinedColorName ?? defaultColorName</span><br><span class="line"><span class="comment">// userDefinedColorName 非空，因此 colorNameToUse 的值为 "green”</span></span><br></pre></td></tr></table></figure>
+<h1 id="u901F_u8BB0"><a href="#u901F_u8BB0" class="headerlink" title="速记"></a>速记</h1><p>可选类型是一种新类型，可表示无值，表示方法为在声明变量后面加 <code>?</code>，有值时在后面加 <code>!</code> 来读取。而如果可选类型我们确定其有值并且以为一直都有值，我们可以在声明变量时在后面加 <code>!</code>，则读取时就不再需要 <code>!</code> 。</p>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html#4fa4f39154d3fc1624099c34182adbfb" target="_blank" rel="external">The Swift Programming Language 中文版-基础部分（The Basics）-可选类型</a></p>
 
       
     </div>
@@ -278,13 +296,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/12/swift_optional/">swift可选类型</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 07时44分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 07时44分</p>
+        <p><span>发布时间:</span>2016年01月12日 - 07时30分</p>
+        <p><span>最后更新:</span>2016年01月12日 - 07时30分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/swift 区间运算符/" title="swift区间运算符">http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift 区间运算符/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift 区间运算符/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/12/swift_optional/" title="swift可选类型">http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -298,15 +316,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/UIImageView适应模式/">
-                    UIImageView适应模式
+                <a href="/2016/01/12/swift_range_operator/">
+                    swift区间运算符
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/swift可选模式/">
-                    swift可选类型
+                <a href="/2016/01/11/enum_use/">
+                    Objective-C中枚举类型的写法
                 </a>
             </div>
         
@@ -317,7 +335,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">1.</span> <span class="toc-text">闭区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">2.</span> <span class="toc-text">半开区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u901F_u8BB0"><span class="toc-number">3.</span> <span class="toc-text">速记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><span class="toc-number">2.</span> <span class="toc-text">if 语句以及强制解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53EF_u9009_u7ED1_u5B9A"><span class="toc-number">3.</span> <span class="toc-text">可选绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><span class="toc-number">4.</span> <span class="toc-text">隐式解析可选类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29"><span class="toc-number">5.</span> <span class="toc-text">空合运算符(Nil Coalescing Operator)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u901F_u8BB0"><span class="toc-number">6.</span> <span class="toc-text">速记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +399,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/swift 区间运算符/" data-title="swift区间运算符" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift 区间运算符/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/12/swift_optional/" data-title="swift可选类型" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,7 +423,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/UIImageView适应模式/" title="上一篇: UIImageView适应模式">
+            <a href="/2016/01/12/swift_range_operator/" title="上一篇: swift区间运算符">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -413,13 +431,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/swift可选模式/" title="下一篇: swift可选类型">
+            <a href="/2016/01/11/enum_use/" title="下一篇: Objective-C中枚举类型的写法">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/id和instancetype区别/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma_mark_use</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

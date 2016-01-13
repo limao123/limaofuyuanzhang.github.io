@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Object-C中各类空值的分析 | 狸猫副园长的技术窝</title>
+  <title>Objective-C中枚举类型的写法 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C 中关于空值的分析。">
+  <meta name="description" content="Objective-C中枚举类型的写法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object-C中各类空值的分析">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/Object-C中各类空值的分析/index.html">
+<meta property="og:title" content="Objective-C中枚举类型的写法">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Objective-C 中关于空值的分析。">
-<meta property="og:updated_time" content="2016-01-12T12:09:13.000Z">
+<meta property="og:description" content="Objective-C中枚举类型的写法">
+<meta property="og:updated_time" content="2016-01-11T14:30:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object-C中各类空值的分析">
-<meta name="twitter:description" content="Objective-C 中关于空值的分析。">
+<meta name="twitter:title" content="Objective-C中枚举类型的写法">
+<meta name="twitter:description" content="Objective-C中枚举类型的写法">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -140,7 +140,7 @@
                 
                 <section class="switch-part switch-part2">
                     <div class="widget tagcloud" id="js-tagcloud">
-                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/Objective-C/" style="font-size: 10px;">Objective-C</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/layer/" style="font-size: 10px;">layer</a> <a href="/tags/objc/" style="font-size: 13.33px;">objc</a> <a href="/tags/swift/" style="font-size: 16.67px;">swift</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/图片适应模式/" style="font-size: 10px;">图片适应模式</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/注释/" style="font-size: 10px;">注释</a> <a href="/tags/版本控制/" style="font-size: 10px;">版本控制</a> <a href="/tags/空值/" style="font-size: 10px;">空值</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/证书/" style="font-size: 10px;">证书</a>
                     </div>
                 </section>
                 
@@ -216,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Object-C中各类空值的分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-enum_use" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/Object-C中各类空值的分析/" class="article-date">
-      <time datetime="2016-01-12T12:09:13.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/11/enum_use/" class="article-date">
+      <time datetime="2016-01-11T14:30:33.000Z" itemprop="datePublished">2016-01-11</time>
 </a>
     </div>
   
@@ -233,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Object-C中各类空值的分析
+      Objective-C中枚举类型的写法
     </h1>
   
 
@@ -248,7 +248,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/空值/">空值</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,16 +258,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>初次接触Object-C时，经常会遇到这样的困惑，使用空值时，什么时候使用nil，什么时候使用NSNULL？而且似乎用NULL也可以，另外Object-c中还有一个Nil。这么多的空值表示容易让人迷惑，下面将能过逐一分析来理清楚这4者的区别。</p>
-<h1 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h1><p>NULL本质上是：(void*)0,即指向地址为0x0的指针，用于表示C指针中的空值。</p>
-<h1 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h1><p>nil的本质上也是(void*)0，但它用于表示表示指向Objective-C中对象的指针的值为空。</p>
-<h1 id="Nil"><a href="#Nil" class="headerlink" title="Nil"></a>Nil</h1><p>本质上也是(void*)0,用于表示Objective-C类（Class）类型的变量值为空。</p>
-<h1 id="NSNull"><a href="#NSNull" class="headerlink" title="NSNull"></a>NSNull</h1><p>类定义如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">NSNull :</span> NSObject &lt;NSCopying, NSSecureCoding&gt;</span><br><span class="line"></span><br><span class="line">+ (NSNull *)<span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
-<p>其中<code>+ (NSNull *)null;</code> 返回一个单例对象，其表示空值。定义NSNull是由于集合对象中不能有nil值，所以用NSNull类来代表在集合对象中的null 值。英文解释：NSNull is a class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).<br>[NSNull null]: The singleton instance of NSNull。</p>
-<p>总结：从技术实现上来说，nil、NULL都是一样的。但是实际上这种定义能够增加代码的可读性。如果你给某人传递NULL值，那么某人就认为接收到的是C指针。如果是nil，那么认为接受的是一个对象。而Nil,则认为接受的是class。</p>
-<h1 id="Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><a href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B" class="headerlink" title="Objective-C与其它语言的空值的区别"></a>Objective-C与其它语言的空值的区别</h1><p>Objective-C允许向某个值为nil的变量发送消息，且不会发生任何事情。在其他语言中，向空指针（值为0的指针）发送消息是非法的，因此，通常要先检查指针是否为空。在Objective-C中，因为程序会忽略发送给nil的消息，所以无需做这样的检查，直接发送消息即可。</p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/dqjyong/article/details/7668001" target="_blank" rel="external">区分nil Nil NULL和NSNill（Objective C语言)</a><br><a href="http://blog.csdn.net/wzzvictory/article/details/18413519" target="_blank" rel="external">nil/Nil/NULL/NSNull的区别</a><br><a href="http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c</a><br><a href="http://stackoverflow.com/questions/1841983/what-describes-nil-best-whats-that-really" target="_blank" rel="external">What describes nil best? What’s that really?</a></p>
+        <h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>经常都会忘记 <code>Objective-C</code> 中枚举的写法，这里记录下来作为备忘。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NS_ENUM，定义状态等普通枚举</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_ENUM</span><span class="params">(NSUInteger, TTGState)</span> </span>&#123;</span><br><span class="line">  TTGStateOK = <span class="number">0</span>,</span><br><span class="line">  TTGStateError,</span><br><span class="line">  TTGStateUnknow</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//NS_OPTIONS，定义选项</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_OPTIONS</span><span class="params">(NSUInteger, TTGDirection)</span> </span>&#123;</span><br><span class="line">  TTGDirectionNone = <span class="number">0</span>,</span><br><span class="line">  TTGDirectionTop = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">  TTGDirectionLeft = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">  TTGDirectionRight = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">  TTGDirectionBottom = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://tutuge.me/2015/03/21/effective-objective-c-5-enum/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Enum-枚举的正确使用-Effective-Objective-C-读书笔记-Item-5</a></p>
 
       
     </div>
@@ -276,13 +269,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 20时09分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 20时09分</p>
+        <p><span>发布时间:</span>2016年01月11日 - 22时30分</p>
+        <p><span>最后更新:</span>2016年01月11日 - 22时30分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/Object-C中各类空值的分析/" title="Object-C中各类空值的分析">http://limaofuyuanzhang.gitcafe.io/2016/01/12/Object-C中各类空值的分析/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/Object-C中各类空值的分析/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/11/enum_use/" title="Objective-C中枚举类型的写法">http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -296,15 +289,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/id和instancetype区别/">
-                    id和instancetype区别
+                <a href="/2016/01/12/swift_optional/">
+                    swift可选类型
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/添加pch文件/">
-                    添加pch文件
+                <a href="/2016/01/11/git_modift_commit/">
+                    如何修改git旧提交
                 </a>
             </div>
         
@@ -315,7 +308,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NULL"><span class="toc-number">2.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nil"><span class="toc-number">3.</span> <span class="toc-text">nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nil"><span class="toc-number">4.</span> <span class="toc-text">Nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NSNull"><span class="toc-number">5.</span> <span class="toc-text">NSNull</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><span class="toc-number">6.</span> <span class="toc-text">Objective-C与其它语言的空值的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u6B63_u6587"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -379,7 +372,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/Object-C中各类空值的分析/" data-title="Object-C中各类空值的分析" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/Object-C中各类空值的分析/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/11/enum_use/" data-title="Objective-C中枚举类型的写法" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -403,7 +396,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/id和instancetype区别/" title="上一篇: id和instancetype区别">
+            <a href="/2016/01/12/swift_optional/" title="上一篇: swift可选类型">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -411,13 +404,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/添加pch文件/" title="下一篇: 添加pch文件">
+            <a href="/2016/01/11/git_modift_commit/" title="下一篇: 如何修改git旧提交">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C初始化方法实现/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift字符串/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/id和instancetype区别/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Object-C中各类空值的分析/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/添加pch文件/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS开发证书介绍/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView适应模式/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift 区间运算符/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift可选模式/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/枚举类型的写法/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git修改旧提交/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/单例/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma_mark_use</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
