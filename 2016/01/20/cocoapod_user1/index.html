@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift 字符串 | 狸猫副园长的技术窝</title>
+  <title>CocoaPods的使用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swift中字符串介绍。">
+  <meta name="description" content="CocoaPods的简单介绍与使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift 字符串">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_string/index.html">
+<meta property="og:title" content="CocoaPods的使用">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_user1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="swift中字符串介绍。">
-<meta property="og:updated_time" content="2016-01-12T12:11:23.000Z">
+<meta property="og:description" content="CocoaPods的简单介绍与使用">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14530922196553.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14530924035158.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14530926628113.jpg">
+<meta property="og:updated_time" content="2016-01-20T03:00:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift 字符串">
-<meta name="twitter:description" content="swift中字符串介绍。">
+<meta name="twitter:title" content="CocoaPods的使用">
+<meta name="twitter:description" content="CocoaPods的简单介绍与使用">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +219,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swift_string" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-cocoapod_user1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/swift_string/" class="article-date">
-      <time datetime="2016-01-12T12:11:23.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/20/cocoapod_user1/" class="article-date">
+      <time datetime="2016-01-20T03:00:59.000Z" itemprop="datePublished">2016-01-20</time>
 </a>
     </div>
   
@@ -233,7 +236,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift 字符串
+      CocoaPods的使用
     </h1>
   
 
@@ -248,7 +251,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,16 +261,20 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u5B57_u7B26_u6570_u7EC4"><a href="#u5B57_u7B26_u6570_u7EC4" class="headerlink" title="字符数组"></a>字符数组</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> catCharacters: [<span class="type">Character</span>] = [<span class="string">"C"</span>, <span class="string">"a"</span>, <span class="string">"t"</span>, <span class="string">"!"</span>, <span class="string">"🐱"</span>]</span><br></pre></td></tr></table></figure>
-<h1 id="u904D_u5386_u5B57_u7B26_u4E32"><a href="#u904D_u5386_u5B57_u7B26_u4E32" class="headerlink" title="遍历字符串"></a>遍历字符串</h1><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> greeting.characters.<span class="built_in">indices</span> &#123;</span><br><span class="line">   <span class="built_in">print</span>(<span class="string">"<span class="subst">\(greeting[index])</span> "</span>, terminator: <span class="string">" "</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>通过调用String.Index的predecessor()方法，可以立即得到前面一个索引，调用successor()方法可以立即得到后面一个索引。任何一个String的索引都可以通过锁链作用的这些方法来获取另一个索引，也可以调用advancedBy(_:)方法来获取。但如果尝试获取出界的字符串索引，就会抛出一个运行时错误。</p>
-<p>你可以使用下标语法来访问String特定索引的Character。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> greeting = <span class="string">"Guten Tag!"</span></span><br><span class="line">greeting[greeting.startIndex]</span><br><span class="line"><span class="comment">// G</span></span><br><span class="line">greeting[greeting.endIndex.predecessor()]</span><br><span class="line"><span class="comment">// !</span></span><br><span class="line">greeting[greeting.startIndex.successor()]</span><br><span class="line"><span class="comment">// u</span></span><br><span class="line"><span class="keyword">let</span> index = greeting.startIndex.advancedBy(<span class="number">7</span>)</span><br><span class="line">greeting[index]</span><br><span class="line"><span class="comment">// a</span></span><br></pre></td></tr></table></figure>
-<p>试图获取越界索引对应的Character，将引发一个运行时错误。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">greeting[greeting.endIndex] <span class="comment">// error</span></span><br><span class="line">greeting.endIndex.successor() <span class="comment">// error</span></span><br></pre></td></tr></table></figure>
-<h1 id="u63D2_u5165_u548C_u5220_u9664__28Inserting_and_Removing_29"><a href="#u63D2_u5165_u548C_u5220_u9664__28Inserting_and_Removing_29" class="headerlink" title="插入和删除 (Inserting and Removing)"></a>插入和删除 (Inserting and Removing)</h1><p>调用insert(_:atIndex:)方法可以在一个字符串的指定索引插入一个字符。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> welcome = <span class="string">"hello"</span></span><br><span class="line">welcome.insert(<span class="string">"!"</span>, atIndex: welcome.endIndex)</span><br><span class="line"><span class="comment">// welcome now 现在等于 "hello!"</span></span><br><span class="line">调用insertContentsOf(<span class="number">_</span>:at:)方法可以在一个字符串的指定索引插入一个字符串。</span><br><span class="line"></span><br><span class="line">welcome.insertContentsOf(<span class="string">" there"</span>.characters, at: welcome.endIndex.predecessor())</span><br><span class="line"><span class="comment">// welcome 现在等于 "hello there!"</span></span><br><span class="line">调用removeAtIndex(<span class="number">_</span>:)方法可以在一个字符串的指定索引删除一个字符。</span><br><span class="line"></span><br><span class="line">welcome.removeAtIndex(welcome.endIndex.predecessor())</span><br><span class="line"><span class="comment">// welcome 现在等于 "hello there"</span></span><br><span class="line">调用removeRange(<span class="number">_</span>:)方法可以在一个字符串的指定索引删除一个子字符串。</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> range = welcome.endIndex.advancedBy(-<span class="number">6</span>)..&lt;welcome.endIndex</span><br><span class="line">welcome.removeRange(range)</span><br><span class="line"><span class="comment">// welcome 现在等于 "hello"</span></span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html#4fa4f39154d3fc1624099c34182adbfb" target="_blank" rel="external">The Swift Programming Language 中文版-基础部分（The Basics）-可选类型</a></p>
+        <h1 id="CocoaPods_u4ECB_u7ECD"><a href="#CocoaPods_u4ECB_u7ECD" class="headerlink" title="CocoaPods介绍"></a>CocoaPods介绍</h1><p>当你开发iOS应用时，会经常使用到很多第三方开源类库，比如JSONKit，AFNetWorking等等。可能某个类库又用到其他类库，所以要使用它，必须得另外下载其他类库，而其他类库又用到其他类库，“子子孙孙无穷尽也”，这也许是比较特殊的情况。总而言之，手动一个个去下载所需类库十分麻烦。另外一种常见情况是，你项目中用到的类库有更新，你必须得重新下载新版本，重新加入到项目中，十分麻烦。而Cocoapods可以解决这个问题。</p>
+<h1 id="CocoaPods_u5B89_u88C5"><a href="#CocoaPods_u5B89_u88C5" class="headerlink" title="CocoaPods安装"></a>CocoaPods安装</h1><p>安装命令<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gem <span class="operator"><span class="keyword">install</span> cocoapods（sudo gem <span class="keyword">uninstall</span> cocoa pods卸载）</span></span><br></pre></td></tr></table></figure></p>
+<p>如果被墙，可以换一个源<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo gem sources --remove <span class="string">https:</span><span class="comment">//rubygems.org/</span></span><br><span class="line">sudo gem sources -a <span class="string">https:</span><span class="comment">//ruby.taobao.org/</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="u4F7F_u7528CocoaPods_u5B89_u88C5_u7B2C_u4E09_u65B9_u5E93"><a href="#u4F7F_u7528CocoaPods_u5B89_u88C5_u7B2C_u4E09_u65B9_u5E93" class="headerlink" title="使用CocoaPods安装第三方库"></a>使用CocoaPods安装第三方库</h1><p>1.创建Podfile文件</p>
+<p><img src="/images/14530922196553.jpg" alt=""></p>
+<p>2.在Podfile中编写内容</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> <span class="string">'BmobSDK'</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/14530924035158.jpg" alt=""></p>
+<p>3.进行安装</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="tag">&lt;<span class="title">projectDir</span>&gt;</span></span><br><span class="line">pod install</span><br></pre></td></tr></table></figure>
+<p>安装成功后应该有类似以下的提示</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Analyzing dependencies</span><br><span class="line">Downloading dependencies</span><br><span class="line">Installing BmobSDK (1.6.6)</span><br><span class="line">Generating Pods project</span><br><span class="line">Integrating client project</span><br><span class="line"></span><br><span class="line">[!] Please close any current Xcode sessions and <span class="operator"><span class="keyword">use</span> <span class="string">`CocoapodsDemo.xcworkspace`</span> <span class="keyword">for</span> this <span class="keyword">project</span> <span class="keyword">from</span> <span class="keyword">now</span> <span class="keyword">on</span>.</span><br><span class="line">Sending stats</span><br><span class="line">Pod installation <span class="keyword">complete</span>! There <span class="keyword">is</span> <span class="number">1</span> dependency <span class="keyword">from</span> the Podfile <span class="keyword">and</span> <span class="number">1</span> total</span><br><span class="line">pod installed.</span></span><br></pre></td></tr></table></figure>
+<p>4.点击.xcworkplace打开项目，就可以使用刚刚安装的库了。</p>
+<p><img src="/images/14530926628113.jpg" alt=""></p>
 
       
     </div>
@@ -276,13 +283,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/swift_string/">swift 字符串</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/20/cocoapod_user1/">CocoaPods的使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 20时11分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 20时11分</p>
+        <p><span>发布时间:</span>2016年01月20日 - 11时00分</p>
+        <p><span>最后更新:</span>2016年01月20日 - 11时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/swift_string/" title="swift 字符串">http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_string/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_string/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/20/cocoapod_user1/" title="CocoaPods的使用">http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_user1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_user1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -295,16 +302,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/13/Objective-C_init/">
-                    Objective-C初始化方法实现
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/different_id_instancetype/">
-                    id和instancetype区别
+                <a href="/2016/01/18/iOS_Framework/">
+                    Framework制作步骤
                 </a>
             </div>
         
@@ -315,7 +316,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5B57_u7B26_u6570_u7EC4"><span class="toc-number">1.</span> <span class="toc-text">字符数组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u904D_u5386_u5B57_u7B26_u4E32"><span class="toc-number">2.</span> <span class="toc-text">遍历字符串</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u63D2_u5165_u548C_u5220_u9664__28Inserting_and_Removing_29"><span class="toc-number">3.</span> <span class="toc-text">插入和删除 (Inserting and Removing)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CocoaPods_u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">CocoaPods介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CocoaPods_u5B89_u88C5"><span class="toc-number">2.</span> <span class="toc-text">CocoaPods安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F7F_u7528CocoaPods_u5B89_u88C5_u7B2C_u4E09_u65B9_u5E93"><span class="toc-number">3.</span> <span class="toc-text">使用CocoaPods安装第三方库</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -379,7 +380,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/swift_string/" data-title="swift 字符串" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_string/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/20/cocoapod_user1/" data-title="CocoaPods的使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_user1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -403,15 +404,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/13/Objective-C_init/" title="上一篇: Objective-C初始化方法实现">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/different_id_instancetype/" title="下一篇: id和instancetype区别">
+            <a href="/2016/01/18/iOS_Framework/" title="下一篇: Framework制作步骤">
                 <i class="fa fa-angle-right"></i>
             </a>
         
