@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Object-C中各类空值的分析 | 狸猫副园长的技术窝</title>
+  <title>CocoaPods-Podfile进阶使用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C 中关于空值的分析。">
+  <meta name="description" content="关于Podfile的一些比较复杂的使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object-C中各类空值的分析">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/Objective-C_nil/index.html">
+<meta property="og:title" content="CocoaPods-Podfile进阶使用">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Objective-C 中关于空值的分析。">
-<meta property="og:updated_time" content="2016-01-12T12:09:13.000Z">
+<meta property="og:description" content="关于Podfile的一些比较复杂的使用">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14533033358292.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14533049371622.jpg">
+<meta property="og:updated_time" content="2016-01-21T08:37:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object-C中各类空值的分析">
-<meta name="twitter:description" content="Objective-C 中关于空值的分析。">
+<meta name="twitter:title" content="CocoaPods-Podfile进阶使用">
+<meta name="twitter:description" content="关于Podfile的一些比较复杂的使用">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +218,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Objective-C_nil" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-cocoapods_use3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/Objective-C_nil/" class="article-date">
-      <time datetime="2016-01-12T12:09:13.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/21/cocoapods_use3/" class="article-date">
+      <time datetime="2016-01-21T08:37:21.000Z" itemprop="datePublished">2016-01-21</time>
 </a>
     </div>
   
@@ -233,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Object-C中各类空值的分析
+      CocoaPods-Podfile进阶使用
     </h1>
   
 
@@ -248,7 +250,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/空值/">空值</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,16 +260,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>初次接触Object-C时，经常会遇到这样的困惑，使用空值时，什么时候使用nil，什么时候使用NSNULL？而且似乎用NULL也可以，另外Object-c中还有一个Nil。这么多的空值表示容易让人迷惑，下面将能过逐一分析来理清楚这4者的区别。</p>
-<h1 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h1><p>NULL本质上是：(void*)0,即指向地址为0x0的指针，用于表示C指针中的空值。</p>
-<h1 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h1><p>nil的本质上也是(void*)0，但它用于表示表示指向Objective-C中对象的指针的值为空。</p>
-<h1 id="Nil"><a href="#Nil" class="headerlink" title="Nil"></a>Nil</h1><p>本质上也是(void*)0,用于表示Objective-C类（Class）类型的变量值为空。</p>
-<h1 id="NSNull"><a href="#NSNull" class="headerlink" title="NSNull"></a>NSNull</h1><p>类定义如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">NSNull :</span> NSObject &lt;NSCopying, NSSecureCoding&gt;</span><br><span class="line"></span><br><span class="line">+ (NSNull *)<span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
-<p>其中<code>+ (NSNull *)null;</code> 返回一个单例对象，其表示空值。定义NSNull是由于集合对象中不能有nil值，所以用NSNull类来代表在集合对象中的null 值。英文解释：NSNull is a class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).<br>[NSNull null]: The singleton instance of NSNull。</p>
-<p>总结：从技术实现上来说，nil、NULL都是一样的。但是实际上这种定义能够增加代码的可读性。如果你给某人传递NULL值，那么某人就认为接收到的是C指针。如果是nil，那么认为接受的是一个对象。而Nil,则认为接受的是class。</p>
-<h1 id="Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><a href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B" class="headerlink" title="Objective-C与其它语言的空值的区别"></a>Objective-C与其它语言的空值的区别</h1><p>Objective-C允许向某个值为nil的变量发送消息，且不会发生任何事情。在其他语言中，向空指针（值为0的指针）发送消息是非法的，因此，通常要先检查指针是否为空。在Objective-C中，因为程序会忽略发送给nil的消息，所以无需做这样的检查，直接发送消息即可。</p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/dqjyong/article/details/7668001" target="_blank" rel="external">区分nil Nil NULL和NSNill（Objective C语言)</a><br><a href="http://blog.csdn.net/wzzvictory/article/details/18413519" target="_blank" rel="external">nil/Nil/NULL/NSNull的区别</a><br><a href="http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c</a><br><a href="http://stackoverflow.com/questions/1841983/what-describes-nil-best-whats-that-really" target="_blank" rel="external">What describes nil best? What’s that really?</a></p>
+        <h1 id="target"><a href="#target" class="headerlink" title="target"></a>target</h1><p>针对特定的target安装依赖库，目前最新的1.0.0.beta.2版本必须填写target才能安装依赖库，否则会报以下错误。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The dependency `<span class="javascript"></span>` <span class="keyword">is</span> <span class="keyword">not</span> used <span class="keyword">in</span> any concrete target</span><br></pre></td></tr></table></figure>
+<p>target写法如下,</p>
+<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target “YourTargetName” <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h1 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h1><p>表示需要安装库的target的平台以及当前的deployment target版本，如果该平台版本低于依赖库可使用的最低版本，那么在安装依赖库时会报错。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, "4<span class="class">.0</span>"</span><br><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span></span><br></pre></td></tr></table></figure>
+<p>如AFNetworking，它的3.0以上版本要求的最低target为iOS 7<br><img src="/images/14533033358292.jpg" alt=""></p>
+<p>如果在Podfile中写成下面这样，再安装，那将会报错<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">6.0</span>’</span><br><span class="line"></span><br><span class="line">target “<span class="constant">CocoapodsDemo”</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/14533049371622.jpg" alt=""></p>
+<h1 id="source"><a href="#source" class="headerlink" title="source"></a>source</h1><p>Cocoapods的官方源地址为：<a href="https://github.com/CocoaPods/Specs.git，这个源是默认的源，如果需要从其它源下载安装依赖库，可以使用以下代码。如果定义多个源，那么" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git，这个源是默认的源，如果需要从其它源下载安装依赖库，可以使用以下代码。如果定义多个源，那么</a> CocoaPods会先从第一个源开始寻找满足要求的依赖库。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/artsy/Specs.git'</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/test/Specs.git'</span></span><br></pre></td></tr></table></figure>
+<h1 id="u66F4_u65B0CocoaPods"><a href="#u66F4_u65B0CocoaPods" class="headerlink" title="更新CocoaPods"></a>更新CocoaPods</h1><p>随着项目的开发，可能你的依赖库也会有所改变，针对不同的情况的更新，要使用不同的命令。<br>如果是新添加或者移除依赖库，还是使用 <code>pod install</code>，只有在你希望将Pods中的依赖库更新至更新的版本时才使用 <code>pod update</code>。<br>具体的区别可查阅博文<a href="https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="external">pod install vs. pod update</a></p>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="https://guides.cocoapods.org" target="_blank" rel="external">CocoaPods Guides</a></p>
 
       
     </div>
@@ -276,13 +281,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/21/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 20时09分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 20时09分</p>
+        <p><span>发布时间:</span>2016年01月21日 - 16时37分</p>
+        <p><span>最后更新:</span>2016年01月21日 - 16时37分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/Objective-C_nil/" title="Object-C中各类空值的分析">http://limaofuyuanzhang.gitcafe.io/2016/01/12/Objective-C_nil/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/Objective-C_nil/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/21/cocoapods_use3/" title="CocoaPods-Podfile进阶使用">http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -295,16 +300,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/different_id_instancetype/">
-                    id和instancetype区别
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/add_pch/">
-                    添加pch文件
+                <a href="/2016/01/20/cocoapod_user1/">
+                    CocoaPods的使用
                 </a>
             </div>
         
@@ -315,7 +314,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NULL"><span class="toc-number">2.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nil"><span class="toc-number">3.</span> <span class="toc-text">nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nil"><span class="toc-number">4.</span> <span class="toc-text">Nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NSNull"><span class="toc-number">5.</span> <span class="toc-text">NSNull</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><span class="toc-number">6.</span> <span class="toc-text">Objective-C与其它语言的空值的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#target"><span class="toc-number">1.</span> <span class="toc-text">target</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#platform"><span class="toc-number">2.</span> <span class="toc-text">platform</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#source"><span class="toc-number">3.</span> <span class="toc-text">source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u66F4_u65B0CocoaPods"><span class="toc-number">4.</span> <span class="toc-text">更新CocoaPods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -379,7 +378,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/Objective-C_nil/" data-title="Object-C中各类空值的分析" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/Objective-C_nil/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/21/cocoapods_use3/" data-title="CocoaPods-Podfile进阶使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -403,15 +402,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/different_id_instancetype/" title="上一篇: id和instancetype区别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/add_pch/" title="下一篇: 添加pch文件">
+            <a href="/2016/01/20/cocoapod_user1/" title="下一篇: CocoaPods的使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
