@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift区间运算符 | 狸猫副园长的技术窝</title>
+  <title>CocoaPods-podspec文件详解 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+  <meta name="description" content="关于podspec编写的一些细节。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift区间运算符">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_range_operator/index.html">
+<meta property="og:title" content="CocoaPods-podspec文件详解">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapods_use4/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
-<meta property="og:updated_time" content="2016-01-11T23:44:23.000Z">
+<meta property="og:description" content="关于podspec编写的一些细节。">
+<meta property="og:updated_time" content="2016-01-24T03:28:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift区间运算符">
-<meta name="twitter:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+<meta name="twitter:title" content="CocoaPods-podspec文件详解">
+<meta name="twitter:description" content="关于podspec编写的一些细节。">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swift_range_operator" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-cocoapods_use4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/swift_range_operator/" class="article-date">
-      <time datetime="2016-01-11T23:44:23.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/01/24/cocoapods_use4/" class="article-date">
+      <time datetime="2016-01-24T03:28:11.000Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -233,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift区间运算符
+      CocoaPods-podspec文件详解
     </h1>
   
 
@@ -248,7 +248,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,18 +258,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Swift 提供了两个方便表达一个区间的值的运算符。</p>
-<a id="more"></a>
-<h1 id="u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="闭区间运算符"></a>闭区间运算符</h1><p>闭区间运算符（a…b）定义一个包含从a到b(包括a和b)的所有值的区间，b必须大于等于a。 ‌ 闭区间运算符在迭代一个区间的所有值时是非常有用的，如在for-in循环中：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
-<h1 id="u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="半开区间运算符"></a>半开区间运算符</h1><p>半开区间（a..&lt;b）定义一个从a到b但不包括b的区间。 之所以称为半开区间，是因为该区“间包含第一个值而不包括最后的值。</p>
-<p>半开区间的实用性在于当你使用一个从0开始的列表(如数组)时，非常方便地从0数到列表的长度。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = names.<span class="built_in">count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"第 <span class="subst">\(i + <span class="number">1</span>)</span> 个人叫 <span class="subst">\(names[i])</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br><span class="line">数组有<span class="number">4</span>个元素，但<span class="number">0</span>..&lt;<span class="built_in">count</span>只数到<span class="number">3</span>(最后一个元素的下标)，因为它是半开区间。</span><br></pre></td></tr></table></figure>
-<h1 id="u901F_u8BB0"><a href="#u901F_u8BB0" class="headerlink" title="速记"></a>速记</h1><ul>
-<li>闭区间表示 <code>a...b</code> 含ab</li>
-<li>半开区间表示 <code>a..&lt;b</code> 只含a</li>
-</ul>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/chapter2.html" target="_blank" rel="external">The Swift Programming Language 中文版</a></p>
+        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>这是我在博客<a href="http://limaofuyuanzhang.gitcafe.io">使用CocoaPods上传自己的库</a>上使用的podspec文件，看下面的注释读者应该可以知道每一个参数的用处。但下面这个podspec只能用于上传不依赖于没有任何依赖关系的framework。下面我将介绍几种稍微复杂一点的场景以及各自的处理方法。</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"> <span class="constant">Pod:</span><span class="symbol">:Spec</span>.new <span class="keyword">do</span> |s| </span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 名称</span></span><br><span class="line">    s.name = <span class="string">"LTFramework"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码库的版本 </span></span><br><span class="line">    s.version = <span class="string">"0.0.1"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 简介 </span></span><br><span class="line">    s.summary = <span class="string">"CocoaPods 测试."</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 框架主页  </span></span><br><span class="line">    s.homepage = <span class="string">"https://github.com/limaofuyuanzhang/LTFramework"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 许可证书类型，要和仓库的LICENSE 的类型一致 </span></span><br><span class="line">    s.license = <span class="string">"MIT"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 作者名称 和 邮箱 </span></span><br><span class="line">    s.author = &#123; <span class="string">"limaofuyuanzhang"</span> =&gt; <span class="string">"397524331@qq.com"</span> &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 作者主页 </span></span><br><span class="line">    s.social_media_url =<span class="string">"http://limaofuyuanzhang.gitcafe.io"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码库最低支持的版本 </span></span><br><span class="line">    s.platform = <span class="symbol">:ios</span></span><br><span class="line">    s.ios.deployment_target = <span class="string">"8.0"</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码的Clone 地址 和 tag 版本 </span></span><br><span class="line">    s.source = &#123; <span class="symbol">:git</span> =&gt; <span class="string">"https://github.com/limaofuyuanzhang/LTFramework.git"</span>, <span class="symbol">:tag</span> =&gt; <span class="string">"0.0.1"</span> &#125; </span><br><span class="line"></span><br><span class="line">    <span class="comment"># 依赖库路径</span></span><br><span class="line">    s.vendored_framework = <span class="string">"**/FrameworkDemo.framework"</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 框架是否使用的ARC </span></span><br><span class="line">    s.requires_arc = <span class="keyword">true</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h1 id="u4F9D_u8D56_u4E8E_u7CFB_u7EDF_u5E93"><a href="#u4F9D_u8D56_u4E8E_u7CFB_u7EDF_u5E93" class="headerlink" title="依赖于系统库"></a>依赖于系统库</h1><p>如果是framework，则使用<code>s.frameworks</code>，如果是liby或者是tdb，则使用<code>s.libraries</code>。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s<span class="class">.frameworks</span> = <span class="string">"CoreLocation"</span>,<span class="string">"Security"</span>,<span class="string">"CoreGraphics"</span>,<span class="string">"MobileCoreServices"</span>,<span class="string">"CFNetwork"</span>,<span class="string">"CoreTelephony"</span>,<span class="string">"SystemConfiguration"</span>,<span class="string">"AVFoundation"</span>,<span class="string">"MediaPlayer"</span></span><br><span class="line">  s<span class="class">.libraries</span> = <span class="string">"z.1.2.5"</span>, <span class="string">"icucore"</span>,<span class="string">"sqlite3"</span></span><br></pre></td></tr></table></figure>
+<h1 id="u4F9D_u8D56_u4E8E_u7B2C_u4E09_u65B9_u5E93"><a href="#u4F9D_u8D56_u4E8E_u7B2C_u4E09_u65B9_u5E93" class="headerlink" title="依赖于第三方库"></a>依赖于第三方库</h1><p>如果依赖于其它第三方库，那么需要在文档中明确告知使用者，需要哪个版本的库，然后让使用者在安装你的库同时安装依赖的第三方库。（目前还没找到直接描述需要依赖的第三方库的podspec写法，如果有知道的朋友请告知我，非常感谢）</p>
+<h1 id="u4E0A_u4F20_u5F00_u6E90_u5E93"><a href="#u4E0A_u4F20_u5F00_u6E90_u5E93" class="headerlink" title="上传开源库"></a>上传开源库</h1><p>如果你写的库是开源的，那么可以不需要编译成framework，直接将源代码上传至github上，并将相关信息推送至CocoaPods，其他开发者就可以以源代码的形式安装Pod，从而使用你的库。这里需要使用 <code>s.source_files</code> 表示源代码的路径（注意这个路径是相对podspec文件而言的）。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s<span class="class">.source_files</span> = <span class="string">"LTFramework/*"</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -278,13 +273,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/swift_range_operator/">swift区间运算符</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/24/cocoapods_use4/">CocoaPods-podspec文件详解</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 07时44分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 07时44分</p>
+        <p><span>发布时间:</span>2016年01月24日 - 11时28分</p>
+        <p><span>最后更新:</span>2016年01月24日 - 11时28分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/swift_range_operator/" title="swift区间运算符">http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_range_operator/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_range_operator/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/24/cocoapods_use4/" title="CocoaPods-podspec文件详解">http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapods_use4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapods_use4/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -297,16 +292,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/UIImageView_UIContentView/">
-                    UIImageView适应模式
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/swift_optional/">
-                    swift可选类型
+                <a href="/2016/01/21/cocoapods_use3/">
+                    CocoaPods-Podfile进阶使用
                 </a>
             </div>
         
@@ -317,7 +306,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">1.</span> <span class="toc-text">闭区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">2.</span> <span class="toc-text">半开区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u901F_u8BB0"><span class="toc-number">3.</span> <span class="toc-text">速记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F9D_u8D56_u4E8E_u7CFB_u7EDF_u5E93"><span class="toc-number">2.</span> <span class="toc-text">依赖于系统库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F9D_u8D56_u4E8E_u7B2C_u4E09_u65B9_u5E93"><span class="toc-number">3.</span> <span class="toc-text">依赖于第三方库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4E0A_u4F20_u5F00_u6E90_u5E93"><span class="toc-number">4.</span> <span class="toc-text">上传开源库</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +370,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/swift_range_operator/" data-title="swift区间运算符" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_range_operator/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/24/cocoapods_use4/" data-title="CocoaPods-podspec文件详解" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapods_use4/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,15 +394,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/UIImageView_UIContentView/" title="上一篇: UIImageView适应模式">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/swift_optional/" title="下一篇: swift可选类型">
+            <a href="/2016/01/21/cocoapods_use3/" title="下一篇: CocoaPods-Podfile进阶使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
