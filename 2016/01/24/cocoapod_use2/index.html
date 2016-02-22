@@ -8,7 +8,7 @@
   <meta name="description" content="简单介绍如何使用CocoaPods上传自己的第三方库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用CocoaPods上传自己的库">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_use2/index.html">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
 <meta property="og:description" content="简单介绍如何使用CocoaPods上传自己的第三方库">
 <meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532928252404.jpg">
@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532623297307.jpg">
 <meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532931679032.jpg">
 <meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532937509006.jpg">
-<meta property="og:updated_time" content="2016-01-20T12:55:23.000Z">
+<meta property="og:updated_time" content="2016-01-24T06:48:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用CocoaPods上传自己的库">
 <meta name="twitter:description" content="简单介绍如何使用CocoaPods上传自己的第三方库">
@@ -227,8 +227,8 @@
       <div class="body-wrap"><article id="post-cocoapod_use2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/20/cocoapod_use2/" class="article-date">
-      <time datetime="2016-01-20T12:55:23.000Z" itemprop="datePublished">2016-01-20</time>
+      <a href="/2016/01/24/cocoapod_use2/" class="article-date">
+      <time datetime="2016-01-24T06:48:46.000Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -283,7 +283,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#25171;tag&#10;git tag -a 0.0.1 -m &#34;FromeworkDemo v0.0.1&#34;&#10;&#10;# &#25512;&#36865;tag&#10;git push origin 0.0.1</span><br></pre></td></tr></table></figure>
 <p>成功后应该有类似如下提示</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Counting objects: <span class="number">1</span>, done.</span><br><span class="line">Writing objects: <span class="number">100</span>% (<span class="number">1</span>/<span class="number">1</span>), <span class="number">184</span> bytes | <span class="number">0</span> bytes/s, done.</span><br><span class="line">Total <span class="number">1</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>)</span><br><span class="line">To https:<span class="comment">//github.com/limaofuyuanzhang/LTFramework.git</span></span><br><span class="line"> * [<span class="keyword">new</span> tag]         <span class="number">0.0</span><span class="number">.1</span> -&gt; <span class="number">0.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
-<p>4.检查操作是否成功</p>
+<p>5.检查操作是否成功</p>
 <p>如下图，可以看到tag已经成功上传。</p>
 <p><img src="/images/14532930654300.jpg" alt=""></p>
 <p>如果想深入理解每一步的原理以及更多git的用法，可以参考以下网站。<br><a href="http://git-scm.com/doc" target="_blank" rel="external">http://git-scm.com/doc</a><br><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的官方网站-git教程</a><br><a href="http://gitbook.liuhui998.com/index.html" target="_blank" rel="external">Git Community Book 中文版</a></p>
@@ -298,15 +298,15 @@
 <h1 id="u7F16_u5199_u5E76_u4E0A_u4F20podspec_u6587_u4EF6"><a href="#u7F16_u5199_u5E76_u4E0A_u4F20podspec_u6587_u4EF6" class="headerlink" title="编写并上传podspec文件"></a>编写并上传podspec文件</h1><p>1.编写podspec文件，此处为LTFramework.podspec</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"> <span class="constant">Pod:</span><span class="symbol">:Spec</span>.new <span class="keyword">do</span> |s| </span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 名称</span></span><br><span class="line">    s.name = <span class="string">"LTFramework"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码库的版本 </span></span><br><span class="line">    s.version = <span class="string">"0.0.1"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 简介 </span></span><br><span class="line">    s.summary = <span class="string">"CocoaPods 测试."</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 框架主页  </span></span><br><span class="line">    s.homepage = <span class="string">"https://github.com/limaofuyuanzhang/LTFramework"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 许可证书类型，要和仓库的LICENSE 的类型一致 </span></span><br><span class="line">    s.license = <span class="string">"MIT"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 作者名称 和 邮箱 </span></span><br><span class="line">    s.author = &#123; <span class="string">"limaofuyuanzhang"</span> =&gt; <span class="string">"397524331@qq.com"</span> &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 作者主页 </span></span><br><span class="line">    s.social_media_url =<span class="string">"http://limaofuyuanzhang.gitcafe.io"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码库最低支持的版本 </span></span><br><span class="line">    s.platform = <span class="symbol">:ios</span>, <span class="string">"8.0"</span> </span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 代码的Clone 地址 和 tag 版本 </span></span><br><span class="line">    s.source = &#123; <span class="symbol">:git</span> =&gt; <span class="string">"https://github.com/limaofuyuanzhang/LTFramework.git"</span>, <span class="symbol">:tag</span> =&gt; <span class="string">"0.0.1"</span> &#125; </span><br><span class="line"></span><br><span class="line">    s.vendored_framework = <span class="string">"**/FrameworkDemo.framework"</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 框架是否使用的ARC </span></span><br><span class="line">    s.requires_arc = <span class="keyword">true</span>  </span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/14532937509006.jpg" alt=""></p>
-<p>4.验证是否可能上传</p>
+<p>2.验证是否可能上传</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod lib lint</span><br></pre></td></tr></table></figure>
 <p>如果可以上传会有以下提示</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> -&gt; LTFramework (<span class="number">0.0</span><span class="number">.1</span>)</span><br><span class="line"></span><br><span class="line">LTFramework passed validation.</span><br></pre></td></tr></table></figure>
-<p>5.上传</p>
+<p>3.上传</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk push ./LTFramework.podspec</span><br></pre></td></tr></table></figure>
 <p>成功后会有如下提示</p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Validating podspec</span><br><span class="line"> -<span class="ruby">&gt; <span class="constant">LTFramework</span> (<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>)</span><br><span class="line"></span></span><br><span class="line">Updating spec repo `master`</span><br><span class="line"></span><br><span class="line">  -<span class="ruby"> <span class="constant">Data</span> <span class="constant">URL</span><span class="symbol">:</span> <span class="symbol">https:</span>/<span class="regexp">/raw.githubusercontent.com/</span><span class="constant">CocoaPods</span>/<span class="constant">Specs</span>/c8ff66e8fa3d032b8db259ee9e1e0459ac6c8ea3/<span class="constant">Specs</span>/<span class="constant">LTFramework</span>/<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>/<span class="constant">LTFramework</span>.podspec.json</span><br><span class="line"></span>  -<span class="ruby"> <span class="constant">Log</span> <span class="symbol">messages:</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="constant">January</span> <span class="number">20</span>th, <span class="number">06</span><span class="symbol">:</span><span class="number">51</span><span class="symbol">:</span> <span class="constant">Push</span> <span class="keyword">for</span> <span class="string">`LTFramework 0.0.1' initiated.</span><br><span class="line"></span></span>    -<span class="ruby"><span class="string"> January 20th, 06:51: Push for `</span><span class="constant">LTFramework</span> <span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span><span class="string">' has been pushed</span><br><span class="line"></span></span>    (1.537698607 s).</span><br></pre></td></tr></table></figure>
-<p>6.成功后要搜索</p>
+<p>4.成功后可搜索</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">pod</span> search LTFramework</span><br></pre></td></tr></table></figure>
 <p>如果有以下提示，说明该库已经上传成功并且可以供其它开发者使用了</p>
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">&gt; <span class="constant">LTFramework</span> (<span class="number">0</span>.<span class="number">0</span>.<span class="number">1</span>)</span><br><span class="line"></span>   CocoaPods 测试.</span><br><span class="line">   pod 'LTFramework', '~&gt; 0.0.1'</span><br><span class="line">   -<span class="ruby"> <span class="constant">Homepage</span><span class="symbol">:</span> <span class="symbol">https:</span>/<span class="regexp">/github.com/limaofuyuanzhang</span><span class="regexp">/LTFramework</span><br><span class="line"></span></span>   -<span class="ruby"><span class="regexp"> Source:   https:/</span><span class="regexp">/github.com/limaofuyuanzhang</span><span class="regexp">/LTFramework.git</span><br><span class="line"></span></span>   -<span class="ruby"><span class="regexp"> Versions: 0.0.1 [master repo]</span></span></span><br></pre></td></tr></table></figure>
@@ -320,13 +320,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/20/cocoapod_use2/">使用CocoaPods上传自己的库</a></p>
+        <p><span>本文标题:</span><a href="/2016/01/24/cocoapod_use2/">使用CocoaPods上传自己的库</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月20日 - 20时55分</p>
-        <p><span>最后更新:</span>2016年01月20日 - 20时55分</p>
+        <p><span>发布时间:</span>2016年01月24日 - 14时48分</p>
+        <p><span>最后更新:</span>2016年01月24日 - 14时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/20/cocoapod_use2/" title="使用CocoaPods上传自己的库">http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_use2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_use2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/24/cocoapod_use2/" title="使用CocoaPods上传自己的库">http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -340,15 +340,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/20/cocoapod_user1/">
-                    CocoaPods的使用
+                <a href="/2016/02/22/iOSLearn-5-1/">
+                    自动旋转和自动调整大小
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/18/iOS_Framework/">
-                    Framework制作步骤
+                <a href="/2016/01/24/cocoapods_use4/">
+                    CocoaPods-podspec文件详解
                 </a>
             </div>
         
@@ -423,7 +423,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/20/cocoapod_use2/" data-title="使用CocoaPods上传自己的库" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/20/cocoapod_use2/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/24/cocoapod_use2/" data-title="使用CocoaPods上传自己的库" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -447,7 +447,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/20/cocoapod_user1/" title="上一篇: CocoaPods的使用">
+            <a href="/2016/02/22/iOSLearn-5-1/" title="上一篇: 自动旋转和自动调整大小">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -455,13 +455,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/18/iOS_Framework/" title="下一篇: Framework制作步骤">
+            <a href="/2016/01/24/cocoapods_use4/" title="下一篇: CocoaPods-podspec文件详解">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/cocoapod_user1/">CocoaPods的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/RESideMenu_usage/">RESideMenu的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/02/22/iOSLearn-5-1/">自动旋转和自动调整大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/cocoapod_use1/">CocoaPods的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/RESideMenu_usage/">RESideMenu的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/12/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/07/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTful API</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/06/Singleton/">单例</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");

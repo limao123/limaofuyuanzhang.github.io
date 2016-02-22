@@ -3,21 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>RESideMenu的使用 | 狸猫副园长的技术窝</title>
+  <title>自动旋转和自动调整大小 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RESideMenu使用方法简述。">
+  <meta name="description" content="关于自动旋转和自动调整大小的相关知识。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RESideMenu的使用">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/index.html">
+<meta property="og:title" content="自动旋转和自动调整大小">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/02/22/iOSLearn-5-1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="RESideMenu使用方法简述。">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863412422.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863548069.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14488863682908.jpg">
-<meta property="og:updated_time" content="2016-01-13T14:19:19.000Z">
+<meta property="og:description" content="关于自动旋转和自动调整大小的相关知识。">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14561119302324.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14561472052711.jpg">
+<meta property="og:updated_time" content="2016-02-22T13:43:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RESideMenu的使用">
-<meta name="twitter:description" content="RESideMenu使用方法简述。">
+<meta name="twitter:title" content="自动旋转和自动调整大小">
+<meta name="twitter:description" content="关于自动旋转和自动调整大小的相关知识。">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -219,11 +218,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-RESideMenu_usage" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn-5-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/13/RESideMenu_usage/" class="article-date">
-      <time datetime="2016-01-13T14:19:19.000Z" itemprop="datePublished">2016-01-13</time>
+      <a href="/2016/02/22/iOSLearn-5-1/" class="article-date">
+      <time datetime="2016-02-22T13:43:49.000Z" itemprop="datePublished">2016-02-22</time>
 </a>
     </div>
   
@@ -236,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      RESideMenu的使用
+      自动旋转和自动调整大小
     </h1>
   
 
@@ -251,7 +250,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RESideMenu/">RESideMenu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -261,27 +260,25 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>不多说，直接上图看效果，RESideMenu就是这种点击一下左上角或者右上角就显示出菜单，而原来的界面进行缩放的效果。开源库的下载链接为<a href="https://github.com/romaonthego/RESideMenu" target="_blank" rel="external">https://github.com/romaonthego/RESideMenu</a></p>
-<p><img src="/images/14488863412422.jpg" alt=""></p>
-<h1 id="u4F7F_u7528_u8BF4_u660E"><a href="#u4F7F_u7528_u8BF4_u660E" class="headerlink" title="使用说明"></a>使用说明</h1><p>1.先下载开源库将库导入至工程。</p>
-<p><img src="/images/14488863548069.jpg" alt=""></p>
-<p>2.创建主界面和目录界面，这里我创建了两个ViewController,一个是用以显示主界面PostDisplayViewController，另一个用以显示侧边目录，叫MenuViewController。</p>
-<p><img src="/images/14488863682908.jpg" alt=""></p>
-<p>3.在AppDelegate.h中声明RESideMenu委托</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@interface</span> <span class="attribute">AppDelegate </span>: UIResponder &lt;UIApplicationDelegate,RESideMenuDelegate&gt;</span><br><span class="line"></span><br><span class="line"><span class="variable">@property</span> (strong, nonatomic) UIWindow *window;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">@end</span></span><br></pre></td></tr></table></figure>
-<p>4.在AppDelegate.m中进行如下设置，这里的主要工作有以下几点</p>
-<ul>
-<li>告诉RESideMenu内容界面是哪个，左目录界面以及右目录界面（示例代码未加入右目录，读者可自行添加）；</li>
-<li>界面背景以及设置显示左右目录时，内容界面缩放后的阴影效果；</li>
-<li>设置移动手势以及在显示和关闭目录时的需要做的动作。</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span> = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//帖子界面，用导航视图控制器来显示，方便管理跳转</span></span><br><span class="line">    <span class="built_in">UINavigationController</span> *navigationController = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:[[PostDisplayViewController alloc] init]];</span><br><span class="line">    <span class="comment">//菜单界面</span></span><br><span class="line">    MenuViewController *menuViewController = [[MenuViewController alloc] init];</span><br><span class="line">    <span class="comment">//加入至sizeMenu中</span></span><br><span class="line">    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController leftMenuViewController:menuViewController rightMenuViewController:<span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/** 属性设置 */</span></span><br><span class="line">    <span class="comment">//背景图像，左右目录都会使用这个图像</span></span><br><span class="line">    sideMenuViewController<span class="variable">.backgroundImage</span> = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"Stars"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//设置StatusBarStyle类型</span></span><br><span class="line">    sideMenuViewController<span class="variable">.menuPreferredStatusBarStyle</span> = <span class="built_in">UIStatusBarStyleLightContent</span>;</span><br><span class="line">    <span class="comment">//设置委托</span></span><br><span class="line">    sideMenuViewController<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">    <span class="comment">//设置阴影颜色</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowColor</span> = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">    <span class="comment">//设置阴影偏移</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowOffset</span> = <span class="built_in">CGSizeMake</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="comment">//设置阴影透明度</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowOpacity</span> = <span class="number">0.6</span>;</span><br><span class="line">    <span class="comment">//设置阴影半径</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowRadius</span> = <span class="number">12</span>;</span><br><span class="line">    <span class="comment">//开启阴影效果</span></span><br><span class="line">    sideMenuViewController<span class="variable">.contentViewShadowEnabled</span> = <span class="literal">YES</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将sideMenuViewCOntroller设置为根视图</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.rootViewController</span> = sideMenuViewController;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span><span class="variable">.window</span><span class="variable">.backgroundColor</span> = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.window</span> makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>有需求可以实现以下委托</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//检测拖动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didRecognizePanGesture:(<span class="built_in">UIPanGestureRecognizer</span> *)recognizer;</span><br><span class="line"><span class="comment">//目录显示前</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录显示后</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录隐藏前</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br><span class="line"><span class="comment">//目录隐藏后</span></span><br><span class="line">- (<span class="keyword">void</span>)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(<span class="built_in">UIViewController</span> *)menuViewController;</span><br></pre></td></tr></table></figure>
-<ol>
-<li>在主视图加入左右按键用以显示左右目录，以下代码只演示了如何显示左目录，右目录的显示只需要将selector换成presentRightMenuViewController: 即可。</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    <span class="comment">//设置主视图信息</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.title</span> = <span class="string">@"内容界面"</span>;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.navigationItem</span><span class="variable">.leftBarButtonItem</span> = [[<span class="built_in">UIBarButtonItem</span> alloc] initWithTitle:<span class="string">@"左目录"</span> style:<span class="built_in">UIBarButtonItemStylePlain</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(presentLeftMenuViewController:)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>iOS支持在旋转设备时更改应用程序的方向，这种行为称为自动旋转。</p>
+<h1 id="u9009_u62E9_u89C6_u56FE_u652F_u6301_u65B9_u5411"><a href="#u9009_u62E9_u89C6_u56FE_u652F_u6301_u65B9_u5411" class="headerlink" title="选择视图支持方向"></a>选择视图支持方向</h1><p>视图支持方向可以的设置有两种，一种是应用级的设置，一种是视图级的设置</p>
+<h2 id="u5E94_u7528_u7EA7_u8BBE_u7F6E"><a href="#u5E94_u7528_u7EA7_u8BBE_u7F6E" class="headerlink" title="应用级设置"></a>应用级设置</h2><p>target/General/Deployment Info</p>
+<p><img src="/images/14561119302324.jpg" alt=""></p>
+<h2 id="u89C6_u56FE_u7EA7_u8BBE_u7F6E"><a href="#u89C6_u56FE_u7EA7_u8BBE_u7F6E" class="headerlink" title="视图级设置"></a>视图级设置</h2><p>视图级设置是依赖于应用级设置的，也就是说，视图级的设置支持方向集合必须是应用级设置集合的子集。</p>
+<p>设置方法为重写UIViewController的以下方法。</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIInterfaceOrientationMask</span>)supportedInterfaceOrientations&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">UIInterfaceOrientationMaskPortrait</span>| <span class="built_in">UIInterfaceOrientationMaskLandscapeLeft</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>支持的掩码如下</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NS_OPTIONS</span>(<span class="built_in">NSUInteger</span>, <span class="built_in">UIInterfaceOrientationMask</span>) &#123;</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskPortrait</span> = (<span class="number">1</span> &lt;&lt; <span class="built_in">UIInterfaceOrientationPortrait</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskLandscapeLeft</span> = (<span class="number">1</span> &lt;&lt; <span class="built_in">UIInterfaceOrientationLandscapeLeft</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskLandscapeRight</span> = (<span class="number">1</span> &lt;&lt; <span class="built_in">UIInterfaceOrientationLandscapeRight</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskPortraitUpsideDown</span> = (<span class="number">1</span> &lt;&lt; <span class="built_in">UIInterfaceOrientationPortraitUpsideDown</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskLandscape</span> = (<span class="built_in">UIInterfaceOrientationMaskLandscapeLeft</span> | <span class="built_in">UIInterfaceOrientationMaskLandscapeRight</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskAll</span> = (<span class="built_in">UIInterfaceOrientationMaskPortrait</span> | <span class="built_in">UIInterfaceOrientationMaskLandscapeLeft</span> | <span class="built_in">UIInterfaceOrientationMaskLandscapeRight</span> | <span class="built_in">UIInterfaceOrientationMaskPortraitUpsideDown</span>),</span><br><span class="line">    <span class="built_in">UIInterfaceOrientationMaskAllButUpsideDown</span> = (<span class="built_in">UIInterfaceOrientationMaskPortrait</span> | <span class="built_in">UIInterfaceOrientationMaskLandscapeLeft</span> | <span class="built_in">UIInterfaceOrientationMaskLandscapeRight</span>),</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="u8BBE_u8BA1_u754C_u9762"><a href="#u8BBE_u8BA1_u754C_u9762" class="headerlink" title="设计界面"></a>设计界面</h1><p>当界面发生旋转时，由于宽高发生了变化，因此需要对视图作一定处理，一般有以下两种方法：</p>
+<p>1.对视图的控件添加约束，使得不管是竖屏还是横屏，控件之间的相对位置都不变<br>2.当横竖屏转换时，控件之间的相对位置都要进行调整，则应该在旋转时重构视图</p>
+<p>添加约束这里就不展开了，只描述一下如果进行重构视图。</p>
+<p>1）关闭自动约束<br><img src="/images/14561472052711.jpg" alt=""></p>
+<p>2）在旋转开始后，最后的旋转动画发生前重构视图，即复写-(void)willAnimateRotationToInterfaceOrientation:duration:方法。</p>
+<p>以下是一样例</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration&#123;</span><br><span class="line">    [<span class="keyword">self </span>doLayoutForOrientation:toInterfaceOrientation]<span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)doLayoutForOrientation:(UIInterfaceOrientation)orientation&#123;</span><br><span class="line">    <span class="preprocessor">if</span> (UIInterfaceOrientationIsPortrait(orientation)) &#123;</span><br><span class="line">        [<span class="keyword">self </span>layoutPortrait]<span class="comment">;</span></span><br><span class="line">    &#125; <span class="preprocessor">else</span> &#123;</span><br><span class="line">        [<span class="keyword">self </span>layoutLandscace]<span class="comment">;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="label">static</span> const CGFloat <span class="keyword">buttonHeight </span>= <span class="number">40</span><span class="comment">;</span></span><br><span class="line"><span class="label">static</span> const CGFloat <span class="keyword">buttonWidth </span>= <span class="number">120</span><span class="comment">;</span></span><br><span class="line"><span class="label">static</span> const CGFloat spacing = <span class="number">20</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">- (void)layoutPortrait&#123;</span><br><span class="line">    CGRect <span class="keyword">b </span>= <span class="keyword">self.view.bounds;</span><br><span class="line"></span>    CGFloat contentWidth = CGRectGetWidth(<span class="keyword">b) </span>- (<span class="number">2</span> * spacing)<span class="comment">;</span></span><br><span class="line">    CGFloat contentHeight = CGRectGetHeight(<span class="keyword">b) </span>- (<span class="number">4</span> * spacing) - (<span class="number">2</span> * <span class="keyword">buttonWidth);</span><br><span class="line"></span>    <span class="keyword">self.contentView.frame </span>= CGRectMake(spacing, spacing, contentWidth, contentHeight)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    CGFloat <span class="keyword">buttonRow1y </span>= contentHeight + ( <span class="number">2</span> * spacing)<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonRow2y </span>= <span class="keyword">buttonRow1y </span>+ <span class="keyword">buttonHeight </span>+ spacing<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    CGFloat <span class="keyword">buttonCol1x </span>= spacing<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonCol2x </span>= CGRectGetWidth(<span class="keyword">b) </span>- <span class="keyword">buttonWidth </span>- spacing<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self.actionButton1.frame </span>= CGRectMake(<span class="keyword">buttonCol1x, </span><span class="keyword">buttonRow1y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton2.frame </span>= CGRectMake(<span class="keyword">buttonCol2x, </span><span class="keyword">buttonRow1y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton3.frame </span>= CGRectMake(<span class="keyword">buttonCol1x, </span><span class="keyword">buttonRow2y, </span><span class="keyword">buttonWidth,buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton4.frame </span>= CGRectMake(<span class="keyword">buttonCol2x, </span><span class="keyword">buttonRow2y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>&#125;</span><br><span class="line"></span><br><span class="line">- (void)layoutLandscace&#123;</span><br><span class="line">    CGRect <span class="keyword">b </span>= <span class="keyword">self.view.bounds;</span><br><span class="line"></span>    </span><br><span class="line">    CGFloat contentWidth = CGRectGetWidth(<span class="keyword">b) </span>- <span class="keyword">buttonWidth </span>- (<span class="number">3</span> * spacing)<span class="comment">;</span></span><br><span class="line">    CGFloat contentHeight = CGRectGetHeight(<span class="keyword">b) </span>- (<span class="number">2</span> * spacing)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self.contentView.frame </span>= CGRectMake(spacing, spacing, contentWidth, contentHeight)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    CGFloat <span class="keyword">buttonX </span>= CGRectGetWidth(<span class="keyword">b) </span>- <span class="keyword">buttonWidth </span>- spacing<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonRow1y </span>= spacing<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonRow4y </span>= CGRectGetHeight(<span class="keyword">b) </span>- <span class="keyword">buttonHeight </span>- spacing<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonRow2y </span>= <span class="keyword">buttonRow1y </span>+ floor((<span class="keyword">buttonRow4y </span>- <span class="keyword">buttonRow1y) </span>* <span class="number">0</span>.<span class="number">333</span>)<span class="comment">;</span></span><br><span class="line">    CGFloat <span class="keyword">buttonRow3y </span>= <span class="keyword">buttonRow1y </span>+ floor((<span class="keyword">buttonRow4y </span>- <span class="keyword">buttonRow1y) </span>* <span class="number">0</span>.<span class="number">666</span>)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self.actionButton1.frame </span>= CGRectMake(<span class="keyword">buttonX, </span><span class="keyword">buttonRow1y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton2.frame </span>= CGRectMake(<span class="keyword">buttonX, </span><span class="keyword">buttonRow2y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton3.frame </span>= CGRectMake(<span class="keyword">buttonX, </span><span class="keyword">buttonRow3y, </span><span class="keyword">buttonWidth,buttonHeight);</span><br><span class="line"></span>    <span class="keyword">self.actionButton4.frame </span>= CGRectMake(<span class="keyword">buttonX, </span><span class="keyword">buttonRow4y, </span><span class="keyword">buttonWidth, </span><span class="keyword">buttonHeight);</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>3)设置视图的初始位置</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line">    <span class="built_in">UIInterfaceOrientation</span> currentOrientation = app<span class="variable">.statusBarOrientation</span>;</span><br><span class="line">    [<span class="keyword">self</span> doLayoutForOrientation:currentOrientation];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完整工程链接为<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/05-Restructure" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/05-Restructure</a></p>
 
       
     </div>
@@ -290,13 +287,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/13/RESideMenu_usage/">RESideMenu的使用</a></p>
+        <p><span>本文标题:</span><a href="/2016/02/22/iOSLearn-5-1/">自动旋转和自动调整大小</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月13日 - 22时19分</p>
-        <p><span>最后更新:</span>2016年01月13日 - 22时19分</p>
+        <p><span>发布时间:</span>2016年02月22日 - 21时43分</p>
+        <p><span>最后更新:</span>2016年02月22日 - 21时43分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/13/RESideMenu_usage/" title="RESideMenu的使用">http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/22/iOSLearn-5-1/" title="自动旋转和自动调整大小">http://limaofuyuanzhang.gitcafe.io/2016/02/22/iOSLearn-5-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/02/22/iOSLearn-5-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -309,16 +306,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/18/iOS_Framework/">
-                    Framework制作步骤
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/13/pragma_mark_use/">
-                    pragma mark的用法
+                <a href="/2016/01/24/cocoapod_use2/">
+                    使用CocoaPods上传自己的库
                 </a>
             </div>
         
@@ -329,7 +320,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4F7F_u7528_u8BF4_u660E"><span class="toc-number">2.</span> <span class="toc-text">使用说明</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u9009_u62E9_u89C6_u56FE_u652F_u6301_u65B9_u5411"><span class="toc-number">2.</span> <span class="toc-text">选择视图支持方向</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#u5E94_u7528_u7EA7_u8BBE_u7F6E"><span class="toc-number">2.1.</span> <span class="toc-text">应用级设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u89C6_u56FE_u7EA7_u8BBE_u7F6E"><span class="toc-number">2.2.</span> <span class="toc-text">视图级设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u8BBE_u8BA1_u754C_u9762"><span class="toc-number">3.</span> <span class="toc-text">设计界面</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -393,7 +384,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/13/RESideMenu_usage/" data-title="RESideMenu的使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/13/RESideMenu_usage/"></div>
+    <div class="ds-thread" data-thread-key="2016/02/22/iOSLearn-5-1/" data-title="自动旋转和自动调整大小" data-url="http://limaofuyuanzhang.gitcafe.io/2016/02/22/iOSLearn-5-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -417,15 +408,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/18/iOS_Framework/" title="上一篇: Framework制作步骤">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/13/pragma_mark_use/" title="下一篇: pragma mark的用法">
+            <a href="/2016/01/24/cocoapod_use2/" title="下一篇: 使用CocoaPods上传自己的库">
                 <i class="fa fa-angle-right"></i>
             </a>
         
