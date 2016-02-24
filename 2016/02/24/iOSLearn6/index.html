@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift可选类型 | 狸猫副园长的技术窝</title>
+  <title>多视图应用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="swift可选类型学习～">
+  <meta name="description" content="《精通iOS开发》第6章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift可选类型">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/index.html">
+<meta property="og:title" content="多视图应用">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/02/24/iOSLearn6/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="swift可选类型学习～">
-<meta property="og:updated_time" content="2016-01-11T23:30:13.000Z">
+<meta property="og:description" content="《精通iOS开发》第6章笔记">
+<meta property="og:updated_time" content="2016-02-24T12:32:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift可选类型">
-<meta name="twitter:description" content="swift可选类型学习～">
+<meta name="twitter:title" content="多视图应用">
+<meta name="twitter:description" content="《精通iOS开发》第6章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +216,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swift_optional" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn6" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/swift_optional/" class="article-date">
-      <time datetime="2016-01-11T23:30:13.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/02/24/iOSLearn6/" class="article-date">
+      <time datetime="2016-02-24T12:32:42.000Z" itemprop="datePublished">2016-02-24</time>
 </a>
     </div>
   
@@ -233,7 +233,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift可选类型
+      多视图应用
     </h1>
   
 
@@ -248,7 +248,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,36 +258,9 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>在 Objective-C 中，我们用 <code>nil</code> 来表示对象为空。而在 swift 中 <code>nil</code> 则有不同的含义。</p>
-<p>首先，介绍一下可选类型。可选类型表示</p>
-<ul>
-<li>无值</li>
-<li>有值，等于x</li>
-</ul>
-<p>如声明如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//var varName: Type? (=x)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一个有值的可选整型 </span></span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//一个无值的可选整型</span></span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>?</span><br><span class="line"><span class="keyword">var</span> a : <span class="type">Int</span>? = <span class="literal">nil</span></span><br></pre></td></tr></table></figure>
-<p>在 swift 中，<code>nil</code> 表示的是值缺失。</p>
-<h1 id="if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><a href="#if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790" class="headerlink" title="if 语句以及强制解析"></a>if 语句以及强制解析</h1><p>可选类型可在 if 语句中与 <code>nil</code> 进入比较，如果不为 <code>nil</code> ，可在变量名后面加 <code>!</code> 进行强制输出。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i: <span class="type">Int</span>? = <span class="number">10</span></span><br><span class="line"><span class="keyword">if</span> i != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="comment">//!强制输出，需要确保可选类型不为空</span></span><br><span class="line">    <span class="built_in">print</span>(i!)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u53EF_u9009_u7ED1_u5B9A"><a href="#u53EF_u9009_u7ED1_u5B9A" class="headerlink" title="可选绑定"></a>可选绑定</h1><p>使用可选绑定（optional binding）来判断可选类型是否包含值，如果包含就把值赋给一个临时可选绑定可以用在if和while语句中，这条语句不仅可以用来判断可选类型中是否有值，同时可以将可选类型中的值赋给一个常量或者变量。</p>
-<p>一般可用在返回是可选类型的方法中，代码如下：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleNumber = <span class="string">"123"</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> actualNumber = <span class="type">Int</span>(possibleNumber) &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\'<span class="subst">\(possibleNumber)</span>\' has an integer value of <span class="subst">\(actualNumber)</span>"</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"\'<span class="subst">\(possibleNumber)</span>\' could not be converted to an integer"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出 "'123' has an integer value of 123”</span></span><br></pre></td></tr></table></figure>
-<p>这段代码可以被理解为：</p>
-<p>如果Int(possibleNumber)返回的可选Int包含一个值，创建一个叫做actualNumber的新常量并将可选包含的值赋给它。</p>
-<p>如果转换成功，actualNumber常量可以在if语句的第一个分支中使用。它已经被可选类型包含的值初始化过，所以不需要再使用!后缀来获取它的值。在这个例子中，actualNumber只被用来输出转换结果。</p>
-<h1 id="u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><a href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B" class="headerlink" title="隐式解析可选类型"></a>隐式解析可选类型</h1><p>有时候在程序架构中，第一次被赋值之后，可以确定一个可选类型总会有值。在这种情况下，每次都要判断和解析可选值是非常低效的，因为可以确定它总会有值。</p>
-<p>这种类型的可选状态被定义为隐式解析可选类型（implicitly unwrapped optionals）。把想要用作可选的类型的后面的问号（String?）改成感叹号（String!）来声明一个隐式解析可选类型。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> possibleString: <span class="built_in">String</span>? = <span class="string">"An optional string."</span></span><br><span class="line"><span class="keyword">let</span> forcedString: <span class="built_in">String</span> = possibleString! <span class="comment">// 需要惊叹号来获取值</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> assumedString: <span class="built_in">String</span>! = <span class="string">"An implicitly unwrapped optional string."</span></span><br><span class="line"><span class="keyword">let</span> implicitString: <span class="built_in">String</span> = assumedString  <span class="comment">// 不需要感叹号</span></span><br></pre></td></tr></table></figure>
-<h1 id="u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29"><a href="#u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29" class="headerlink" title="空合运算符(Nil Coalescing Operator)"></a>空合运算符(Nil Coalescing Operator)</h1><p>空合运算符(a ?? b)将对可选类型a进行空判断，如果a包含一个值就进行解封，否则就返回一个默认值b.这个运算符有两个条件:</p>
-<ul>
-<li>表达式a必须是Optional类型</li>
-<li>默认值b的类型必须要和a存储值的类型保持一致</li>
-</ul>
-<p>观察以下两个例子：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> defaultColorName = <span class="string">"red"</span></span><br><span class="line"><span class="keyword">var</span> userDefinedColorName: <span class="type">String</span>?   <span class="comment">//默认值为 nil</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName</span><br><span class="line"><span class="comment">// userDefinedColorName 的值为空，所以 colorNameToUse 的值为 "red"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">userDefinedColorName = <span class="string">"green"</span></span><br><span class="line">colorNameToUse = userDefinedColorName ?? defaultColorName</span><br><span class="line"><span class="comment">// userDefinedColorName 非空，因此 colorNameToUse 的值为 "green”</span></span><br></pre></td></tr></table></figure>
-<h1 id="u901F_u8BB0"><a href="#u901F_u8BB0" class="headerlink" title="速记"></a>速记</h1><p>可选类型是一种新类型，可表示无值，表示方法为在声明变量后面加 <code>?</code>，有值时在后面加 <code>!</code> 来读取。而如果可选类型我们确定其有值并且以为一直都有值，我们可以在声明变量时在后面加 <code>!</code>，则读取时就不再需要 <code>!</code> 。</p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/01_The_Basics.html#4fa4f39154d3fc1624099c34182adbfb" target="_blank" rel="external">The Swift Programming Language 中文版-基础部分（The Basics）-可选类型</a></p>
+        <p>本章构建了一个视图切换器应用。视图切换不一定通过切换视图控制器来实现，可以直接通过修改根视图控制器上的内容视图来实现。具体看以下代码</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.blueViewController</span> = [<span class="keyword">self</span><span class="variable">.storyboard</span> instantiateViewControllerWithIdentifier:<span class="string">@"Blue"</span>];</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.view</span> insertSubview:<span class="keyword">self</span><span class="variable">.blueViewController</span><span class="variable">.view</span> atIndex:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.blueViewController</span><span class="variable">.view</span><span class="variable">.superview</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.blueViewController</span> = <span class="literal">nil</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.yellowViewController</span> = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)switchView:(<span class="keyword">id</span>)sender&#123;</span><br><span class="line">    <span class="comment">//如果该视图没有父视图，则释放它</span></span><br><span class="line">    <span class="comment">//当前显示是蓝</span></span><br><span class="line">    [<span class="built_in">UIView</span> beginAnimations:<span class="string">@"View Flip"</span> context:<span class="literal">NULL</span>];</span><br><span class="line">    [<span class="built_in">UIView</span> setAnimationDuration:<span class="number">5</span>];</span><br><span class="line">    [<span class="built_in">UIView</span> setAnimationCurve:<span class="built_in">UIViewAnimationCurveEaseInOut</span>];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.yellowViewController</span><span class="variable">.view</span><span class="variable">.superview</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.yellowViewController</span>) &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.yellowViewController</span> = [<span class="keyword">self</span><span class="variable">.storyboard</span> instantiateViewControllerWithIdentifier:<span class="string">@"Yellow"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.blueViewController</span><span class="variable">.view</span> removeFromSuperview];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span> insertSubview:<span class="keyword">self</span><span class="variable">.yellowViewController</span><span class="variable">.view</span> atIndex:<span class="number">0</span>];</span><br><span class="line">        [<span class="built_in">UIView</span> setAnimationTransition:<span class="built_in">UIViewAnimationTransitionFlipFromRight</span> forView:<span class="keyword">self</span><span class="variable">.view</span> cache:<span class="literal">YES</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//当前显示是黄</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="keyword">self</span><span class="variable">.blueViewController</span>) &#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.blueViewController</span> = [<span class="keyword">self</span><span class="variable">.storyboard</span> instantiateViewControllerWithIdentifier:<span class="string">@"Blue"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.yellowViewController</span><span class="variable">.view</span> removeFromSuperview];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.view</span> insertSubview:<span class="keyword">self</span><span class="variable">.blueViewController</span><span class="variable">.view</span> atIndex:<span class="number">0</span>];</span><br><span class="line">        [<span class="built_in">UIView</span> setAnimationTransition:<span class="built_in">UIViewAnimationTransitionFlipFromLeft</span> forView:<span class="keyword">self</span><span class="variable">.view</span> cache:<span class="literal">YES</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="built_in">UIView</span> commitAnimations];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>项目链接:<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/06-ViewSwitcher" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/06-ViewSwitcher</a></p>
 
       
     </div>
@@ -296,13 +269,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/swift_optional/">swift可选类型</a></p>
+        <p><span>本文标题:</span><a href="/2016/02/24/iOSLearn6/">多视图应用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 07时30分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 07时30分</p>
+        <p><span>发布时间:</span>2016年02月24日 - 20时32分</p>
+        <p><span>最后更新:</span>2016年02月24日 - 20时32分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/swift_optional/" title="swift可选类型">http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/24/iOSLearn6/" title="多视图应用">http://limaofuyuanzhang.gitcafe.io/2016/02/24/iOSLearn6/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/02/24/iOSLearn6/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -315,16 +288,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/swift_range_operator/">
-                    swift区间运算符
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/11/enum_use/">
-                    Objective-C中枚举类型的写法
+                <a href="/2016/02/22/iOSLearn-5-1/">
+                    自动旋转和自动调整大小
                 </a>
             </div>
         
@@ -335,7 +302,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#if__u8BED_u53E5_u4EE5_u53CA_u5F3A_u5236_u89E3_u6790"><span class="toc-number">2.</span> <span class="toc-text">if 语句以及强制解析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53EF_u9009_u7ED1_u5B9A"><span class="toc-number">3.</span> <span class="toc-text">可选绑定</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u9690_u5F0F_u89E3_u6790_u53EF_u9009_u7C7B_u578B"><span class="toc-number">4.</span> <span class="toc-text">隐式解析可选类型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u7A7A_u5408_u8FD0_u7B97_u7B26_28Nil_Coalescing_Operator_29"><span class="toc-number">5.</span> <span class="toc-text">空合运算符(Nil Coalescing Operator)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u901F_u8BB0"><span class="toc-number">6.</span> <span class="toc-text">速记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -399,7 +366,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/swift_optional/" data-title="swift可选类型" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/12/swift_optional/"></div>
+    <div class="ds-thread" data-thread-key="2016/02/24/iOSLearn6/" data-title="多视图应用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/02/24/iOSLearn6/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -423,15 +390,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/swift_range_operator/" title="上一篇: swift区间运算符">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/11/enum_use/" title="下一篇: Objective-C中枚举类型的写法">
+            <a href="/2016/02/22/iOSLearn-5-1/" title="下一篇: 自动旋转和自动调整大小">
                 <i class="fa fa-angle-right"></i>
             </a>
         
