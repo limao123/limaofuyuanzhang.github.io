@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>单例 | 狸猫副园长的技术窝</title>
+  <title>NSDatePicker的简单使用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于单例在iOS中的使用。">
+  <meta name="description" content="《精通iOS开发》第7章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/index.html">
+<meta property="og:title" content="NSDatePicker的简单使用">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/02/25/NSDatePicker简单使用/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="关于单例在iOS中的使用。">
-<meta property="og:updated_time" content="2016-01-06T03:42:40.000Z">
+<meta property="og:description" content="《精通iOS开发》第7章笔记">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14564088427203.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14564088848208.jpg">
+<meta property="og:updated_time" content="2016-02-25T14:19:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例">
-<meta name="twitter:description" content="关于单例在iOS中的使用。">
+<meta name="twitter:title" content="NSDatePicker的简单使用">
+<meta name="twitter:description" content="《精通iOS开发》第7章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +218,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Singleton" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-NSDatePicker简单使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/06/Singleton/" class="article-date">
-      <time datetime="2016-01-06T03:42:40.000Z" itemprop="datePublished">2016-01-06</time>
+      <a href="/2016/02/25/NSDatePicker简单使用/" class="article-date">
+      <time datetime="2016-02-25T14:19:32.000Z" itemprop="datePublished">2016-02-25</time>
 </a>
     </div>
   
@@ -233,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      单例
+      NSDatePicker的简单使用
     </h1>
   
 
@@ -242,13 +244,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例/">单例</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,13 +260,48 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u4ECB_u7ECD"><a href="#u4ECB_u7ECD" class="headerlink" title="介绍"></a>介绍</h1><p>1、官方文档写法</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> AccountManager *DefaultManager = <span class="literal">nil</span>;</span><br><span class="line"> </span><br><span class="line">+ (AccountManager *)defaultManager &#123;</span><br><span class="line">    <span class="keyword">if</span> (!DefaultManager) DefaultManager = [[<span class="keyword">self</span> allocWithZone:<span class="literal">NULL</span>] init];</span><br><span class="line">    <span class="keyword">return</span> DefaultManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2、来自 objcolumnist</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+ (AccountManager *)sharedManager</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">static</span> AccountManager *sharedAccountManagerInstance = <span class="literal">nil</span>;</span><br><span class="line">        <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">        <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">                sharedAccountManagerInstance = [[<span class="keyword">self</span> alloc] init]; </span><br><span class="line">        &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedAccountManagerInstance;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>该写法满足三个特性：<br>1）线程安全。<br>2）满足静态分析器的要求。<br>3）兼容了ARC</p>
-<h1 id="u6837_u4F8B"><a href="#u6837_u4F8B" class="headerlink" title="样例"></a>样例</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">BmobIMNetwork</span> ()&lt;<span class="title">GCDAsyncSocketDelegate</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) GCDAsyncSocket *gcdAsyncSocket;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableData</span> *packet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">BmobIMNetwork</span></span></span><br><span class="line"></span><br><span class="line">+ (BmobIMNetwork *)sharedBmobIMNetwork</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> BmobIMNetwork *sharedBmobIMNetworkInstance = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> predicate;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;predicate, ^&#123;</span><br><span class="line">        sharedBmobIMNetworkInstance = [[<span class="keyword">self</span> alloc] initPritate];</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> sharedBmobIMNetworkInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)initPritate&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        _gcdAsyncSocket = [[GCDAsyncSocket alloc] initWithDelegate:<span class="keyword">self</span> delegateQueue:dispatch_get_main_queue()];</span><br><span class="line">        _packet = [[<span class="built_in">NSData</span> alloc] init];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (instancetype)init&#123;</span><br><span class="line">    <span class="keyword">@throw</span> [[<span class="built_in">NSException</span> alloc] initWithName:<span class="string">@"Singleton"</span> reason:<span class="string">@"Use + [BmobIMNetwork sharedBmobIMNetwork]"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/ygm900/p/3607143.html" target="_blank" rel="external">iOS 创建单例的两种方法</a></p>
+        <p>控件库里直接可以拖动使用。</p>
+<p><img src="/images/14564088427203.jpg" alt=""></p>
+<p>常用的设置</p>
+<p><img src="/images/14564088848208.jpg" alt=""></p>
+<p>这些设置作用如下表</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Mode</td>
+<td style="text-align:left">显示模式,Date：该UIDatePicker控件仅显示日期，不显示时间。Time：该UIDatePicker控件仅显示时间，不显示日期。Date and Time：该UIDatePicker控件同时显示日期和时间。Count Down Timer：该UIDatePicker控件仅显示为倒计时器。</td>
+</tr>
+<tr>
+<td style="text-align:left">Locale</td>
+<td style="text-align:left">该属性用于设置该UIDatePicker的国际化Locale，假设设置该UIDatePicker控件国际化Locale为简体中文环境，那么它将以简体中文习惯显示日期。</td>
+</tr>
+<tr>
+<td style="text-align:left">Interval</td>
+<td style="text-align:left">仅当该UIDatePicker控件采用Time、Date and Time和Count Down Timer这三种模式时有效，该属性设置UIDatePicker控件上两个时间之间的间隔。</td>
+</tr>
+<tr>
+<td style="text-align:left">Date</td>
+<td style="text-align:left">初始显示时间</td>
+</tr>
+<tr>
+<td style="text-align:left">Constraints</td>
+<td style="text-align:left">限制选择范围</td>
+</tr>
+<tr>
+<td style="text-align:left">Timer</td>
+<td style="text-align:left">仅当该UIDatePicker控件采用Count Down Timer模式时有效，该属性设置该控件作为倒计时控件时剩下的秒数。</td>
+</tr>
+</tbody>
+</table>
+<p>读出选中时间的代码如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)buttonPressed:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="built_in">NSDate</span> *selected = [<span class="keyword">self</span><span class="variable">.datePicker</span> date];</span><br><span class="line">    <span class="built_in">NSString</span> *message = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"The date and time you selected is: %@"</span>,selected];</span><br><span class="line">    <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"Date and time selected"</span> message:message delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"That's so true"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">    [alert show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>练习代码：<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/07-Pickers" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/07-Pickers</a></p>
 
       
     </div>
@@ -273,13 +310,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/06/Singleton/">单例</a></p>
+        <p><span>本文标题:</span><a href="/2016/02/25/NSDatePicker简单使用/">NSDatePicker的简单使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月06日 - 11时42分</p>
-        <p><span>最后更新:</span>2016年01月06日 - 11时42分</p>
+        <p><span>发布时间:</span>2016年02月25日 - 22时19分</p>
+        <p><span>最后更新:</span>2016年02月25日 - 22时19分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/06/Singleton/" title="单例">http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/25/NSDatePicker简单使用/" title="NSDatePicker的简单使用">http://limaofuyuanzhang.gitcafe.io/2016/02/25/NSDatePicker简单使用/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/02/25/NSDatePicker简单使用/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -292,12 +329,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/06/Bmob_Restful_API_Use/">
-                    iOS开发中使用Bmob RESTful API
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/02/24/iOSLearn6/">
+                    多视图应用
                 </a>
             </div>
-        
         
     </nav>
 
@@ -306,7 +343,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECB_u7ECD"><span class="toc-number">1.</span> <span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6837_u4F8B"><span class="toc-number">2.</span> <span class="toc-text">样例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">3.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -370,7 +407,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/06/Singleton/" data-title="单例" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/06/Singleton/"></div>
+    <div class="ds-thread" data-thread-key="2016/02/25/NSDatePicker简单使用/" data-title="NSDatePicker的简单使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/02/25/NSDatePicker简单使用/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -394,15 +431,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/06/Bmob_Restful_API_Use/" title="上一篇: iOS开发中使用Bmob RESTful API">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/02/24/iOSLearn6/" title="下一篇: 多视图应用">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
