@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Objective-C中枚举类型的写法 | 狸猫副园长的技术窝</title>
+  <title>UIPickerView的使用(1) | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C中枚举类型的写法">
+  <meta name="description" content="《精通iOS开发》第7章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C中枚举类型的写法">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/index.html">
+<meta property="og:title" content="UIPickerView的使用(1)">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/02/26/iOSLearn7-1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Objective-C中枚举类型的写法">
-<meta property="og:updated_time" content="2016-01-11T14:30:33.000Z">
+<meta property="og:description" content="《精通iOS开发》第7章笔记">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14564950815617.jpg">
+<meta property="og:updated_time" content="2016-02-26T14:01:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C中枚举类型的写法">
-<meta name="twitter:description" content="Objective-C中枚举类型的写法">
+<meta name="twitter:title" content="UIPickerView的使用(1)">
+<meta name="twitter:description" content="《精通iOS开发》第7章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +217,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-enum_use" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn7-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/11/enum_use/" class="article-date">
-      <time datetime="2016-01-11T14:30:33.000Z" itemprop="datePublished">2016-01-11</time>
+      <a href="/2016/02/26/iOSLearn7-1/" class="article-date">
+      <time datetime="2016-02-26T14:01:24.000Z" itemprop="datePublished">2016-02-26</time>
 </a>
     </div>
   
@@ -233,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Objective-C中枚举类型的写法
+      UIPickerView的使用(1)
     </h1>
   
 
@@ -248,7 +249,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,9 +259,14 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>经常都会忘记 <code>Objective-C</code> 中枚举的写法，这里记录下来作为备忘。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NS_ENUM，定义状态等普通枚举</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_ENUM</span><span class="params">(NSUInteger, TTGState)</span> </span>&#123;</span><br><span class="line">  TTGStateOK = <span class="number">0</span>,</span><br><span class="line">  TTGStateError,</span><br><span class="line">  TTGStateUnknow</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//NS_OPTIONS，定义选项</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_OPTIONS</span><span class="params">(NSUInteger, TTGDirection)</span> </span>&#123;</span><br><span class="line">  TTGDirectionNone = <span class="number">0</span>,</span><br><span class="line">  TTGDirectionTop = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">  TTGDirectionLeft = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">  TTGDirectionRight = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">  TTGDirectionBottom = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://tutuge.me/2015/03/21/effective-objective-c-5-enum/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Enum-枚举的正确使用-Effective-Objective-C-读书笔记-Item-5</a></p>
+        <p>UIPickerView使用如下：</p>
+<p>1.设置dataSource和delegate</p>
+<p><img src="/images/14564950815617.jpg" alt=""></p>
+<p>2.实现必要方法，参考如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SingleComponentPickerViewController</span> ()&lt;<span class="title">UIPickerViewDelegate</span>,<span class="title">UIPickerViewDataSource</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIPickerView</span> *singlePicker;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *characterNames;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.characterNames</span> = @[<span class="string">@"Luke"</span>,<span class="string">@"Leia"</span>,<span class="string">@"Han"</span>,<span class="string">@"Chewbacca"</span>,<span class="string">@"Artoo"</span>,<span class="string">@"Threepio"</span>,<span class="string">@"Lando"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark -</span></span><br><span class="line"><span class="preprocessor">#pragma mark Picker Data Source Methods</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//滚轮数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfComponentsInPickerView:(<span class="built_in">UIPickerView</span> *)pickerView&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//数据行数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView numberOfRowsInComponent:(<span class="built_in">NSInteger</span>)component&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="keyword">self</span><span class="variable">.characterNames</span> count];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark Picker Delegate Methods</span></span><br><span class="line"><span class="comment">//每行显示内容</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)pickerView:(<span class="built_in">UIPickerView</span> *)pickerView titleForRow:(<span class="built_in">NSInteger</span>)row forComponent:(<span class="built_in">NSInteger</span>)component&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.characterNames</span>[row];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.读取数据</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)buttonPressed:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> row = [<span class="keyword">self</span><span class="variable">.singlePicker</span> selectedRowInComponent:<span class="number">0</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *selected = <span class="keyword">self</span><span class="variable">.characterNames</span>[row];</span><br><span class="line">    <span class="built_in">NSString</span> *title = [[<span class="built_in">NSString</span> alloc] initWithFormat:<span class="string">@"You selected %@!"</span>,selected];</span><br><span class="line">    <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:title message:<span class="string">@"Thank you for choosing"</span> delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"You're Welcome"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">    [alert show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考代码：<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/07-Pickers" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/07-Pickers</a></p>
 
       
     </div>
@@ -269,13 +275,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/11/enum_use/">Objective-C中枚举类型的写法</a></p>
+        <p><span>本文标题:</span><a href="/2016/02/26/iOSLearn7-1/">UIPickerView的使用(1)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月11日 - 22时30分</p>
-        <p><span>最后更新:</span>2016年01月11日 - 22时30分</p>
+        <p><span>发布时间:</span>2016年02月26日 - 22时01分</p>
+        <p><span>最后更新:</span>2016年02月26日 - 22时01分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/11/enum_use/" title="Objective-C中枚举类型的写法">http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/26/iOSLearn7-1/" title="UIPickerView的使用(1)">http://limaofuyuanzhang.gitcafe.io/2016/02/26/iOSLearn7-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/02/26/iOSLearn7-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -288,16 +294,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/swift_optional/">
-                    swift可选类型
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/11/git_modift_commit/">
-                    如何修改git旧提交
+                <a href="/2016/02/25/NSDatePicker_use/">
+                    NSDatePicker的简单使用
                 </a>
             </div>
         
@@ -308,7 +308,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u6B63_u6587"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -372,7 +372,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/11/enum_use/" data-title="Objective-C中枚举类型的写法" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/enum_use/"></div>
+    <div class="ds-thread" data-thread-key="2016/02/26/iOSLearn7-1/" data-title="UIPickerView的使用(1)" data-url="http://limaofuyuanzhang.gitcafe.io/2016/02/26/iOSLearn7-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -396,15 +396,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/swift_optional/" title="上一篇: swift可选类型">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/11/git_modift_commit/" title="下一篇: 如何修改git旧提交">
+            <a href="/2016/02/25/NSDatePicker_use/" title="下一篇: NSDatePicker的简单使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
