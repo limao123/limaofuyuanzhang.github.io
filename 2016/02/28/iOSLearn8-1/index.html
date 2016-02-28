@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CocoaPods-Podfile进阶使用 | 狸猫副园长的技术窝</title>
+  <title>UITableView的使用(1) | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于Podfile的一些比较复杂的使用">
+  <meta name="description" content="《精通iOS开发》第8章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CocoaPods-Podfile进阶使用">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/index.html">
+<meta property="og:title" content="UITableView的使用(1)">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/02/28/iOSLearn8-1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="关于Podfile的一些比较复杂的使用">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14533033358292.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14533049371622.jpg">
-<meta property="og:updated_time" content="2016-01-21T08:37:21.000Z">
+<meta property="og:description" content="《精通iOS开发》第8章笔记">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14566516466794.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14566516704817.jpg">
+<meta property="og:updated_time" content="2016-02-28T09:34:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CocoaPods-Podfile进阶使用">
-<meta name="twitter:description" content="关于Podfile的一些比较复杂的使用">
+<meta name="twitter:title" content="UITableView的使用(1)">
+<meta name="twitter:description" content="《精通iOS开发》第8章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -218,11 +218,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-cocoapods_use3" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn8-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/21/cocoapods_use3/" class="article-date">
-      <time datetime="2016-01-21T08:37:21.000Z" itemprop="datePublished">2016-01-21</time>
+      <a href="/2016/02/28/iOSLearn8-1/" class="article-date">
+      <time datetime="2016-02-28T09:34:31.000Z" itemprop="datePublished">2016-02-28</time>
 </a>
     </div>
   
@@ -235,7 +235,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CocoaPods-Podfile进阶使用
+      UITableView的使用(1)
     </h1>
   
 
@@ -250,7 +250,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -260,19 +260,13 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="target"><a href="#target" class="headerlink" title="target"></a>target</h1><p>针对特定的target安装依赖库，目前最新的1.0.0.beta.2版本必须填写target才能安装依赖库，否则会报以下错误。</p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The dependency `<span class="javascript"></span>` <span class="keyword">is</span> <span class="keyword">not</span> used <span class="keyword">in</span> any concrete target</span><br></pre></td></tr></table></figure>
-<p>target写法如下,</p>
-<figure class="highlight cal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">target “YourTargetName” <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<h1 id="platform"><a href="#platform" class="headerlink" title="platform"></a>platform</h1><p>表示需要安装库的target的平台以及当前的deployment target版本，如果该平台版本低于依赖库可使用的最低版本，那么在安装依赖库时会报错。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span>, "4<span class="class">.0</span>"</span><br><span class="line"><span class="tag">platform</span> <span class="pseudo">:ios</span></span><br></pre></td></tr></table></figure>
-<p>如AFNetworking，它的3.0以上版本要求的最低target为iOS 7<br><img src="/images/14533033358292.jpg" alt=""></p>
-<p>如果在Podfile中写成下面这样，再安装，那将会报错<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">platform <span class="symbol">:ios</span>, ‘<span class="number">6.0</span>’</span><br><span class="line"></span><br><span class="line">target “<span class="constant">CocoapodsDemo”</span> <span class="keyword">do</span></span><br><span class="line">  pod <span class="string">'AFNetworking'</span>, <span class="string">'~&gt; 3.0'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/14533049371622.jpg" alt=""></p>
-<h1 id="source"><a href="#source" class="headerlink" title="source"></a>source</h1><p>Cocoapods的官方源地址为：<a href="https://github.com/CocoaPods/Specs.git，这个源是默认的源，如果需要从其它源下载安装依赖库，可以使用以下代码。如果定义多个源，那么" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git，这个源是默认的源，如果需要从其它源下载安装依赖库，可以使用以下代码。如果定义多个源，那么</a> CocoaPods会先从第一个源开始寻找满足要求的依赖库。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/artsy/Specs.git'</span></span><br><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/test/Specs.git'</span></span><br></pre></td></tr></table></figure>
-<h1 id="u66F4_u65B0CocoaPods"><a href="#u66F4_u65B0CocoaPods" class="headerlink" title="更新CocoaPods"></a>更新CocoaPods</h1><p>随着项目的开发，可能你的依赖库也会有所改变，针对不同的情况的更新，要使用不同的命令。<br>如果是新添加或者移除依赖库，还是使用 <code>pod install</code>，只有在你希望将Pods中的依赖库更新至更新的版本时才使用 <code>pod update</code>。<br>具体的区别可查阅博文<a href="https://guides.cocoapods.org/using/pod-install-vs-update.html" target="_blank" rel="external">pod install vs. pod update</a></p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="https://guides.cocoapods.org" target="_blank" rel="external">CocoaPods Guides</a></p>
+        <p>UITableView在iOS开发中会经常使用得到，以下将描述如何实现一个简单的表(使用storyboard实现)</p>
+<p>1.新建工程，在Main.storyboard的ViewController中添加一个UITableView，并将其tag值设置为1<br><img src="/images/14566516466794.jpg" alt=""></p>
+<p>2.设置datasource和delegate，一般都是对应的ViewController<br><img src="/images/14566516704817.jpg" alt=""></p>
+<p>3.打开ViewController.m，设置数据源</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">UITableViewDelegate</span>,<span class="title">UITableViewDataSource</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *dwarves;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    <span class="keyword">self</span><span class="variable">.dwarves</span> = @[<span class="string">@"Sleepy"</span>, <span class="string">@"Sneezy"</span>, <span class="string">@"Bashful"</span>, <span class="string">@"Happy"</span>,</span><br><span class="line">                     <span class="string">@"Doc"</span>, <span class="string">@"Grumpy"</span>, <span class="string">@"Dopey"</span>,</span><br><span class="line">                     <span class="string">@"Thorin"</span>, <span class="string">@"Dorin"</span>, <span class="string">@"Nori"</span>, <span class="string">@"Ori"</span>,</span><br><span class="line">                     <span class="string">@"Balin"</span>, <span class="string">@"Dwalin"</span>, <span class="string">@"Fili"</span>, <span class="string">@"Kili"</span>,</span><br><span class="line">                     <span class="string">@"Oin"</span>, <span class="string">@"Gloin"</span>, <span class="string">@"Bifur"</span>, <span class="string">@"Bofur"</span>,</span><br><span class="line">                     <span class="string">@"Bombur"</span>];</span><br><span class="line">    <span class="built_in">UITableView</span> *tableView = (<span class="keyword">id</span>)[<span class="keyword">self</span><span class="variable">.view</span> viewWithTag:<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4.实现代理方法，如果只是显示数据，一般实现以下三个方法就可以了。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回section数，可以理解为分组数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对应section下的行数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.dwarves</span><span class="variable">.count</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义每行显示数据</span></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">NSString</span> *SimpleTableIdentifier = <span class="string">@"SimpleTableIdentifier"</span>;</span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:SimpleTableIdentifier];</span><br><span class="line">    <span class="keyword">if</span> (cell == <span class="literal">nil</span>) &#123;</span><br><span class="line">        cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span></span><br><span class="line">                                      reuseIdentifier:SimpleTableIdentifier];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cell<span class="variable">.textLabel</span><span class="variable">.text</span> = <span class="keyword">self</span><span class="variable">.dwarves</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">    cell<span class="variable">.textLabel</span><span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">50</span>];</span><br><span class="line">    <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"star"</span>];</span><br><span class="line">    cell<span class="variable">.imageView</span><span class="variable">.image</span> = image;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (indexPath<span class="variable">.row</span> &lt; <span class="number">7</span>) &#123;</span><br><span class="line">        cell<span class="variable">.detailTextLabel</span><span class="variable">.text</span> = <span class="string">@"Mr. Disney"</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cell<span class="variable">.detailTextLabel</span><span class="variable">.text</span> = <span class="string">@"Mr. Tolkien"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -281,13 +275,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/21/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></p>
+        <p><span>本文标题:</span><a href="/2016/02/28/iOSLearn8-1/">UITableView的使用(1)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月21日 - 16时37分</p>
-        <p><span>最后更新:</span>2016年01月21日 - 16时37分</p>
+        <p><span>发布时间:</span>2016年02月28日 - 17时34分</p>
+        <p><span>最后更新:</span>2016年02月28日 - 17时34分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/21/cocoapods_use3/" title="CocoaPods-Podfile进阶使用">http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/02/28/iOSLearn8-1/" title="UITableView的使用(1)">http://limaofuyuanzhang.gitcafe.io/2016/02/28/iOSLearn8-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/02/28/iOSLearn8-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -300,16 +294,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/24/cocoapods_use4/">
-                    CocoaPods-podspec文件详解
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/20/cocoapod_use1/">
-                    CocoaPods的使用
+                <a href="/2016/02/27/iOSLearn7-2/">
+                    UIPickerView的使用(2)
                 </a>
             </div>
         
@@ -320,7 +308,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#target"><span class="toc-number">1.</span> <span class="toc-text">target</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#platform"><span class="toc-number">2.</span> <span class="toc-text">platform</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#source"><span class="toc-number">3.</span> <span class="toc-text">source</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u66F4_u65B0CocoaPods"><span class="toc-number">4.</span> <span class="toc-text">更新CocoaPods</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">5.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -384,7 +372,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/21/cocoapods_use3/" data-title="CocoaPods-Podfile进阶使用" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/21/cocoapods_use3/"></div>
+    <div class="ds-thread" data-thread-key="2016/02/28/iOSLearn8-1/" data-title="UITableView的使用(1)" data-url="http://limaofuyuanzhang.gitcafe.io/2016/02/28/iOSLearn8-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -408,15 +396,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/24/cocoapods_use4/" title="上一篇: CocoaPods-podspec文件详解">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/20/cocoapod_use1/" title="下一篇: CocoaPods的使用">
+            <a href="/2016/02/27/iOSLearn7-2/" title="下一篇: UIPickerView的使用(2)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
