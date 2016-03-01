@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>如何修改git旧提交 | 狸猫副园长的技术窝</title>
+  <title>UITableView的使用(3) | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
+  <meta name="description" content="《精通iOS开发》第8章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何修改git旧提交">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git_modift_commit/index.html">
+<meta property="og:title" content="UITableView的使用(3)">
+<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/03/01/iOSLearn8-3/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14525186208568.jpg">
-<meta property="og:updated_time" content="2016-01-11T14:25:16.000Z">
+<meta property="og:description" content="《精通iOS开发》第8章笔记">
+<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14568374178898.jpg">
+<meta property="og:updated_time" content="2016-03-01T13:09:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何修改git旧提交">
-<meta name="twitter:description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
+<meta name="twitter:title" content="UITableView的使用(3)">
+<meta name="twitter:description" content="《精通iOS开发》第8章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -217,11 +217,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-git_modift_commit" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn8-3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/11/git_modift_commit/" class="article-date">
-      <time datetime="2016-01-11T14:25:16.000Z" itemprop="datePublished">2016-01-11</time>
+      <a href="/2016/03/01/iOSLearn8-3/" class="article-date">
+      <time datetime="2016-03-01T13:09:59.000Z" itemprop="datePublished">2016-03-01</time>
 </a>
     </div>
   
@@ -234,7 +234,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      如何修改git旧提交
+      UITableView的使用(3)
     </h1>
   
 
@@ -243,13 +243,13 @@
       <div class="article-info article-info-post">
         
     <div class="article-category tagcloud">
-    <a class="article-category-link" href="/categories/项目管理/">项目管理</a>
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
     </div>
 
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -259,17 +259,16 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。</p>
-<a id="more"></a>
-<h1 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h1><p>总结下来为以下几步</p>
-<p>1.使用git rebase命令，其中commit-Id为你需要修改的commit的ID，你会进入到git的默认编辑器，在您需要修改的提交前将pick修改为edit，如下图。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -<span class="tag">i</span> <span class="string">'commit-Id^'</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/14525186208568.jpg" alt=""></p>
-<p>2.进行修改</p>
-<p>3.提交<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> -A</span><br><span class="line">git commit --<span class="keyword">all</span> --amend --<span class="keyword">no</span>-<span class="keyword">edit</span></span><br></pre></td></tr></table></figure></p>
-<p>4.返回至最新的提交<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --<span class="keyword">continue</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit-in-git" target="_blank" rel="external">How to modify a specified commit in git?</a></p>
-<p><a href="http://backlogtool.com/git-guide/cn/stepup/stepup7_6.html" target="_blank" rel="external">6. 用rebase -i 修改提交</a></p>
-<p>如果想了解整个修改过程的原理，可以查看下面这篇文章。<br><a href="http://gitbook.liuhui998.com/4_3.html" target="_blank" rel="external">交互式rebase</a></p>
+        <p>本文主要讲述UITableView的分组分区和索引分区的使用。</p>
+<p>主要通过以下几个方法来实现</p>
+<p>先定义两个属性，值从plist文件中取，如下图</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义两个属性</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSDictionary</span> *names; <span class="comment">//以分组标题为key，分组下所有值为value的字典</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *keys; <span class="comment">//所有分组的标题</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/14568374178898.jpg" alt=""></p>
+<p>实现分组分区</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回分区数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.keys</span><span class="variable">.count</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回每个分区的行数</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section&#123;</span><br><span class="line">        <span class="built_in">NSString</span> *key = <span class="keyword">self</span><span class="variable">.keys</span>[section];</span><br><span class="line">        <span class="built_in">NSArray</span> *nameSection = <span class="keyword">self</span><span class="variable">.names</span>[key];</span><br><span class="line">        <span class="keyword">return</span> nameSection<span class="variable">.count</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//每个分区头部的标题</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView titleForHeaderInSection:(<span class="built_in">NSInteger</span>)section&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.keys</span>[section];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>实现索引分区</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//相当于返回每个分区头部标题，索引分区是建立在分组分区之上的，有多少个索引就有多少个分区</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)sectionIndexTitlesForTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.keys</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完整项目<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/08-Sections" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/08-Sections</a></p>
 
       
     </div>
@@ -278,13 +277,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/11/git_modift_commit/">如何修改git旧提交</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/01/iOSLearn8-3/">UITableView的使用(3)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月11日 - 22时25分</p>
-        <p><span>最后更新:</span>2016年01月11日 - 22时25分</p>
+        <p><span>发布时间:</span>2016年03月01日 - 21时09分</p>
+        <p><span>最后更新:</span>2016年03月01日 - 21时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/11/git_modift_commit/" title="如何修改git旧提交">http://limaofuyuanzhang.gitcafe.io/2016/01/11/git_modift_commit/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/11/git_modift_commit/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/01/iOSLearn8-3/" title="UITableView的使用(3)">http://limaofuyuanzhang.gitcafe.io/2016/03/01/iOSLearn8-3/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/03/01/iOSLearn8-3/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -297,16 +296,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/11/enum_use/">
-                    Objective-C中枚举类型的写法
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/07/UIView_layer_Setting/">
-                    UIView layer属性
+                <a href="/2016/02/29/iOSLearn8-2/">
+                    UITableView的使用(2)
                 </a>
             </div>
         
@@ -317,7 +310,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6848"><span class="toc-number">1.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +374,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/11/git_modift_commit/" data-title="如何修改git旧提交" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/11/git_modift_commit/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/01/iOSLearn8-3/" data-title="UITableView的使用(3)" data-url="http://limaofuyuanzhang.gitcafe.io/2016/03/01/iOSLearn8-3/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,15 +398,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/11/enum_use/" title="上一篇: Objective-C中枚举类型的写法">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/07/UIView_layer_Setting/" title="下一篇: UIView layer属性">
+            <a href="/2016/02/29/iOSLearn8-2/" title="下一篇: UITableView的使用(2)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
