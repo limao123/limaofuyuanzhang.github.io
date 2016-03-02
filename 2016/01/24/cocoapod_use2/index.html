@@ -8,17 +8,17 @@
   <meta name="description" content="简单介绍如何使用CocoaPods上传自己的第三方库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用CocoaPods上传自己的库">
-<meta property="og:url" content="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/index.html">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/24/cocoapod_use2/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
 <meta property="og:description" content="简单介绍如何使用CocoaPods上传自己的第三方库">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532928252404.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532928662814.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532929000153.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532929494868.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532930654300.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532623297307.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532931679032.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.gitcafe.io/images/14532937509006.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532928252404.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532928662814.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532929000153.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532929494868.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532930654300.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532623297307.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532931679032.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14532937509006.jpg">
 <meta property="og:updated_time" content="2016-01-24T06:48:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用CocoaPods上传自己的库">
@@ -137,6 +137,8 @@
                             
                                 <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/limaofuyuanzhang" title="GitHub"></a></li>
                             
+                                <li id="QQ"><a class="QQ" target="_blank" href="/397524331" title="QQ"></a></li>
+                            
                         </ul>
                     </nav>
                 </section>
@@ -211,6 +213,8 @@
                             
                                 <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/limaofuyuanzhang" title="GitHub"></a></li>
                             
+                                <li id="QQ"><a class="QQ" target="_blank" href="/397524331" title="QQ"></a></li>
+                            
                         </ul>
             </nav>
         </header>                
@@ -261,7 +265,7 @@
         <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>使用CocoaPods上传自己的写的第三方库，可以让其它开发者通过CocoaPods安装使用，主要有以下三个过程需要完成。</p>
 <p>1.把自己的第三方库传到git服务器上，并打上tag。<br>2.注册truck<br>3.编写podspec文件并上传至CocoaPods服务器。</p>
 <p>下面来看看每一个过程是怎么实现的。</p>
-<h1 id="u4E0A_u4F20framework_u81F3git_u670D_u52A1_u5668"><a href="#u4E0A_u4F20framework_u81F3git_u670D_u52A1_u5668" class="headerlink" title="上传framework至git服务器"></a>上传framework至git服务器</h1><p>这里以上传至github为例，上传的framework事先编译好。不知道fromework的编译方法可以参考我这篇博客<a href="http://limaofuyuanzhang.gitcafe.io/2016/01/18/iOS_Framework/">Framework制作步骤</a></p>
+<h1 id="u4E0A_u4F20framework_u81F3git_u670D_u52A1_u5668"><a href="#u4E0A_u4F20framework_u81F3git_u670D_u52A1_u5668" class="headerlink" title="上传framework至git服务器"></a>上传framework至git服务器</h1><p>这里以上传至github为例，上传的framework事先编译好。不知道fromework的编译方法可以参考我这篇博客<a href="http://limaofuyuanzhang.gitcafe.io/2016/01/18/iOS_Framework/" target="_blank" rel="external">Framework制作步骤</a></p>
 <p>1.创建github仓库，注意添加LICENSE文件，后面需要用到。<br><img src="/images/14532928252404.jpg" alt=""></p>
 <p>2.克隆仓库至本地，可以下载github的客户端，点击下图进行克隆。<br><img src="/images/14532928662814.jpg" alt=""></p>
 <p>选择好存放目录，点击clone即可。<br><img src="/images/14532929000153.jpg" alt=""></p>
@@ -317,8 +321,8 @@
         <p><span>发布时间:</span>2016年01月24日 - 14时48分</p>
         <p><span>最后更新:</span>2016年01月24日 - 14时48分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/24/cocoapod_use2/" title="使用CocoaPods上传自己的库">http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/24/cocoapod_use2/" title="使用CocoaPods上传自己的库">http://limaofuyuanzhang.github.io/2016/01/24/cocoapod_use2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/24/cocoapod_use2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -415,7 +419,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/24/cocoapod_use2/" data-title="使用CocoaPods上传自己的库" data-url="http://limaofuyuanzhang.gitcafe.io/2016/01/24/cocoapod_use2/"></div>
+    <div class="ds-thread" data-thread-key="2016/01/24/cocoapod_use2/" data-title="使用CocoaPods上传自己的库" data-url="http://limaofuyuanzhang.github.io/2016/01/24/cocoapod_use2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
