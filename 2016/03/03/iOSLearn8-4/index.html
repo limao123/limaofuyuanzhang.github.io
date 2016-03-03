@@ -3,26 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Framework制作步骤 | 狸猫副园长的技术窝</title>
+  <title>UITableView的使用(4) | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单介绍Framework制作步骤">
+  <meta name="description" content="《精通iOS开发》第8章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Framework制作步骤">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/index.html">
+<meta property="og:title" content="UITableView的使用(4)">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/03/iOSLearn8-4/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="简单介绍Framework制作步骤">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531112649431.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531135919154.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531137297136.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531137568954.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531138549373.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531139224483.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531139592613.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531142367643.jpg">
-<meta property="og:updated_time" content="2016-01-18T10:51:50.000Z">
+<meta property="og:description" content="《精通iOS开发》第8章笔记">
+<meta property="og:updated_time" content="2016-03-03T12:25:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Framework制作步骤">
-<meta name="twitter:description" content="简单介绍Framework制作步骤">
+<meta name="twitter:title" content="UITableView的使用(4)">
+<meta name="twitter:description" content="《精通iOS开发》第8章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +208,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS_Framework" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn8-4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/18/iOS_Framework/" class="article-date">
-      <time datetime="2016-01-18T10:51:50.000Z" itemprop="datePublished">2016-01-18</time>
+      <a href="/2016/03/03/iOSLearn8-4/" class="article-date">
+      <time datetime="2016-03-03T12:25:34.000Z" itemprop="datePublished">2016-03-03</time>
 </a>
     </div>
   
@@ -233,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Framework制作步骤
+      UITableView的使用(4)
     </h1>
   
 
@@ -248,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,25 +250,18 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.创建工程<br><img src="/images/14531112649431.jpg" alt=""></p>
-<p>2.编写接口</p>
-<p>FrameworkApiOne.h<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FrameworkApiOne</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)sayHello;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
-<p>FrameworkApiOne.m<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &#34;FrameworkApiOne.h&#34;&#10;&#10;@implementation FrameworkApiOne&#10;&#10;- (void)sayHello&#123;&#10;    NSLog(@&#34;Hello FrameworkApiOne&#34;);&#10;&#125;&#10;&#10;@end</span><br></pre></td></tr></table></figure></p>
-<p>3.设置头文件</p>
-<p>在FrameworkDemo.h（创建工程时一起创建）添加<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;FrameworkDemo/FrameworkApiOne.h&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>并且如下图在target/Build Phases/Headers中将要开放的文件拖动至Public处</p>
-<p><img src="/images/14531135919154.jpg" alt=""></p>
-<p>4.添加生成代码</p>
-<p>生成新target<br><img src="/images/14531137297136.jpg" alt=""></p>
-<p>添加脚本<br><img src="/images/14531137568954.jpg" alt=""></p>
-<p>写入以下代码</p>
-<p><img src="/images/14531138549373.jpg" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sets the target folders and the final framework product.</span></span><br><span class="line"><span class="comment"># 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME</span></span><br><span class="line"><span class="comment"># 例如: FMK_NAME = "MyFramework"</span></span><br><span class="line">FMK_NAME=<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line"><span class="comment"># Install dir will be the final output to the framework.</span></span><br><span class="line"><span class="comment"># The following line create it in the root folder of the current project.</span></span><br><span class="line">INSTALL_DIR=<span class="variable">$&#123;SRCROOT&#125;</span>/Products/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line"><span class="comment"># Working dir will be deleted after the framework creation.</span></span><br><span class="line">WRK_DIR=build</span><br><span class="line">DEVICE_DIR=<span class="variable">$&#123;WRK_DIR&#125;</span>/Release-iphoneos/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line">SIMULATOR_DIR=<span class="variable">$&#123;WRK_DIR&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></span><br><span class="line"><span class="comment"># Clean and Building both architectures.</span></span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphoneos clean build</span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphonesimulator clean build</span><br><span class="line"><span class="comment"># Cleaning the oldest.</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">rm -rf <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">mkdir -p <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br><span class="line">cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/"</span></span><br><span class="line"><span class="comment"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</span></span><br><span class="line">lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span></span><br><span class="line">rm -r <span class="string">"<span class="variable">$&#123;WRK_DIR&#125;</span>"</span></span><br><span class="line">open <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br></pre></td></tr></table></figure>
-<p>5.运行生成framework文件，成功后会自动弹出文件所在文件夹</p>
-<p><img src="/images/14531139224483.jpg" alt=""></p>
-<p><img src="/images/14531139592613.jpg" alt=""></p>
-<p>6.生成新target测试，查看运行是否正确</p>
-<p><img src="/images/14531142367643.jpg" alt=""></p>
+        <p>本文讲讲怎么样在UITableView上实现搜索栏。步骤如下：</p>
+<p>1.声明遵循UISearchDisplayDelegate代理</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()&lt;<span class="title">UITableViewDelegate</span>,<span class="title">UITableViewDataSource</span>,<span class="title">UISearchDisplayDelegate</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSDictionary</span> *names;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *keys;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>2.添加两个实例变量，一个用于保存结果，另一个为UISearchDisplayController的一个实例。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span>&#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *filteredNames;</span><br><span class="line">    <span class="built_in">UISearchDisplayController</span> *searchController;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.在viewDidLoad中初始化,此处</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">filteredNames = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"><span class="comment">//添加搜索栏</span></span><br><span class="line"><span class="built_in">UISearchBar</span> *searchBar = [[<span class="built_in">UISearchBar</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">320</span>, <span class="number">44</span>)];</span><br><span class="line">tableView<span class="variable">.tableHeaderView</span> = searchBar;</span><br><span class="line"><span class="comment">//初始化搜索控制器，delegate和searchResultsDataSource都为viewController</span></span><br><span class="line">searchController = [[<span class="built_in">UISearchDisplayController</span> alloc] initWithSearchBar:searchBar contentsController:<span class="keyword">self</span>];</span><br><span class="line">searchController<span class="variable">.delegate</span> = <span class="keyword">self</span>;</span><br><span class="line">searchController<span class="variable">.searchResultsDataSource</span> = <span class="keyword">self</span>;</span><br></pre></td></tr></table></figure>
+<p>4.实现以下代理方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)searchDisplayController:(<span class="built_in">UISearchDisplayController</span> *)controller didLoadSearchResultsTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">    <span class="comment">//显示搜索结果框前注册Cell</span></span><br><span class="line">    [tableView registerClass:[<span class="built_in">UITableViewCell</span> class] forCellReuseIdentifier:SectionsTableIdentifier];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)searchDisplayController:(<span class="built_in">UISearchDisplayController</span> *)controller shouldReloadTableForSearchString:(<span class="built_in">NSString</span> *)searchString&#123;</span><br><span class="line">    <span class="comment">//根据关键词进行处理，获得显示数据</span></span><br><span class="line">    [filteredNames removeAllObjects];</span><br><span class="line">    <span class="keyword">if</span> (searchString<span class="variable">.length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">NSPredicate</span> *predicate = [<span class="built_in">NSPredicate</span> predicateWithBlock:^<span class="built_in">BOOL</span>(<span class="keyword">id</span>  _Nonnull evaluatedObject, <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; * _Nullable bindings) &#123;</span><br><span class="line">            <span class="built_in">NSRange</span> range = [evaluatedObject rangeOfString:searchString options:<span class="built_in">NSCaseInsensitiveSearch</span>];</span><br><span class="line">            <span class="keyword">return</span> range<span class="variable">.location</span> != <span class="built_in">NSNotFound</span>;</span><br><span class="line">        &#125;];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">NSString</span> *key <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.keys</span>) &#123;</span><br><span class="line">            <span class="built_in">NSArray</span> *matches = [<span class="keyword">self</span><span class="variable">.names</span>[key] filteredArrayUsingPredicate:predicate];</span><br><span class="line">            [filteredNames addObjectsFromArray:matches];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.搜索结果也是以tableView的形式显示，因此也要实现delegate和dataSourch，由于与显示所有数据的tableView共用delegate和dataSourch，所以要进行区分</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSInteger</span>)numberOfSectionsInTableView:(<span class="built_in">UITableView</span> *)tableView&#123;</span><br><span class="line">    <span class="keyword">if</span> (tableView<span class="variable">.tag</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span><span class="variable">.keys</span><span class="variable">.count</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView numberOfRowsInSection:(<span class="built_in">NSInteger</span>)section&#123;</span><br><span class="line">    <span class="keyword">if</span> (tableView<span class="variable">.tag</span> == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">NSString</span> *key = <span class="keyword">self</span><span class="variable">.keys</span>[section];</span><br><span class="line">        <span class="built_in">NSArray</span> *nameSection = <span class="keyword">self</span><span class="variable">.names</span>[key];</span><br><span class="line">        <span class="keyword">return</span> nameSection<span class="variable">.count</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> filteredNames<span class="variable">.count</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">UITableViewCell</span> *cell = [tableView dequeueReusableCellWithIdentifier:SectionsTableIdentifier];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (tableView<span class="variable">.tag</span> == <span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">NSString</span>  *key = <span class="keyword">self</span><span class="variable">.keys</span>[indexPath<span class="variable">.section</span>];</span><br><span class="line">        <span class="built_in">NSArray</span> *nameSection = <span class="keyword">self</span><span class="variable">.names</span>[key];</span><br><span class="line">        cell<span class="variable">.textLabel</span><span class="variable">.text</span> = nameSection[indexPath<span class="variable">.row</span>];</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cell<span class="variable">.textLabel</span><span class="variable">.text</span> = filteredNames[indexPath<span class="variable">.row</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完整项目地址：<a href="https://github.com/limaofuyuanzhang/iOSLearn/tree/master/08-Sections" target="_blank" rel="external">https://github.com/limaofuyuanzhang/iOSLearn/tree/master/08-Sections</a></p>
 
       
     </div>
@@ -285,13 +270,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/18/iOS_Framework/">Framework制作步骤</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/03/iOSLearn8-4/">UITableView的使用(4)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月18日 - 18时51分</p>
-        <p><span>最后更新:</span>2016年01月18日 - 18时51分</p>
+        <p><span>发布时间:</span>2016年03月03日 - 20时25分</p>
+        <p><span>最后更新:</span>2016年03月03日 - 20时25分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/18/iOS_Framework/" title="Framework制作步骤">http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/03/iOSLearn8-4/" title="UITableView的使用(4)">http://limaofuyuanzhang.github.io/2016/03/03/iOSLearn8-4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/03/iOSLearn8-4/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -304,16 +289,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/20/cocoapod_use1/">
-                    CocoaPods的使用
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/13/RESideMenu_usage/">
-                    RESideMenu的使用
+                <a href="/2016/03/02/iOSLearn13-1/">
+                    数据持久化-属性列表序列化
                 </a>
             </div>
         
@@ -388,7 +367,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/18/iOS_Framework/" data-title="Framework制作步骤" data-url="http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/03/iOSLearn8-4/" data-title="UITableView的使用(4)" data-url="http://limaofuyuanzhang.github.io/2016/03/03/iOSLearn8-4/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -412,15 +391,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/20/cocoapod_use1/" title="上一篇: CocoaPods的使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/13/RESideMenu_usage/" title="下一篇: RESideMenu的使用">
+            <a href="/2016/03/02/iOSLearn13-1/" title="下一篇: 数据持久化-属性列表序列化">
                 <i class="fa fa-angle-right"></i>
             </a>
         
