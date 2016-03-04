@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Framework制作步骤 | 狸猫副园长的技术窝</title>
+  <title>数据持久化-Core Data简单使用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="简单介绍Framework制作步骤">
+  <meta name="description" content="数据持久化之属性列表序列化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Framework制作步骤">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/index.html">
+<meta property="og:title" content="数据持久化-Core Data简单使用">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/04/iOSLearn13-4/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="简单介绍Framework制作步骤">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531112649431.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531135919154.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531137297136.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531137568954.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531138549373.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531139224483.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531139592613.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14531142367643.jpg">
-<meta property="og:updated_time" content="2016-01-18T10:51:50.000Z">
+<meta property="og:description" content="数据持久化之属性列表序列化">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14570087650687.jpg">
+<meta property="og:updated_time" content="2016-03-04T13:51:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Framework制作步骤">
-<meta name="twitter:description" content="简单介绍Framework制作步骤">
+<meta name="twitter:title" content="数据持久化-Core Data简单使用">
+<meta name="twitter:description" content="数据持久化之属性列表序列化">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -216,11 +209,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS_Framework" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn13-4" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/18/iOS_Framework/" class="article-date">
-      <time datetime="2016-01-18T10:51:50.000Z" itemprop="datePublished">2016-01-18</time>
+      <a href="/2016/03/04/iOSLearn13-4/" class="article-date">
+      <time datetime="2016-03-04T13:51:48.000Z" itemprop="datePublished">2016-03-04</time>
 </a>
     </div>
   
@@ -233,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Framework制作步骤
+      数据持久化-Core Data简单使用
     </h1>
   
 
@@ -248,7 +241,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Framework/">Framework</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -258,25 +251,15 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>1.创建工程<br><img src="/images/14531112649431.jpg" alt=""></p>
-<p>2.编写接口</p>
-<p>FrameworkApiOne.h<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FrameworkApiOne</span> : <span class="title">NSObject</span></span></span><br><span class="line">- (<span class="keyword">void</span>)sayHello;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
-<p>FrameworkApiOne.m<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#import &#34;FrameworkApiOne.h&#34;&#10;&#10;@implementation FrameworkApiOne&#10;&#10;- (void)sayHello&#123;&#10;    NSLog(@&#34;Hello FrameworkApiOne&#34;);&#10;&#125;&#10;&#10;@end</span><br></pre></td></tr></table></figure></p>
-<p>3.设置头文件</p>
-<p>在FrameworkDemo.h（创建工程时一起创建）添加<br><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;FrameworkDemo/FrameworkApiOne.h&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<p>并且如下图在target/Build Phases/Headers中将要开放的文件拖动至Public处</p>
-<p><img src="/images/14531135919154.jpg" alt=""></p>
-<p>4.添加生成代码</p>
-<p>生成新target<br><img src="/images/14531137297136.jpg" alt=""></p>
-<p>添加脚本<br><img src="/images/14531137568954.jpg" alt=""></p>
-<p>写入以下代码</p>
-<p><img src="/images/14531138549373.jpg" alt=""></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sets the target folders and the final framework product.</span></span><br><span class="line"><span class="comment"># 如果工程名称和Framework的Target名称不一样的话，要自定义FMKNAME</span></span><br><span class="line"><span class="comment"># 例如: FMK_NAME = "MyFramework"</span></span><br><span class="line">FMK_NAME=<span class="variable">$&#123;PROJECT_NAME&#125;</span></span><br><span class="line"><span class="comment"># Install dir will be the final output to the framework.</span></span><br><span class="line"><span class="comment"># The following line create it in the root folder of the current project.</span></span><br><span class="line">INSTALL_DIR=<span class="variable">$&#123;SRCROOT&#125;</span>/Products/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line"><span class="comment"># Working dir will be deleted after the framework creation.</span></span><br><span class="line">WRK_DIR=build</span><br><span class="line">DEVICE_DIR=<span class="variable">$&#123;WRK_DIR&#125;</span>/Release-iphoneos/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line">SIMULATOR_DIR=<span class="variable">$&#123;WRK_DIR&#125;</span>/Release-iphonesimulator/<span class="variable">$&#123;FMK_NAME&#125;</span>.framework</span><br><span class="line"><span class="comment"># -configuration $&#123;CONFIGURATION&#125;</span></span><br><span class="line"><span class="comment"># Clean and Building both architectures.</span></span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphoneos clean build</span><br><span class="line">xcodebuild -configuration <span class="string">"Release"</span> -target <span class="string">"<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -sdk iphonesimulator clean build</span><br><span class="line"><span class="comment"># Cleaning the oldest.</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">rm -rf <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">mkdir -p <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br><span class="line">cp -R <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/"</span> <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/"</span></span><br><span class="line"><span class="comment"># Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.</span></span><br><span class="line">lipo -create <span class="string">"<span class="variable">$&#123;DEVICE_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> <span class="string">"<span class="variable">$&#123;SIMULATOR_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span> -output <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>/<span class="variable">$&#123;FMK_NAME&#125;</span>"</span></span><br><span class="line">rm -r <span class="string">"<span class="variable">$&#123;WRK_DIR&#125;</span>"</span></span><br><span class="line">open <span class="string">"<span class="variable">$&#123;INSTALL_DIR&#125;</span>"</span></span><br></pre></td></tr></table></figure>
-<p>5.运行生成framework文件，成功后会自动弹出文件所在文件夹</p>
-<p><img src="/images/14531139224483.jpg" alt=""></p>
-<p><img src="/images/14531139592613.jpg" alt=""></p>
-<p>6.生成新target测试，查看运行是否正确</p>
-<p><img src="/images/14531142367643.jpg" alt=""></p>
+        <p>本文主要讲Core Data的简单使用</p>
+<p>使用如下</p>
+<p>1.创建项目前勾选User Core Data，这会帮我们省下很多配置工作。</p>
+<p>2.创建Enitity，如下图，点击.xcdatamodeld文件，创建一个名为Line的实体。</p>
+<p><img src="/images/14570087650687.jpg" alt=""></p>
+<p>3.读数据</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">AppDelegate *appDelegate = [<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.delegate</span>;</span><br><span class="line"> <span class="built_in">NSManagedObjectContext</span> *context = [appDelegate managedObjectContext];</span><br><span class="line"> <span class="built_in">NSFetchRequest</span> *request = [[<span class="built_in">NSFetchRequest</span> alloc] initWithEntityName:kLineEntityName];</span><br><span class="line"> </span><br><span class="line"> <span class="built_in">NSError</span> *error;</span><br><span class="line"> <span class="built_in">NSArray</span> *objects = [context executeFetchRequest:request error:&amp;error];</span><br><span class="line"> <span class="keyword">if</span> (objects == <span class="literal">nil</span>) &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"There was an error!"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="keyword">for</span> (<span class="built_in">NSManagedObject</span> *oneObject <span class="keyword">in</span> objects) &#123;</span><br><span class="line">     <span class="keyword">int</span> lineNum = [[oneObject valueForKey:kLineNumberKey] intValue];</span><br><span class="line">     <span class="built_in">NSString</span> *lineText = [oneObject valueForKey:kLineTextKey];</span><br><span class="line">     <span class="built_in">UITextField</span> *theField = <span class="keyword">self</span><span class="variable">.lineFields</span>[lineNum];</span><br><span class="line">     theField<span class="variable">.text</span> = lineText;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>4.添加或者修改数据</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">AppDelegate *appDelegate = [<span class="built_in">UIApplication</span> sharedApplication]<span class="variable">.delegate</span>;</span><br><span class="line"><span class="built_in">NSManagedObjectContext</span> *constext = [appDelegate managedObjectContext];</span><br><span class="line"><span class="built_in">NSError</span> *error;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">    <span class="built_in">UITextField</span> *theField = <span class="keyword">self</span><span class="variable">.lineFields</span>[i];</span><br><span class="line">    <span class="built_in">NSFetchRequest</span> *request = [[<span class="built_in">NSFetchRequest</span> alloc] initWithEntityName:kLineEntityName];</span><br><span class="line">    <span class="comment">//判断是否已经存在该lineNumber的对象</span></span><br><span class="line">    <span class="built_in">NSPredicate</span> *pred = [<span class="built_in">NSPredicate</span> predicateWithFormat:<span class="string">@"(%K = %d)"</span>,kLineNumberKey,i];</span><br><span class="line">    [request setPredicate:pred];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSArray</span> *objects = [constext executeFetchRequest:request error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (objects == <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"There was an error!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSManagedObjectContext</span> *theLine = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">//判断是否已经有该对象，如果没有则新建，如果有则加载原来的</span></span><br><span class="line">    <span class="keyword">if</span> ([objects count] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        theLine = [objects objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        theLine = [<span class="built_in">NSEntityDescription</span> insertNewObjectForEntityForName:kLineEntityName inManagedObjectContext:constext];</span><br><span class="line">    &#125;</span><br><span class="line">    [theLine setValue:[<span class="built_in">NSNumber</span> numberWithInt:i] forKey:kLineNumberKey];</span><br><span class="line">    [theLine setValue:theField<span class="variable">.text</span> forKey:kLineTextKey];</span><br><span class="line">&#125;</span><br><span class="line">[appDelegate saveContext];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -285,13 +268,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/18/iOS_Framework/">Framework制作步骤</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/04/iOSLearn13-4/">数据持久化-Core Data简单使用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月18日 - 18时51分</p>
-        <p><span>最后更新:</span>2016年01月18日 - 18时51分</p>
+        <p><span>发布时间:</span>2016年03月04日 - 21时51分</p>
+        <p><span>最后更新:</span>2016年03月04日 - 21时51分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/18/iOS_Framework/" title="Framework制作步骤">http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/04/iOSLearn13-4/" title="数据持久化-Core Data简单使用">http://limaofuyuanzhang.github.io/2016/03/04/iOSLearn13-4/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/04/iOSLearn13-4/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -304,16 +287,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/20/cocoapod_use1/">
-                    CocoaPods的使用
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/13/RESideMenu_usage/">
-                    RESideMenu的使用
+                <a href="/2016/03/03/iOSLearn8-4/">
+                    UITableView的使用(4)
                 </a>
             </div>
         
@@ -388,7 +365,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/18/iOS_Framework/" data-title="Framework制作步骤" data-url="http://limaofuyuanzhang.github.io/2016/01/18/iOS_Framework/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/04/iOSLearn13-4/" data-title="数据持久化-Core Data简单使用" data-url="http://limaofuyuanzhang.github.io/2016/03/04/iOSLearn13-4/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -412,15 +389,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/20/cocoapod_use1/" title="上一篇: CocoaPods的使用">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/13/RESideMenu_usage/" title="下一篇: RESideMenu的使用">
+            <a href="/2016/03/03/iOSLearn8-4/" title="下一篇: UITableView的使用(4)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
