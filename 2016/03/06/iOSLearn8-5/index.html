@@ -3,23 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UITableView的使用(2) | 狸猫副园长的技术窝</title>
+  <title>UITableView的使用(4) | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="《精通iOS开发》第8章笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UITableView的使用(2)">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/02/29/iOSLearn8-2/index.html">
+<meta property="og:title" content="UITableView的使用(4)">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/06/iOSLearn8-5/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
 <meta property="og:description" content="《精通iOS开发》第8章笔记">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567527554787.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567528217892.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567528643457.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567530539306.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567530929108.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14567531042665.jpg">
-<meta property="og:updated_time" content="2016-02-29T13:39:26.000Z">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14564772897964.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14564773347894.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14564774038304.jpg">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14564774265371.jpg">
+<meta property="og:updated_time" content="2016-03-06T12:04:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UITableView的使用(2)">
+<meta name="twitter:title" content="UITableView的使用(4)">
 <meta name="twitter:description" content="《精通iOS开发》第8章笔记">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
@@ -214,11 +212,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-iOSLearn8-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn8-5" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/02/29/iOSLearn8-2/" class="article-date">
-      <time datetime="2016-02-29T13:39:26.000Z" itemprop="datePublished">2016-02-29</time>
+      <a href="/2016/03/06/iOSLearn8-5/" class="article-date">
+      <time datetime="2016-03-06T12:04:22.000Z" itemprop="datePublished">2016-03-06</time>
 </a>
     </div>
   
@@ -231,7 +229,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      UITableView的使用(2)
+      UITableView的使用(4)
     </h1>
   
 
@@ -256,32 +254,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>本文主要讲讲如何定制表视图单元，有三种方式，分别为</p>
-<p>1.代码直接向UITableViewCell中添加<br>2.从nib文件中加载<br>3.从storyboard中加载</p>
-<p>下面将分别介绍这三种方式</p>
-<h1 id="u4EE3_u7801_u6DFB_u52A0"><a href="#u4EE3_u7801_u6DFB_u52A0" class="headerlink" title="代码添加"></a>代码添加</h1><p>直接看代码，继承了UITableViewCell，并添加两个控件</p>
-<p>NameAndColorCell.h<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="preprocessor">#import <span class="title">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NameAndColorCell</span> : <span class="title">UITableViewCell</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *color;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
-<p>NameAndColorCell.m<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"NameAndColorCell.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NameAndColorCell</span>()</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *nameLabel;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">UILabel</span> *colorLabel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NameAndColorCell</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithStyle:(<span class="built_in">UITableViewCellStyle</span>)style reuseIdentifier:(<span class="built_in">NSString</span> *)reuseIdentifier&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithStyle:style reuseIdentifier:reuseIdentifier];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="built_in">CGRect</span> nameLabelRect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">5</span>, <span class="number">70</span>, <span class="number">15</span>);</span><br><span class="line">        <span class="built_in">UILabel</span> *nameMarker = [[<span class="built_in">UILabel</span> alloc] initWithFrame:nameLabelRect];</span><br><span class="line">        nameMarker<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentRight</span>;</span><br><span class="line">        nameMarker<span class="variable">.text</span> = <span class="string">@"name"</span>;</span><br><span class="line">        nameMarker<span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:nameMarker];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGRect</span> colorLabelRect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">26</span>, <span class="number">70</span>, <span class="number">15</span>);</span><br><span class="line">        <span class="built_in">UILabel</span> *coloerMaker = [[<span class="built_in">UILabel</span> alloc] initWithFrame:colorLabelRect];</span><br><span class="line">        coloerMaker<span class="variable">.textAlignment</span> = <span class="built_in">NSTextAlignmentRight</span>;</span><br><span class="line">        coloerMaker<span class="variable">.text</span> = <span class="string">@"Color:"</span>;</span><br><span class="line">        coloerMaker<span class="variable">.font</span> = [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">12</span>];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:coloerMaker];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGRect</span> nameValueRect = <span class="built_in">CGRectMake</span>(<span class="number">80</span>, <span class="number">5</span>, <span class="number">200</span>, <span class="number">15</span>);</span><br><span class="line">        _nameLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:nameValueRect];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:_nameLabel];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">CGRect</span> colorValueRect = <span class="built_in">CGRectMake</span>(<span class="number">80</span>, <span class="number">25</span>, <span class="number">200</span>, <span class="number">15</span>);</span><br><span class="line">        _colorLabel = [[<span class="built_in">UILabel</span> alloc] initWithFrame:colorValueRect];</span><br><span class="line">        [<span class="keyword">self</span><span class="variable">.contentView</span> addSubview:_colorLabel];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name&#123;</span><br><span class="line">    <span class="keyword">if</span> (![name isEqualToString:_name]) &#123;</span><br><span class="line">        _name = [name <span class="keyword">copy</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.nameLabel</span><span class="variable">.text</span> = _name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)setColor:(<span class="built_in">NSString</span> *)color&#123;</span><br><span class="line">    <span class="keyword">if</span> (![color isEqualToString:_color]) &#123;</span><br><span class="line">        _color = [color <span class="keyword">copy</span>];</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.colorLabel</span><span class="variable">.text</span> = _color;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用前使用UITableView对象注册即可</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:CellTableIdertifier];</span><br></pre></td></tr></table></figure>
-<h1 id="u4ECEnib_u6587_u4EF6_u52A0_u8F7D"><a href="#u4ECEnib_u6587_u4EF6_u52A0_u8F7D" class="headerlink" title="从nib文件加载"></a>从nib文件加载</h1><ol>
-<li>直接在nib文件中设计布局<br><img src="/images/14567527554787.jpg" alt=""></li>
-</ol>
-<p>2.关联至继承的子类</p>
-<p><img src="/images/14567528217892.jpg" alt=""></p>
-<p>3.定义好identifier</p>
-<p><img src="/images/14567528643457.jpg" alt=""></p>
-<p>4.使用，加载nib文件</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UINib</span> *nib = [<span class="built_in">UINib</span> nibWithNibName:<span class="string">@"NameAndColorCell"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">   [tableView registerNib:nib forCellReuseIdentifier:CellTableIdertifier];</span><br></pre></td></tr></table></figure>
-<h1 id="u4ECEstoryboard_u4E2D_u52A0_u8F7D"><a href="#u4ECEstoryboard_u4E2D_u52A0_u8F7D" class="headerlink" title="从storyboard中加载"></a>从storyboard中加载</h1><p>此方法最为简便，如下</p>
-<p>1.在tableView中设计好布局</p>
-<p><img src="/images/14567530539306.jpg" alt=""></p>
-<p>2.关联相应的类</p>
-<p><img src="/images/14567530929108.jpg" alt=""></p>
-<p>3.定义好identifier</p>
-<p><img src="/images/14567531042665.jpg" alt=""></p>
-<p>4.无需注册，直接就可以使用</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UITableViewCell</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView cellForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line"></span><br><span class="line">    AlarmClockViewControllerCell *cell = [tableView dequeueReusableCellWithIdentifier:AlarmClockIdentifier forIndexPath:indexPath];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> cell;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>本文记录一下关于UITableView使用的小知识</p>
+<h1 id="UITableView_u4EE3_u7406_u65B9_u6CD5"><a href="#UITableView_u4EE3_u7406_u65B9_u6CD5" class="headerlink" title="UITableView代理方法"></a>UITableView代理方法</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#pragma mark - delegate</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//缩进</span></span><br><span class="line">- (<span class="built_in">NSInteger</span>)tableView:(<span class="built_in">UITableView</span> *)tableView indentationLevelForRowAtIndexPath:(nonnull <span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="keyword">return</span> indexPath<span class="variable">.row</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理行的选择</span></span><br><span class="line"><span class="comment">//在一行被点击但是高亮显示前调用,可以用来阻止选中该行</span></span><br><span class="line">- (<span class="built_in">NSIndexPath</span> *)tableView:(<span class="built_in">UITableView</span> *)tableView willSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="keyword">if</span>(indexPath<span class="variable">.row</span> == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> indexPath;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//选择行后的实际处理一般在这里进行</span></span><br><span class="line">- (<span class="keyword">void</span>)tableView:(<span class="built_in">UITableView</span> *)tableView didSelectRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *rowValue = <span class="keyword">self</span><span class="variable">.dwarves</span>[indexPath<span class="variable">.row</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *message = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"You selected %@"</span>,rowValue];</span><br><span class="line">    <span class="built_in">UIAlertView</span> *alert = [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:<span class="string">@"Row Selected!"</span> message:message delegate:<span class="literal">nil</span> cancelButtonTitle:<span class="string">@"Yes I Did"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line">    [alert show];</span><br><span class="line">    [tableView deselectRowAtIndexPath:indexPath animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置行高</span></span><br><span class="line">- (<span class="built_in">CGFloat</span>)tableView:(<span class="built_in">UITableView</span> *)tableView heightForRowAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">70</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="UITableViewCell_u5B9A_u4E49_u597D_u7684_u56DB_u79CD_u6837_u5F0F"><a href="#UITableViewCell_u5B9A_u4E49_u597D_u7684_u56DB_u79CD_u6837_u5F0F" class="headerlink" title="UITableViewCell定义好的四种样式"></a>UITableViewCell定义好的四种样式</h1><p>UITableViewCellStyleDefault<br><img src="/images/14564772897964.jpg" alt=""></p>
+<p>UITableViewCellStyleSubtitle<br><img src="/images/14564773347894.jpg" alt=""></p>
+<p>UITableViewCellStyleValue1<br><img src="/images/14564774038304.jpg" alt=""></p>
+<p>UITableViewCellStyleValue2<br><img src="/images/14564774265371.jpg" alt=""></p>
 
       
     </div>
@@ -290,13 +268,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/02/29/iOSLearn8-2/">UITableView的使用(2)</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/06/iOSLearn8-5/">UITableView的使用(4)</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年02月29日 - 21时39分</p>
-        <p><span>最后更新:</span>2016年02月29日 - 21时39分</p>
+        <p><span>发布时间:</span>2016年03月06日 - 20时04分</p>
+        <p><span>最后更新:</span>2016年03月06日 - 20时04分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/02/29/iOSLearn8-2/" title="UITableView的使用(2)">http://limaofuyuanzhang.github.io/2016/02/29/iOSLearn8-2/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/02/29/iOSLearn8-2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/06/iOSLearn8-5/" title="UITableView的使用(4)">http://limaofuyuanzhang.github.io/2016/03/06/iOSLearn8-5/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/06/iOSLearn8-5/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -309,16 +287,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/01/iOSLearn8-3/">
-                    UITableView的使用(3)
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/02/28/iOSLearn8-1/">
-                    UITableView的使用(1)
+                <a href="/2016/03/05/iOSLearn15-1/">
+                    GCD简单应用
                 </a>
             </div>
         
@@ -329,7 +301,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u7B80_u4ECB"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4EE3_u7801_u6DFB_u52A0"><span class="toc-number">2.</span> <span class="toc-text">代码添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECEnib_u6587_u4EF6_u52A0_u8F7D"><span class="toc-number">3.</span> <span class="toc-text">从nib文件加载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u4ECEstoryboard_u4E2D_u52A0_u8F7D"><span class="toc-number">4.</span> <span class="toc-text">从storyboard中加载</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableView_u4EE3_u7406_u65B9_u6CD5"><span class="toc-number">1.</span> <span class="toc-text">UITableView代理方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UITableViewCell_u5B9A_u4E49_u597D_u7684_u56DB_u79CD_u6837_u5F0F"><span class="toc-number">2.</span> <span class="toc-text">UITableViewCell定义好的四种样式</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -393,7 +365,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/02/29/iOSLearn8-2/" data-title="UITableView的使用(2)" data-url="http://limaofuyuanzhang.github.io/2016/02/29/iOSLearn8-2/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/06/iOSLearn8-5/" data-title="UITableView的使用(4)" data-url="http://limaofuyuanzhang.github.io/2016/03/06/iOSLearn8-5/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -417,15 +389,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/01/iOSLearn8-3/" title="上一篇: UITableView的使用(3)">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/02/28/iOSLearn8-1/" title="下一篇: UITableView的使用(1)">
+            <a href="/2016/03/05/iOSLearn15-1/" title="下一篇: GCD简单应用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
