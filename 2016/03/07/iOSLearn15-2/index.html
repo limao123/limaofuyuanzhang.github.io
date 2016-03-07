@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Object-C中各类空值的分析 | 狸猫副园长的技术窝</title>
+  <title>后台处理 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C 中关于空值的分析。">
+  <meta name="description" content="iOS应用后台处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Object-C中各类空值的分析">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/12/Objective-C_nil/index.html">
+<meta property="og:title" content="后台处理">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Objective-C 中关于空值的分析。">
-<meta property="og:updated_time" content="2016-01-12T12:09:13.000Z">
+<meta property="og:description" content="iOS应用后台处理">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/media/14573496788124.jpg">
+<meta property="og:updated_time" content="2016-03-07T12:17:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Object-C中各类空值的分析">
-<meta name="twitter:description" content="Objective-C 中关于空值的分析。">
+<meta name="twitter:title" content="后台处理">
+<meta name="twitter:description" content="iOS应用后台处理">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -208,11 +209,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-Objective-C_nil" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn15-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/12/Objective-C_nil/" class="article-date">
-      <time datetime="2016-01-12T12:09:13.000Z" itemprop="datePublished">2016-01-12</time>
+      <a href="/2016/03/07/iOSLearn15-2/" class="article-date">
+      <time datetime="2016-03-07T12:17:40.000Z" itemprop="datePublished">2016-03-07</time>
 </a>
     </div>
   
@@ -225,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Object-C中各类空值的分析
+      后台处理
     </h1>
   
 
@@ -240,7 +241,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Objective-C/">Objective-C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/空值/">空值</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -250,16 +251,35 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>初次接触Object-C时，经常会遇到这样的困惑，使用空值时，什么时候使用nil，什么时候使用NSNULL？而且似乎用NULL也可以，另外Object-c中还有一个Nil。这么多的空值表示容易让人迷惑，下面将能过逐一分析来理清楚这4者的区别。</p>
-<h1 id="NULL"><a href="#NULL" class="headerlink" title="NULL"></a>NULL</h1><p>NULL本质上是：(void*)0,即指向地址为0x0的指针，用于表示C指针中的空值。</p>
-<h1 id="nil"><a href="#nil" class="headerlink" title="nil"></a>nil</h1><p>nil的本质上也是(void*)0，但它用于表示表示指向Objective-C中对象的指针的值为空。</p>
-<h1 id="Nil"><a href="#Nil" class="headerlink" title="Nil"></a>Nil</h1><p>本质上也是(void*)0,用于表示Objective-C类（Class）类型的变量值为空。</p>
-<h1 id="NSNull"><a href="#NSNull" class="headerlink" title="NSNull"></a>NSNull</h1><p>类定义如下：</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@interface</span> <span class="string">NSNull :</span> NSObject &lt;NSCopying, NSSecureCoding&gt;</span><br><span class="line"></span><br><span class="line">+ (NSNull *)<span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@end</span></span><br></pre></td></tr></table></figure>
-<p>其中<code>+ (NSNull *)null;</code> 返回一个单例对象，其表示空值。定义NSNull是由于集合对象中不能有nil值，所以用NSNull类来代表在集合对象中的null 值。英文解释：NSNull is a class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).<br>[NSNull null]: The singleton instance of NSNull。</p>
-<p>总结：从技术实现上来说，nil、NULL都是一样的。但是实际上这种定义能够增加代码的可读性。如果你给某人传递NULL值，那么某人就认为接收到的是C指针。如果是nil，那么认为接受的是一个对象。而Nil,则认为接受的是class。</p>
-<h1 id="Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><a href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B" class="headerlink" title="Objective-C与其它语言的空值的区别"></a>Objective-C与其它语言的空值的区别</h1><p>Objective-C允许向某个值为nil的变量发送消息，且不会发生任何事情。在其他语言中，向空指针（值为0的指针）发送消息是非法的，因此，通常要先检查指针是否为空。在Objective-C中，因为程序会忽略发送给nil的消息，所以无需做这样的检查，直接发送消息即可。</p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/dqjyong/article/details/7668001" target="_blank" rel="external">区分nil Nil NULL和NSNill（Objective C语言)</a><br><a href="http://blog.csdn.net/wzzvictory/article/details/18413519" target="_blank" rel="external">nil/Nil/NULL/NSNull的区别</a><br><a href="http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c" target="_blank" rel="external">http://stackoverflow.com/questions/5908936/difference-between-nil-nil-and-null-in-objective-c</a><br><a href="http://stackoverflow.com/questions/1841983/what-describes-nil-best-whats-that-really" target="_blank" rel="external">What describes nil best? What’s that really?</a></p>
+        <h1 id="u5E94_u7528_u751F_u547D_u5468_u671F"><a href="#u5E94_u7528_u751F_u547D_u5468_u671F" class="headerlink" title="应用生命周期"></a>应用生命周期</h1><p>未运行(Not Running):有以下三种情况应用会返回未运行状态。</p>
+<ul>
+<li>应用的Info.plist的UIApplicationExistsOnSuspend键的值为YES；</li>
+<li>应用之前被挂起并且系统需要清除一些内存；</li>
+<li>应用在运行过程中崩溃。</li>
+</ul>
+<p>活跃(Active):应用在屏幕上显示时的正常运行状态。它可以接收用户输入并更新显示。</p>
+<p>后台(Background):应用获得一定时间来执行代码，但无法访问屏幕或获取用户输入。在用户按下主屏幕键后会进入此状态，且大部分应用会迅速进入挂起状态。</p>
+<p>挂起(Suspended):应用被冻结执行。在后台状态不久会转变为此状态。内存会得到保留。如果切回活跃状态将恢复之前的状态。挂起的应用在系统需要时会被释放。</p>
+<p>不活跃(Inactive):应用公在其他状态之间在临时过渡阶段处于不活跃状态。应用可以在做任意时间内处于不活跃状态的唯一前提是，用户正在处理系统提示（比如显示的传入呼叫或SMS提示）或用户锁定了屏幕。这基本上是一种中间过渡状态。</p>
+<h1 id="u72B6_u6001_u66F4_u6539_u901A_u77E5"><a href="#u72B6_u6001_u66F4_u6539_u901A_u77E5" class="headerlink" title="状态更改通知"></a>状态更改通知</h1><p><img src="/media/14573496788124.jpg" alt=""></p>
+<h1 id="u6D4B_u8BD5_u6267_u884C_u72B6_u6001_u53D8_u5316"><a href="#u6D4B_u8BD5_u6267_u884C_u72B6_u6001_u53D8_u5316" class="headerlink" title="测试执行状态变化"></a>测试执行状态变化</h1><p>这里测试一下不同行为的状态变化</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> - (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.</span></span><br><span class="line">    <span class="comment">// Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidEnterBackground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.</span></span><br><span class="line">    <span class="comment">// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></span><br><span class="line">    <span class="comment">//只有应用在后台状态时被终结才会调用</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码会在不同状态下打印出调用的方法名。</p>
+<p>启动应用，应用进入到活跃状态</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">19</span>:<span class="number">45</span>:<span class="number">41.452</span> <span class="number">15</span>-StateLab[<span class="number">2270</span>:<span class="number">120016</span>] application:didFinishLaunchingWithOptions:</span><br><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">19</span>:<span class="number">45</span>:<span class="number">41.457</span> <span class="number">15</span>-StateLab[<span class="number">2270</span>:<span class="number">120016</span>] applicationDidBecomeActive:</span><br></pre></td></tr></table></figure>
+<p>按下主屏幕按钮，首先过渡至不活跃状态，然后进入后台。注意此处无法看到挂起状态。从某种意义来讲，此应用仍然是活跃的，Xcode仍然与它相连，即使它实际上没有占用任何CPU时间。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">19</span>:<span class="number">46</span>:<span class="number">55.351</span> <span class="number">15</span>-StateLab[<span class="number">2270</span>:<span class="number">120016</span>] applicationWillResignActive:</span><br><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">19</span>:<span class="number">46</span>:<span class="number">55.914</span> <span class="number">15</span>-StateLab[<span class="number">2270</span>:<span class="number">120016</span>] applicationDidEnterBackground:</span><br></pre></td></tr></table></figure>
+<p>如果我们终结应用（两次home键，将应用拖走），此时并不会调用applicationWillTerminate:方法。该方法只有在应用处于后台状态时退出才会被调用。</p>
+<p>采用通知栏的形式显示，并且给应用发送一条iMessage，应用将处于不活跃状态</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">20</span>:<span class="number">02</span>:<span class="number">45.228</span> <span class="number">15</span>-StateLab[<span class="number">441</span>:<span class="number">86216</span>] applicationWillResignActive:</span><br></pre></td></tr></table></figure>
+<p>按下关闭，将回到活跃状态</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">20</span>:<span class="number">04</span>:<span class="number">17.701</span> <span class="number">15</span>-StateLab[<span class="number">441</span>:<span class="number">86216</span>] applicationDidBecomeActive:</span><br></pre></td></tr></table></figure>
+<p>点击回复，会被迅速激活，然后再次回到不活跃状态</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">20</span>:<span class="number">05</span>:<span class="number">10.926</span> <span class="number">15</span>-StateLab[<span class="number">441</span>:<span class="number">86216</span>] applicationDidBecomeActive:</span><br><span class="line"><span class="number">2016</span>-<span class="number">03</span>-<span class="number">07</span> <span class="number">20</span>:<span class="number">05</span>:<span class="number">11.012</span> <span class="number">15</span>-StateLab[<span class="number">441</span>:<span class="number">86216</span>] applicationWillResignActive:</span><br></pre></td></tr></table></figure>
+<h1 id="u6267_u884C_u72B6_u6001_u66F4_u6539_u5904_u7406_u7B56_u7565"><a href="#u6267_u884C_u72B6_u6001_u66F4_u6539_u5904_u7406_u7B56_u7565" class="headerlink" title="执行状态更改处理策略"></a>执行状态更改处理策略</h1><p>1.活跃-不活跃<br>使用applictaionWillResignActive:或者UIApplicationWillResignActiveNotification来“暂停”应用的显示。如果应用是游戏，你可能已经能够通过某种方式暂停游戏。对于其它类型的应用，确保工作中对用户没有严格的时间要求，因为应用在一段时间内不会获得用户输入。</p>
+<p>2.不活跃-后台<br>使用applicationDidEnterBackground:或者UIApplicationEnterBackgroundNotification释放在应用处于后台状态时不需要保留的任何资源（比如缓存的图片或者其他可轻松加载的数据），或者无法保存在后台状态的资源（比如活跃的网络连接）。在这里避免过度使用内存可使得挂起的快照更小，从而降低被清除的风险。还可以借此机会来保存必要的应用数据。</p>
+<p>3.后台-不活跃<br>使用applicationWillEnterForeground:或者UIApplicationWillEnterForeground恢复从不活跃切换到后台状态时所执行的任何操作。例如，可以从这里重新建立持久网络连接。</p>
+<p>4.不活跃-活跃<br>使用applicationDidBecomeActive:或者UIApplicationDidBecomeActive恢复从活跃切换到不活跃状态时执行的所有操作。如果是游戏，应该让用户自行返回到游戏。另外得注意，这个方法和通知在应用重新启动时使用，所以这里执行的任何操作必须是在该上下文中有效的。</p>
 
       
     </div>
@@ -268,13 +288,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/12/Objective-C_nil/">Object-C中各类空值的分析</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/07/iOSLearn15-2/">后台处理</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月12日 - 20时09分</p>
-        <p><span>最后更新:</span>2016年01月12日 - 20时09分</p>
+        <p><span>发布时间:</span>2016年03月07日 - 20时17分</p>
+        <p><span>最后更新:</span>2016年03月07日 - 20时17分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/12/Objective-C_nil/" title="Object-C中各类空值的分析">http://limaofuyuanzhang.github.io/2016/01/12/Objective-C_nil/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/12/Objective-C_nil/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/07/iOSLearn15-2/" title="后台处理">http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -287,16 +307,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/12/different_id_instancetype/">
-                    id和instancetype区别
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/12/add_pch/">
-                    添加pch文件
+                <a href="/2016/03/06/iOSLearn8-5/">
+                    UITableView的使用(5)
                 </a>
             </div>
         
@@ -307,7 +321,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u524D_u8A00"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NULL"><span class="toc-number">2.</span> <span class="toc-text">NULL</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#nil"><span class="toc-number">3.</span> <span class="toc-text">nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nil"><span class="toc-number">4.</span> <span class="toc-text">Nil</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NSNull"><span class="toc-number">5.</span> <span class="toc-text">NSNull</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Objective-C_u4E0E_u5176_u5B83_u8BED_u8A00_u7684_u7A7A_u503C_u7684_u533A_u522B"><span class="toc-number">6.</span> <span class="toc-text">Objective-C与其它语言的空值的区别</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">7.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5E94_u7528_u751F_u547D_u5468_u671F"><span class="toc-number">1.</span> <span class="toc-text">应用生命周期</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u72B6_u6001_u66F4_u6539_u901A_u77E5"><span class="toc-number">2.</span> <span class="toc-text">状态更改通知</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6D4B_u8BD5_u6267_u884C_u72B6_u6001_u53D8_u5316"><span class="toc-number">3.</span> <span class="toc-text">测试执行状态变化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6267_u884C_u72B6_u6001_u66F4_u6539_u5904_u7406_u7B56_u7565"><span class="toc-number">4.</span> <span class="toc-text">执行状态更改处理策略</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -371,7 +385,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/12/Objective-C_nil/" data-title="Object-C中各类空值的分析" data-url="http://limaofuyuanzhang.github.io/2016/01/12/Objective-C_nil/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/07/iOSLearn15-2/" data-title="后台处理" data-url="http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -395,15 +409,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/12/different_id_instancetype/" title="上一篇: id和instancetype区别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/12/add_pch/" title="下一篇: 添加pch文件">
+            <a href="/2016/03/06/iOSLearn8-5/" title="下一篇: UITableView的使用(5)">
                 <i class="fa fa-angle-right"></i>
             </a>
         
