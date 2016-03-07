@@ -11,8 +11,8 @@
 <meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
 <meta property="og:description" content="iOS应用后台处理">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/media/14573496788124.jpg">
-<meta property="og:updated_time" content="2016-03-07T12:17:40.000Z">
+<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14573533738271.jpg">
+<meta property="og:updated_time" content="2016-03-07T12:22:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="后台处理">
 <meta name="twitter:description" content="iOS应用后台处理">
@@ -213,7 +213,7 @@
   
     <div class="article-meta">
       <a href="/2016/03/07/iOSLearn15-2/" class="article-date">
-      <time datetime="2016-03-07T12:17:40.000Z" itemprop="datePublished">2016-03-07</time>
+      <time datetime="2016-03-07T12:22:55.000Z" itemprop="datePublished">2016-03-07</time>
 </a>
     </div>
   
@@ -261,7 +261,7 @@
 <p>后台(Background):应用获得一定时间来执行代码，但无法访问屏幕或获取用户输入。在用户按下主屏幕键后会进入此状态，且大部分应用会迅速进入挂起状态。</p>
 <p>挂起(Suspended):应用被冻结执行。在后台状态不久会转变为此状态。内存会得到保留。如果切回活跃状态将恢复之前的状态。挂起的应用在系统需要时会被释放。</p>
 <p>不活跃(Inactive):应用公在其他状态之间在临时过渡阶段处于不活跃状态。应用可以在做任意时间内处于不活跃状态的唯一前提是，用户正在处理系统提示（比如显示的传入呼叫或SMS提示）或用户锁定了屏幕。这基本上是一种中间过渡状态。</p>
-<h1 id="u72B6_u6001_u66F4_u6539_u901A_u77E5"><a href="#u72B6_u6001_u66F4_u6539_u901A_u77E5" class="headerlink" title="状态更改通知"></a>状态更改通知</h1><p><img src="/media/14573496788124.jpg" alt=""></p>
+<h1 id="u72B6_u6001_u66F4_u6539_u901A_u77E5"><a href="#u72B6_u6001_u66F4_u6539_u901A_u77E5" class="headerlink" title="状态更改通知"></a>状态更改通知</h1><p><img src="/images/14573533738271.jpg" alt=""></p>
 <h1 id="u6D4B_u8BD5_u6267_u884C_u72B6_u6001_u53D8_u5316"><a href="#u6D4B_u8BD5_u6267_u884C_u72B6_u6001_u53D8_u5316" class="headerlink" title="测试执行状态变化"></a>测试执行状态变化</h1><p>这里测试一下不同行为的状态变化</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"> - (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.</span></span><br><span class="line">    <span class="comment">// Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidEnterBackground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.</span></span><br><span class="line">    <span class="comment">// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="comment">// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.</span></span><br><span class="line">    <span class="comment">//只有应用在后台状态时被终结才会调用</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述代码会在不同状态下打印出调用的方法名。</p>
@@ -279,7 +279,7 @@
 <h1 id="u6267_u884C_u72B6_u6001_u66F4_u6539_u5904_u7406_u7B56_u7565"><a href="#u6267_u884C_u72B6_u6001_u66F4_u6539_u5904_u7406_u7B56_u7565" class="headerlink" title="执行状态更改处理策略"></a>执行状态更改处理策略</h1><p>1.活跃-不活跃<br>使用applictaionWillResignActive:或者UIApplicationWillResignActiveNotification来“暂停”应用的显示。如果应用是游戏，你可能已经能够通过某种方式暂停游戏。对于其它类型的应用，确保工作中对用户没有严格的时间要求，因为应用在一段时间内不会获得用户输入。</p>
 <p>2.不活跃-后台<br>使用applicationDidEnterBackground:或者UIApplicationEnterBackgroundNotification释放在应用处于后台状态时不需要保留的任何资源（比如缓存的图片或者其他可轻松加载的数据），或者无法保存在后台状态的资源（比如活跃的网络连接）。在这里避免过度使用内存可使得挂起的快照更小，从而降低被清除的风险。还可以借此机会来保存必要的应用数据。</p>
 <p>3.后台-不活跃<br>使用applicationWillEnterForeground:或者UIApplicationWillEnterForeground恢复从不活跃切换到后台状态时所执行的任何操作。例如，可以从这里重新建立持久网络连接。</p>
-<p>4.不活跃-活跃<br>使用applicationDidBecomeActive:或者UIApplicationDidBecomeActive恢复从活跃切换到不活跃状态时执行的所有操作。如果是游戏，应该让用户自行返回到游戏。另外得注意，这个方法和通知在应用重新启动时使用，所以这里执行的任何操作必须是在该上下文中有效的。</p>
+<p>4.不活跃-活跃<br>使用applicationDidBecomeActive:或者UIApplicationDidBecomeActive恢复从活跃切换到不活跃状态时执行的所有操作。如果是游戏，应该让用户自行返回到游戏。另外得注意，这个方法和通知在应用重新启动时使用，所以这里执行的任何操作必须是在该上下文中有效的</p>
 
       
     </div>
@@ -290,8 +290,8 @@
     <div class="copyright">
         <p><span>本文标题:</span><a href="/2016/03/07/iOSLearn15-2/">后台处理</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年03月07日 - 20时17分</p>
-        <p><span>最后更新:</span>2016年03月07日 - 20时17分</p>
+        <p><span>发布时间:</span>2016年03月07日 - 20时22分</p>
+        <p><span>最后更新:</span>2016年03月07日 - 20时22分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2016/03/07/iOSLearn15-2/" title="后台处理">http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/</a>
             <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/07/iOSLearn15-2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
