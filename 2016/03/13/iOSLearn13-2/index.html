@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>swift区间运算符 | 狸猫副园长的技术窝</title>
+  <title>数据持久化-对模型对象进行归档 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+  <meta name="description" content="数据持久化之模型对象归档">
 <meta property="og:type" content="article">
-<meta property="og:title" content="swift区间运算符">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/24/swift_range_operator/index.html">
+<meta property="og:title" content="数据持久化-对模型对象进行归档">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/13/iOSLearn13-2/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
-<meta property="og:updated_time" content="2016-01-23T16:00:00.000Z">
+<meta property="og:description" content="数据持久化之模型对象归档">
+<meta property="og:updated_time" content="2016-03-13T13:09:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="swift区间运算符">
-<meta name="twitter:description" content="Swift 提供了两个方便表达一个区间的值的运算符。">
+<meta name="twitter:title" content="数据持久化-对模型对象进行归档">
+<meta name="twitter:description" content="数据持久化之模型对象归档">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -208,11 +208,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-swift_range_operator" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOSLearn13-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/24/swift_range_operator/" class="article-date">
-      <time datetime="2016-01-23T16:00:00.000Z" itemprop="datePublished">2016-01-24</time>
+      <a href="/2016/03/13/iOSLearn13-2/" class="article-date">
+      <time datetime="2016-03-13T13:09:00.000Z" itemprop="datePublished">2016-03-13</time>
 </a>
     </div>
   
@@ -225,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      swift区间运算符
+      数据持久化-对模型对象进行归档
     </h1>
   
 
@@ -240,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -250,18 +250,19 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Swift 提供了两个方便表达一个区间的值的运算符。</p>
-<a id="more"></a>
-<h1 id="u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="闭区间运算符"></a>闭区间运算符</h1><p>闭区间运算符（a…b）定义一个包含从a到b(包括a和b)的所有值的区间，b必须大于等于a。 ‌ 闭区间运算符在迭代一个区间的所有值时是非常有用的，如在for-in循环中：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="number">1</span>...<span class="number">5</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"<span class="subst">\(index)</span> * 5 = <span class="subst">\(index * <span class="number">5</span>)</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1 * 5 = 5</span></span><br><span class="line"><span class="comment">// 2 * 5 = 10</span></span><br><span class="line"><span class="comment">// 3 * 5 = 15</span></span><br><span class="line"><span class="comment">// 4 * 5 = 20</span></span><br><span class="line"><span class="comment">// 5 * 5 = 25</span></span><br></pre></td></tr></table></figure>
-<h1 id="u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><a href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26" class="headerlink" title="半开区间运算符"></a>半开区间运算符</h1><p>半开区间（a..&lt;b）定义一个从a到b但不包括b的区间。 之所以称为半开区间，是因为该区“间包含第一个值而不包括最后的值。</p>
-<p>半开区间的实用性在于当你使用一个从0开始的列表(如数组)时，非常方便地从0数到列表的长度。</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> names = [<span class="string">"Anna"</span>, <span class="string">"Alex"</span>, <span class="string">"Brian"</span>, <span class="string">"Jack"</span>]</span><br><span class="line"><span class="keyword">let</span> <span class="built_in">count</span> = names.<span class="built_in">count</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>..&lt;<span class="built_in">count</span> &#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"第 <span class="subst">\(i + <span class="number">1</span>)</span> 个人叫 <span class="subst">\(names[i])</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第 1 个人叫 Anna</span></span><br><span class="line"><span class="comment">// 第 2 个人叫 Alex</span></span><br><span class="line"><span class="comment">// 第 3 个人叫 Brian</span></span><br><span class="line"><span class="comment">// 第 4 个人叫 Jack</span></span><br><span class="line">数组有<span class="number">4</span>个元素，但<span class="number">0</span>..&lt;<span class="built_in">count</span>只数到<span class="number">3</span>(最后一个元素的下标)，因为它是半开区间。</span><br></pre></td></tr></table></figure>
-<h1 id="u901F_u8BB0"><a href="#u901F_u8BB0" class="headerlink" title="速记"></a>速记</h1><ul>
-<li>闭区间表示 <code>a...b</code> 含ab</li>
-<li>半开区间表示 <code>a..&lt;b</code> 只含a</li>
-</ul>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://wiki.jikexueyuan.com/project/swift/chapter2/chapter2.html" target="_blank" rel="external">The Swift Programming Language 中文版</a></p>
+        <p>简单地说就是遵循NSCoding的类可以很方便地将这些类的对象保存在文件中，也很方便地读取出来。</p>
+<p>代码演示，先定义需要保存的类</p>
+<p>FourLines.h</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">FourLines</span> : <span class="title">NSObject</span>&lt;<span class="title">NSCoding</span>,<span class="title">NSCopying</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *lines;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>FourLines.m</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"FourLines.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> kLinesKey = <span class="string">@"kLinesKey"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">FourLines</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span><span class="variable">.lines</span> = [aDecoder decodeObjectForKey:kLinesKey];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder&#123;</span><br><span class="line">    [aCoder encodeObject:<span class="keyword">self</span><span class="variable">.lines</span> forKey:kLinesKey];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - Copying</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone&#123;</span><br><span class="line">    FourLines *<span class="keyword">copy</span> = [[[<span class="keyword">self</span> class] allocWithZone:zone] init];</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *linesCopy = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">id</span> line <span class="keyword">in</span> <span class="keyword">self</span><span class="variable">.lines</span>) &#123;</span><br><span class="line">        [linesCopy addObject:line];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">copy</span><span class="variable">.lines</span> = linesCopy;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">copy</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实就是实现NSCoding协议中的两个方法，说明这些属性是如何编码解码的，另外这里还实现了NSCopying方法。</p>
+<p>接下来看看怎么用。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">NSNotification</span> *)notification&#123;</span><br><span class="line">    </span><br><span class="line">    FourLines *fourLines = [[FourLines alloc] init];</span><br><span class="line">    fourLines<span class="variable">.lines</span> = [<span class="keyword">self</span><span class="variable">.lineFileds</span> valueForKey:<span class="string">@"text"</span>];</span><br><span class="line">    <span class="built_in">NSMutableData</span> *data = [[<span class="built_in">NSMutableData</span> alloc] init];</span><br><span class="line">    <span class="built_in">NSKeyedArchiver</span> *archiver = [[<span class="built_in">NSKeyedArchiver</span> alloc] initForWritingWithMutableData:data];</span><br><span class="line">    [archiver encodeObject:fourLines forKey:kRootKey];</span><br><span class="line">    [archiver finishEncoding];</span><br><span class="line">    [data writeToFile:[<span class="keyword">self</span> datafilePath] atomically:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来是取数据</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *filePath = [<span class="keyword">self</span> datafilePath];</span><br><span class="line"><span class="keyword">if</span> ([[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:filePath]) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSData</span> *data = [[<span class="built_in">NSMutableData</span> alloc] initWithContentsOfFile:filePath];</span><br><span class="line">    <span class="built_in">NSKeyedUnarchiver</span> *unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc] initForReadingWithData:data];</span><br><span class="line">    FourLines *fourLines = [unarchiver decodeObjectForKey:kRootKey];</span><br><span class="line">    [unarchiver finishDecoding];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">        <span class="built_in">UITextField</span> *theField = <span class="keyword">self</span><span class="variable">.lineFileds</span>[i];</span><br><span class="line">        theField<span class="variable">.text</span> = fourLines<span class="variable">.lines</span>[i];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完整代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"><span class="preprocessor">#import <span class="title">"FourLines.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> <span class="built_in">NSString</span> *<span class="keyword">const</span> kRootKey = <span class="string">@"kRootKey"</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">    <span class="comment">//取数据</span></span><br><span class="line">    <span class="built_in">NSString</span> *filePath = [<span class="keyword">self</span> datafilePath];</span><br><span class="line">    <span class="keyword">if</span> ([[<span class="built_in">NSFileManager</span> defaultManager] fileExistsAtPath:filePath]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSData</span> *data = [[<span class="built_in">NSMutableData</span> alloc] initWithContentsOfFile:filePath];</span><br><span class="line">        <span class="built_in">NSKeyedUnarchiver</span> *unarchiver = [[<span class="built_in">NSKeyedUnarchiver</span> alloc] initForReadingWithData:data];</span><br><span class="line">        FourLines *fourLines = [unarchiver decodeObjectForKey:kRootKey];</span><br><span class="line">        [unarchiver finishDecoding];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)&#123;</span><br><span class="line">            <span class="built_in">UITextField</span> *theField = <span class="keyword">self</span><span class="variable">.lineFileds</span>[i];</span><br><span class="line">            theField<span class="variable">.text</span> = fourLines<span class="variable">.lines</span>[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//存储数据</span></span><br><span class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationWillResignActive:) name:<span class="built_in">UIApplicationWillResignActiveNotification</span> object:app];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">NSNotification</span> *)notification&#123;</span><br><span class="line">    </span><br><span class="line">    FourLines *fourLines = [[FourLines alloc] init];</span><br><span class="line">    fourLines<span class="variable">.lines</span> = [<span class="keyword">self</span><span class="variable">.lineFileds</span> valueForKey:<span class="string">@"text"</span>];</span><br><span class="line">    <span class="built_in">NSMutableData</span> *data = [[<span class="built_in">NSMutableData</span> alloc] init];</span><br><span class="line">    <span class="built_in">NSKeyedArchiver</span> *archiver = [[<span class="built_in">NSKeyedArchiver</span> alloc] initForWritingWithMutableData:data];</span><br><span class="line">    [archiver encodeObject:fourLines forKey:kRootKey];</span><br><span class="line">    [archiver finishEncoding];</span><br><span class="line">    [data writeToFile:[<span class="keyword">self</span> datafilePath] atomically:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)datafilePath&#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *paths = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</span><br><span class="line">    <span class="built_in">NSString</span> *documentsDirectory = [paths objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">return</span> [documentsDirectory stringByAppendingPathComponent:<span class="string">@"data.archive"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -270,13 +271,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/24/swift_range_operator/">swift区间运算符</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/13/iOSLearn13-2/">数据持久化-对模型对象进行归档</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月24日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年01月24日 - 00时00分</p>
+        <p><span>发布时间:</span>2016年03月13日 - 21时09分</p>
+        <p><span>最后更新:</span>2016年03月13日 - 21时09分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/24/swift_range_operator/" title="swift区间运算符">http://limaofuyuanzhang.github.io/2016/01/24/swift_range_operator/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/24/swift_range_operator/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/13/iOSLearn13-2/" title="数据持久化-对模型对象进行归档">http://limaofuyuanzhang.github.io/2016/03/13/iOSLearn13-2/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/13/iOSLearn13-2/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -289,16 +290,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/24/swift_optional/">
-                    swift可选类型
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/24/swift_string/">
-                    swift 字符串
+                <a href="/2016/03/12/iOSLearn12/">
+                    应用设置操作
                 </a>
             </div>
         
@@ -309,7 +304,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u95ED_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">1.</span> <span class="toc-text">闭区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u534A_u5F00_u533A_u95F4_u8FD0_u7B97_u7B26"><span class="toc-number">2.</span> <span class="toc-text">半开区间运算符</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u901F_u8BB0"><span class="toc-number">3.</span> <span class="toc-text">速记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">4.</span> <span class="toc-text">参考</span></a></li></ol>
+    
 </div>
 <style>
     .left-col .switch-btn {
@@ -373,7 +368,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/24/swift_range_operator/" data-title="swift区间运算符" data-url="http://limaofuyuanzhang.github.io/2016/01/24/swift_range_operator/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/13/iOSLearn13-2/" data-title="数据持久化-对模型对象进行归档" data-url="http://limaofuyuanzhang.github.io/2016/03/13/iOSLearn13-2/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -397,15 +392,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/24/swift_optional/" title="上一篇: swift可选类型">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/24/swift_string/" title="下一篇: swift 字符串">
+            <a href="/2016/03/12/iOSLearn12/" title="下一篇: 应用设置操作">
                 <i class="fa fa-angle-right"></i>
             </a>
         
