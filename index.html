@@ -277,66 +277,6 @@
 
 
   
-    <article id="post-Bmob_Restful_API_Use" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/14/Bmob_Restful_API_Use/" class="article-date">
-      <time datetime="2016-03-14T12:58:42.000Z" itemprop="datePublished">2016-03-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <h1 id="u7B80_u4ECB"><a href="#u7B80_u4ECB" class="headerlink" title="简介"></a>简介</h1><p>尽管Bmob已经提供了一套SDK供开发者使用，但有时候开发者可能希望能直接与Bmob后台进行直接交互，以达到某些特别的需求（直接操作_User表、同步网络请求等）。而RESTful API可以使得只要能够发送HTTP请求的设备可以先Bmob进行数据交互。因此，在使用Bmob开发iOS应用过程中，我们也可以使用RESTful来完成交互。</p>
-<h1 id="u4F7F_u7528_u65B9_u6CD5"><a href="#u4F7F_u7528_u65B9_u6CD5" class="headerlink" title="使用方法"></a>使用方法</h1><p>只要使用标准的HTTP请求即可。以添加对象为例，官方文档文档的描述如下：</p>
-<p><img src="/images/14520506202079.jpg" alt=""></p>
-<p>也就是我们需要设置以下几个参数</p>
-<ul>
-<li>url</li>
-<li>method</li>
-<li>header</li>
-<li><p>body</p>
-<p>代码如下：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">//设置URL</span></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"https://api.bmob.cn/1/classes/Post"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置请求方法</span></span><br><span class="line"><span class="built_in">NSMutableURLRequest</span> *addRequest = [[<span class="built_in">NSMutableURLRequest</span> alloc] initWithURL:url];</span><br><span class="line">[addRequest setHTTPMethod:<span class="string">@"POST"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置请求头</span></span><br><span class="line">[addRequest setAllHTTPHeaderFields:@&#123;<span class="string">@"X-Bmob-Application-Id"</span>:APPKEY,<span class="string">@"X-Bmob-REST-API-Key"</span>:RESTFULKEY,<span class="string">@"Content-Type"</span>:<span class="string">@"application/json"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置body，需要转换为NSData</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *addRequestBody = @&#123;<span class="string">@"title"</span>:<span class="string">@"How to Use RESTful API"</span>&#125;;</span><br><span class="line"><span class="built_in">NSData</span> *addRequestBodyData = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:addRequestBody options:<span class="built_in">NSJSONWritingPrettyPrinted</span> error:<span class="literal">nil</span>];</span><br><span class="line">[addRequest setHTTPBody:addRequestBodyData];</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送请求</span></span><br><span class="line"><span class="built_in">NSHTTPURLResponse</span> *response;</span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSURLConnection</span> sendSynchronousRequest:addRequest returningResponse:&amp;response error:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *result = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingAllowFragments</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印请求结果</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"statusCode:%ld"</span>,(<span class="keyword">long</span>)response<span class="variable">.statusCode</span>);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"result:%@"</span>,result);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>得到的结果如下，从文档中的描述可以判断该请求是否成功响应：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">statusCode:<span class="number">201</span></span><br><span class="line">result:&#123;</span><br><span class="line">    createdAt = <span class="string">"2016-01-06 10:44:58"</span>;</span><br><span class="line">    objectId = <span class="number">8</span>a3b9ffd9e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/14520506350923.jpg" alt=""></p>
-<p>另外，需要注意的是，如果发送的是GET请求，一般需要对参数先进行JSON编码再进行URL编码。例如使用条件查询，通过where参数进行约束，要查找出帖子的标题为“How to Use RESTful API”时，需要像下面代码那样构造请求。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造URL字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *urlString = <span class="string">@"https://api.bmob.cn/1/classes/Post?where="</span>;</span><br><span class="line"><span class="comment">//查询条件JSON编码</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *queryDic = @&#123;<span class="string">@"title"</span>:<span class="string">@"How to Use RESTful API"</span>&#125;;</span><br><span class="line"><span class="built_in">NSData</span> *queryData = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:queryDic options:<span class="built_in">NSJSONWritingPrettyPrinted</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSString</span> *queryString = [[<span class="built_in">NSString</span> alloc] initWithData:queryData encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">urlString = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@%@"</span>,urlString,queryString];</span><br><span class="line"></span><br><span class="line"><span class="comment">//URL编码</span></span><br><span class="line"><span class="built_in">NSString</span> *urlEncode = [urlString stringByAddingPercentEscapesUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置URL</span></span><br><span class="line"><span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:urlEncode];</span><br><span class="line"><span class="built_in">NSMutableURLRequest</span> *queryRequest = [[<span class="built_in">NSMutableURLRequest</span> alloc] initWithURL:url];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置请求方法</span></span><br><span class="line">[queryRequest setHTTPMethod:<span class="string">@"GET"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置请求头</span></span><br><span class="line">[queryRequest setAllHTTPHeaderFields:@&#123;<span class="string">@"X-Bmob-Application-Id"</span>:APPKEY,<span class="string">@"X-Bmob-REST-API-Key"</span>:RESTFULKEY,<span class="string">@"Content-Type"</span>:<span class="string">@"application/json"</span>&#125;];</span><br><span class="line"></span><br><span class="line"><span class="comment">//发送请求</span></span><br><span class="line"><span class="built_in">NSHTTPURLResponse</span> *response;</span><br><span class="line"><span class="built_in">NSData</span> *data = [<span class="built_in">NSURLConnection</span> sendSynchronousRequest:queryRequest returningResponse:&amp;response error:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSDictionary</span> *result = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingAllowFragments</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//打印请求结果</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"statusCode:%ld"</span>,(<span class="keyword">long</span>)response<span class="variable">.statusCode</span>);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"result:%@"</span>,result);</span><br></pre></td></tr></table></figure>
-<h1 id="u603B_u7ED3"><a href="#u603B_u7ED3" class="headerlink" title="总结"></a>总结</h1><p>本质上，使用RESTful API，就是通过构造不同的HTTP请求来达到与服务器交互的效果。上面使用的都是最基本的网络请求API，并且都采用了同步调用，我们也可以根据自己的需求使用异步调用的API或者是别人封装好的HTTP请求框架来使用RESTful API。</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-iOSLearn13-2" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -840,6 +780,71 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/06/iOSLearn8-5/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOSLearn15-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/05/iOSLearn15-1/" class="article-date">
+      <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/iOSLearn15-1/">GCD简单应用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              GCD简单应用
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/05/iOSLearn15-1/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
