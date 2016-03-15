@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Objective-C中枚举类型的写法 | 狸猫副园长的技术窝</title>
+  <title>NSData | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Objective-C中枚举类型的写法">
+  <meta name="description" content="NSData相关使用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Objective-C中枚举类型的写法">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/24/enum_use/index.html">
+<meta property="og:title" content="NSData">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/15/NSData-1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="Objective-C中枚举类型的写法">
-<meta property="og:updated_time" content="2016-01-23T16:00:00.000Z">
+<meta property="og:description" content="NSData相关使用">
+<meta property="og:updated_time" content="2016-01-24T13:01:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Objective-C中枚举类型的写法">
-<meta name="twitter:description" content="Objective-C中枚举类型的写法">
+<meta name="twitter:title" content="NSData">
+<meta name="twitter:description" content="NSData相关使用">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -208,11 +208,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-enum_use" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-NSData-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/24/enum_use/" class="article-date">
-      <time datetime="2016-01-23T16:00:00.000Z" itemprop="datePublished">2016-01-24</time>
+      <a href="/2016/03/15/NSData-1/" class="article-date">
+      <time datetime="2016-03-15T13:01:00.000Z" itemprop="datePublished">2016-03-15</time>
 </a>
     </div>
   
@@ -225,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Objective-C中枚举类型的写法
+      NSData
     </h1>
   
 
@@ -240,7 +240,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/objc/">objc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/枚举/">枚举</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NSData/">NSData</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -250,9 +250,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>经常都会忘记 <code>Objective-C</code> 中枚举的写法，这里记录下来作为备忘。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NS_ENUM，定义状态等普通枚举</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_ENUM</span><span class="params">(NSUInteger, TTGState)</span> </span>&#123;</span><br><span class="line">  TTGStateOK = <span class="number">0</span>,</span><br><span class="line">  TTGStateError,</span><br><span class="line">  TTGStateUnknow</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//NS_OPTIONS，定义选项</span></span><br><span class="line"><span class="function"><span class="keyword">typedef</span> <span class="title">NS_OPTIONS</span><span class="params">(NSUInteger, TTGDirection)</span> </span>&#123;</span><br><span class="line">  TTGDirectionNone = <span class="number">0</span>,</span><br><span class="line">  TTGDirectionTop = <span class="number">1</span> &lt;&lt; <span class="number">0</span>,</span><br><span class="line">  TTGDirectionLeft = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">  TTGDirectionRight = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">  TTGDirectionBottom = <span class="number">1</span> &lt;&lt; <span class="number">3</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://tutuge.me/2015/03/21/effective-objective-c-5-enum/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">Enum-枚举的正确使用-Effective-Objective-C-读书笔记-Item-5</a></p>
+        <h1 id="NSString_u4E0ENSData_u76F8_u4E92_u8F6C_u6362"><a href="#NSString_u4E0ENSData_u76F8_u4E92_u8F6C_u6362" class="headerlink" title="NSString与NSData相互转换"></a>NSString与NSData相互转换</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> 转换成<span class="built_in">NSData</span> 对象 </span><br><span class="line"><span class="built_in">NSData</span>* xmlData = [<span class="string">@"testdata"</span> dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>]; </span><br><span class="line"></span><br><span class="line"><span class="built_in">NSData</span> 转换成<span class="built_in">NSString</span>对象 </span><br><span class="line"><span class="built_in">NSData</span> * data; </span><br><span class="line"><span class="built_in">NSString</span> *result = [[<span class="built_in">NSString</span> alloc] initWithData:data  encoding:<span class="built_in">NSUTF8StringEncoding</span>]; </span><br><span class="line"></span><br><span class="line"><span class="built_in">NSData</span> 转换成<span class="keyword">char</span>* </span><br><span class="line"><span class="built_in">NSData</span> *data; </span><br><span class="line"><span class="keyword">char</span> *test=[data bytes]; </span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span>* 转换成<span class="built_in">NSData</span>对象 </span><br><span class="line">byte* tempData = malloc(<span class="keyword">sizeof</span>(byte)*<span class="number">16</span>); </span><br><span class="line"><span class="built_in">NSData</span> *content=[<span class="built_in">NSData</span> dataWithBytes:tempData length:<span class="number">16</span>];</span><br></pre></td></tr></table></figure>
+<h1 id="u6574_u578B_u5927_u5C0F_u7AEF_u8F6C_u6362_u53CA_u8F6C_u6362_u6210NSData"><a href="#u6574_u578B_u5927_u5C0F_u7AEF_u8F6C_u6362_u53CA_u8F6C_u6362_u6210NSData" class="headerlink" title="整型大小端转换及转换成NSData"></a>整型大小端转换及转换成NSData</h1><p><a href="https://developer.apple.com/library/mac/documentation/CoreFoundation/Reference/CFByteOrderUtils/index.html#//apple_ref/c/func/CFSwapInt16BigToHost" target="_blank" rel="external">Core Foundation Byte Order Utilities Miscellaneous Functions</a></p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将32位大端模式格式的字节流转换成主机的端模式</span></span><br><span class="line">uint32_t swappedInt1 = <span class="built_in">CFSwapInt32BigToHost</span>(<span class="number">0x12345678</span>);</span><br><span class="line"><span class="built_in">NSData</span> *data1 = [<span class="built_in">NSData</span> dataWithBytes:&amp;swappedInt1 length:<span class="keyword">sizeof</span>(swappedInt1)];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,data1);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将32位小端模式格式的字节流转换成主机的端模式</span></span><br><span class="line">uint32_t swappedInt2 = <span class="built_in">CFSwapInt32LittleToHost</span>(<span class="number">0x12345678</span>);</span><br><span class="line"><span class="built_in">NSData</span> *data2 = [<span class="built_in">NSData</span> dataWithBytes:&amp;swappedInt2 length:<span class="keyword">sizeof</span>(swappedInt2)];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,data2);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将32位的主机端字节流转化成大端模式</span></span><br><span class="line">uint32_t swappedInt3 = <span class="built_in">CFSwapInt32HostToBig</span>(<span class="number">0x12345678</span>);</span><br><span class="line"><span class="built_in">NSData</span> *data3 = [<span class="built_in">NSData</span> dataWithBytes:&amp;swappedInt3 length:<span class="keyword">sizeof</span>(swappedInt3)];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,data3);</span><br><span class="line"></span><br><span class="line"><span class="comment">//将32位的主机端字节流转化成小端模式</span></span><br><span class="line">uint32_t swappedInt4 = <span class="built_in">CFSwapInt32HostToLittle</span>(<span class="number">0x12345678</span>);</span><br><span class="line"><span class="built_in">NSData</span> *data4 = [<span class="built_in">NSData</span> dataWithBytes:&amp;swappedInt4 length:<span class="keyword">sizeof</span>(swappedInt4)];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,data4);</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="typename">int</span> i = <span class="number">1</span>;</span><br><span class="line">NSData *data = [NSData <span class="string">dataWithBytes:</span> &amp;i <span class="string">length:</span> sizeof(i)];</span><br><span class="line"><span class="typename">int</span> i;</span><br><span class="line">[data <span class="string">getBytes:</span> &amp;i <span class="string">length:</span> sizeof(i)];</span><br></pre></td></tr></table></figure>
+<h1 id="NSDictionary_u6216_u8005NSArray_u4E0ENSData_u8F6C_u5316"><a href="#NSDictionary_u6216_u8005NSArray_u4E0ENSData_u8F6C_u5316" class="headerlink" title="NSDictionary或者NSArray与NSData转化"></a>NSDictionary或者NSArray与NSData转化</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NSDictionary转NSData</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *params = [<span class="built_in">NSDictionary</span> dictionaryWithObjectsAndKeys:</span><br><span class="line">                            <span class="string">@"balance"</span>, <span class="string">@"key"</span>,</span><br><span class="line">                            <span class="string">@"remaining balance"</span>, <span class="string">@"label"</span>,</span><br><span class="line">                            <span class="string">@"45"</span>, <span class="string">@"value"</span>,</span><br><span class="line">                            <span class="string">@"USD"</span>, <span class="string">@"currencyCode"</span>,<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSData</span> *jsonData = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:params options:<span class="built_in">NSJSONWritingPrettyPrinted</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//NSData 转 NSDictionary </span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dic = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:data options:<span class="built_in">NSJSONReadingAllowFragments</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//NSArray转NSData</span></span><br><span class="line">    <span class="built_in">NSArray</span> *array = @[<span class="string">@"test"</span>];</span><br><span class="line">    <span class="built_in">NSData</span> *arrayJsonData = [<span class="built_in">NSJSONSerialization</span> dataWithJSONObject:array options:<span class="built_in">NSJSONWritingPrettyPrinted</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="comment">//NSData转NSArray</span></span><br><span class="line">    <span class="built_in">NSArray</span> *array1 = [<span class="built_in">NSJSONSerialization</span> JSONObjectWithData:arrayJsonData options:<span class="built_in">NSJSONReadingAllowFragments</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,array1);</span><br></pre></td></tr></table></figure>
+<p>参考<br><a href="http://jiangbo0258.blog.163.com/blog/static/644931402014323103148118/" target="_blank" rel="external">NSDictionary或NSArray与JSON字符串相互转换</a></p>
 
       
     </div>
@@ -261,13 +264,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/24/enum_use/">Objective-C中枚举类型的写法</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/15/NSData-1/">NSData</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月24日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年01月24日 - 00时00分</p>
+        <p><span>发布时间:</span>2016年03月15日 - 21时01分</p>
+        <p><span>最后更新:</span>2016年01月24日 - 21时01分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/24/enum_use/" title="Objective-C中枚举类型的写法">http://limaofuyuanzhang.github.io/2016/01/24/enum_use/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/24/enum_use/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/15/NSData-1/" title="NSData">http://limaofuyuanzhang.github.io/2016/03/15/NSData-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/15/NSData-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -280,16 +283,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/24/git_modift_commit/">
-                    如何修改git旧提交
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/01/24/different_id_instancetype/">
-                    id和instancetype区别
+                <a href="/2016/03/15/iOSLearn15-1/">
+                    
                 </a>
             </div>
         
@@ -300,7 +297,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u6B63_u6587"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NSString_u4E0ENSData_u76F8_u4E92_u8F6C_u6362"><span class="toc-number">1.</span> <span class="toc-text">NSString与NSData相互转换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u6574_u578B_u5927_u5C0F_u7AEF_u8F6C_u6362_u53CA_u8F6C_u6362_u6210NSData"><span class="toc-number">2.</span> <span class="toc-text">整型大小端转换及转换成NSData</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NSDictionary_u6216_u8005NSArray_u4E0ENSData_u8F6C_u5316"><span class="toc-number">3.</span> <span class="toc-text">NSDictionary或者NSArray与NSData转化</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -364,7 +361,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/24/enum_use/" data-title="Objective-C中枚举类型的写法" data-url="http://limaofuyuanzhang.github.io/2016/01/24/enum_use/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/15/NSData-1/" data-title="NSData" data-url="http://limaofuyuanzhang.github.io/2016/03/15/NSData-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -388,15 +385,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/24/git_modift_commit/" title="上一篇: 如何修改git旧提交">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/01/24/different_id_instancetype/" title="下一篇: id和instancetype区别">
+            <a href="/2016/03/15/iOSLearn15-1/" title="下一篇: ">
                 <i class="fa fa-angle-right"></i>
             </a>
         
