@@ -277,52 +277,6 @@
 
 
   
-    <article id="post-iOSLearn15-1" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/15/iOSLearn15-1/" class="article-date">
-      <time datetime="2016-03-15T12:56:38.000Z" itemprop="datePublished">2016-03-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-        <p>GCD是apple用来解决多线程开发的任务框架。GCD最重要的概念是队列，系统提供了许多预定义的队列，包括可以保证始终在主线上执行工作的队列。我们也可以创建自己的队列。GCD列队可以自动在多个线程之间分配工作。</p>
-<p>样例代码</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#import <span class="title">"ViewController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIButton</span> *startButton;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UITextView</span> *resultsTextView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">weak</span>, <span class="keyword">nonatomic</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIActivityIndicatorView</span> *spinner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view, typically from a nib.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">    <span class="comment">// Dispose of any resources that can be recreated.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="preprocessor">#pragma mark - 执行的多个任务</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)fetchSomethingFromServer&#123;</span><br><span class="line">    [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> <span class="string">@"Hi there"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)processData:(<span class="built_in">NSString</span> *)data&#123;</span><br><span class="line">    [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">return</span> [data uppercaseString];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)calculateFirstResult:(<span class="built_in">NSString</span> *)data&#123;</span><br><span class="line">    [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">3</span>];</span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"Number of chars:%d"</span>,[data length]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSString</span> *)calculateSecondResult:(<span class="built_in">NSString</span> *)data&#123;</span><br><span class="line">    [<span class="built_in">NSThread</span> sleepForTimeInterval:<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">return</span> [data stringByReplacingOccurrencesOfString:<span class="string">@"E"</span> withString:<span class="string">@"e"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">IBAction</span>)doWork:(<span class="keyword">id</span>)sender&#123;</span><br><span class="line">    <span class="built_in">NSDate</span> *startTime = [<span class="built_in">NSDate</span> date];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.startButton</span><span class="variable">.enabled</span> = <span class="literal">NO</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.spinner</span> startAnimating];</span><br><span class="line">    <span class="comment">//使用默认队列来执行新的任务</span></span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">        <span class="comment">//将这些耗时的任务都放在默认队列中，这样就不会阻塞主线程</span></span><br><span class="line">        <span class="built_in">NSString</span> *fetchedData = [<span class="keyword">self</span> fetchSomethingFromServer];</span><br><span class="line">        <span class="built_in">NSString</span> *processedData = [<span class="keyword">self</span> processData:fetchedData];</span><br><span class="line">        <span class="built_in">NSString</span> *firstResult = [<span class="keyword">self</span> calculateFirstResult:processedData];</span><br><span class="line">        <span class="built_in">NSString</span> *secontResult = [<span class="keyword">self</span> calculateSecondResult:processedData];</span><br><span class="line">        <span class="built_in">NSString</span> *resultSummary = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"First:[%@]\nSecond:[%@]"</span>,firstResult,secontResult];</span><br><span class="line">        <span class="comment">//UI操作需要使用主线程，在上述任务完成后，转回主线程</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.resultsTextView</span><span class="variable">.text</span> = resultSummary;</span><br><span class="line">            <span class="keyword">self</span><span class="variable">.startButton</span> = <span class="literal">NO</span>;</span><br><span class="line">            [<span class="keyword">self</span><span class="variable">.spinner</span> stopAnimating];</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">NSDate</span> *endTime = [<span class="built_in">NSDate</span> date];</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Completed in %f seconds"</span>,[endTime timeIntervalSinceDate:startTime]);</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>上述的任务中，其实calculateFirstResult：和calculateSecondResult：是不需要顺序执行的，我们可以使用dispatch group来将它们分发给多个线程来同时执行。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">IBAction</span>)doWork:(<span class="keyword">id</span>)sender&#123;</span><br><span class="line">    <span class="built_in">NSDate</span> *startTime = [<span class="built_in">NSDate</span> date];</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.startButton</span><span class="variable">.enabled</span> = <span class="literal">NO</span>;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.spinner</span> startAnimating];</span><br><span class="line">    <span class="comment">//使用默认队列来执行新的任务</span></span><br><span class="line">    <span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">        <span class="comment">//将这些耗时的任务都放在默认队列中，这样就不会阻塞主线程</span></span><br><span class="line">        <span class="built_in">NSString</span> *fetchedData = [<span class="keyword">self</span> fetchSomethingFromServer];</span><br><span class="line">        <span class="built_in">NSString</span> *processedData = [<span class="keyword">self</span> processData:fetchedData];</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">        __block <span class="built_in">NSString</span> *firstResult;</span><br><span class="line">        __block <span class="built_in">NSString</span> *secondResult;</span><br><span class="line">        dispatch_group_t group = dispatch_group_create();</span><br><span class="line">        dispatch_group_async(group, queue, ^&#123;</span><br><span class="line">            firstResult = [<span class="keyword">self</span> calculateFirstResult:processedData];</span><br><span class="line">        &#125;);</span><br><span class="line">        dispatch_group_async(group, queue, ^&#123;</span><br><span class="line">            secondResult = [<span class="keyword">self</span> calculateSecondResult:processedData];</span><br><span class="line">        &#125;);</span><br><span class="line">        dispatch_group_notify(group, queue, ^&#123;</span><br><span class="line">            <span class="built_in">NSString</span> *resultSummary = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"First:[%@]\nSecond:[%@]"</span>,firstResult,secondResult];</span><br><span class="line">            <span class="comment">//UI操作需要使用主线程，在上述任务完成后，转回主线程</span></span><br><span class="line">            <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.resultsTextView</span><span class="variable">.text</span> = resultSummary;</span><br><span class="line">                <span class="keyword">self</span><span class="variable">.startButton</span> = <span class="literal">NO</span>;</span><br><span class="line">                [<span class="keyword">self</span><span class="variable">.spinner</span> stopAnimating];</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="built_in">NSDate</span> *endTime = [<span class="built_in">NSDate</span> date];</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"Completed in %f seconds"</span>,[endTime timeIntervalSinceDate:startTime]);</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-
-      
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-  
     <article id="post-iOSLearn13-3" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -826,6 +780,71 @@
       
         <p class="article-more-link">
           <a  href="/2016/03/07/iOSLearn15-2/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOSLearn8-5" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/06/iOSLearn8-5/" class="article-date">
+      <time datetime="2016-03-05T16:00:00.000Z" itemprop="datePublished">2016-03-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/06/iOSLearn8-5/">UITableView的使用(5)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              《精通iOS开发》第8章笔记
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+      
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UITableView/">UITableView</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/06/iOSLearn8-5/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

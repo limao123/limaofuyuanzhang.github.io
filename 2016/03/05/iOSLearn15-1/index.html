@@ -3,24 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>狸猫副园长的技术窝</title>
+  <title>GCD简单应用 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="GCD是apple用来解决多线程开发的任务框架。GCD最重要的概念是队列，系统提供了许多预定义的队列，包括可以保证始终在主线上执行工作的队列。我们也可以创建自己的队列。GCD列队可以自动在多个线程之间分配工作。
-样例代码
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
+  <meta name="description" content="介绍GCD简单应用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="狸猫副园长的技术窝">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/15/iOSLearn15-1/index.html">
+<meta property="og:title" content="GCD简单应用">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/05/iOSLearn15-1/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="GCD是apple用来解决多线程开发的任务框架。GCD最重要的概念是队列，系统提供了许多预定义的队列，包括可以保证始终在主线上执行工作的队列。我们也可以创建自己的队列。GCD列队可以自动在多个线程之间分配工作。
-样例代码
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
-<meta property="og:updated_time" content="2016-03-15T12:56:38.000Z">
+<meta property="og:description" content="介绍GCD简单应用">
+<meta property="og:updated_time" content="2016-03-04T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="狸猫副园长的技术窝">
-<meta name="twitter:description" content="GCD是apple用来解决多线程开发的任务框架。GCD最重要的概念是队列，系统提供了许多预定义的队列，包括可以保证始终在主线上执行工作的队列。我们也可以创建自己的队列。GCD列队可以自动在多个线程之间分配工作。
-样例代码
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849">
+<meta name="twitter:title" content="GCD简单应用">
+<meta name="twitter:description" content="介绍GCD简单应用">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -217,8 +211,8 @@
       <div class="body-wrap"><article id="post-iOSLearn15-1" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/iOSLearn15-1/" class="article-date">
-      <time datetime="2016-03-15T12:56:38.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2016/03/05/iOSLearn15-1/" class="article-date">
+      <time datetime="2016-03-04T16:00:00.000Z" itemprop="datePublished">2016-03-05</time>
 </a>
     </div>
   
@@ -226,6 +220,32 @@
     
       <input type="hidden" class="isFancy" />
     
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GCD简单应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -243,13 +263,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/03/15/iOSLearn15-1/"></a></p>
+        <p><span>本文标题:</span><a href="/2016/03/05/iOSLearn15-1/">GCD简单应用</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年03月15日 - 20时56分</p>
-        <p><span>最后更新:</span>2016年03月15日 - 20时56分</p>
+        <p><span>发布时间:</span>2016年03月05日 - 00时00分</p>
+        <p><span>最后更新:</span>2016年03月05日 - 00时00分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/03/15/iOSLearn15-1/" title="">http://limaofuyuanzhang.github.io/2016/03/15/iOSLearn15-1/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/15/iOSLearn15-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/05/iOSLearn15-1/" title="GCD简单应用">http://limaofuyuanzhang.github.io/2016/03/05/iOSLearn15-1/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/05/iOSLearn15-1/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -263,15 +283,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/03/15/NSData-1/">
-                    NSData
+                <a href="/2016/03/06/iOSLearn8-5/">
+                    UITableView的使用(5)
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2016/03/14/iOSLearn13-3/">
-                    数据持久化-iOS内嵌SQLite
+                <a href="/2016/03/04/iOSLearn13-4/">
+                    数据持久化-Core Data简单使用
                 </a>
             </div>
         
@@ -346,7 +366,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/03/15/iOSLearn15-1/" data-title="" data-url="http://limaofuyuanzhang.github.io/2016/03/15/iOSLearn15-1/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/05/iOSLearn15-1/" data-title="GCD简单应用" data-url="http://limaofuyuanzhang.github.io/2016/03/05/iOSLearn15-1/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -370,7 +390,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/03/15/NSData-1/" title="上一篇: NSData">
+            <a href="/2016/03/06/iOSLearn8-5/" title="上一篇: UITableView的使用(5)">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -378,13 +398,13 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2016/03/14/iOSLearn13-3/" title="下一篇: 数据持久化-iOS内嵌SQLite">
+            <a href="/2016/03/04/iOSLearn13-4/" title="下一篇: 数据持久化-Core Data简单使用">
                 <i class="fa fa-angle-right"></i>
             </a>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/NSData-1/">NSData</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/iOSLearn15-1/">iOSLearn15-1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/iOSLearn13-3/">数据持久化-iOS内嵌SQLite</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/iOSLearn13-2/">数据持久化-对模型对象进行归档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/iOSLearn12/">应用设置操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/iOSLearn10/">集合视图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/iOSLearn21/">图片选择器的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/iOSLearn15-4/">处理后台状态样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/iOSLearn15-3/">处理不活跃状态小样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/iOSLearn15-2/">后台处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/iOSLearn8-5/">UITableView的使用(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOSLearn8-4/">UITableView的使用(4)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOSLearn13-4/">数据持久化-Core Data简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/iOSLearn13-1/">数据持久化-属性列表序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/iOSLearn8-3/">UITableView的使用(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/iOSLearn8-2/">UITableView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/iOSLearn8-1/">UITableView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/iOSLearn7-2/">UIPickerView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/iOSLearn7-1/">UIPickerView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/NSDatePicker_use/">UIDatePicker的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/iOSLearn6/">多视图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/22/iOSLearn-5-1/">自动旋转和自动调整大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Singleton/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/RESideMenu_usage/">RESideMenu的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTFul api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapod_use1/">CocoaPods的使用</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/NSData-1/">NSData</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/iOSLearn13-3/">数据持久化-iOS内嵌SQLite</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/iOSLearn13-2/">数据持久化-对模型对象进行归档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/iOSLearn12/">应用设置操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/iOSLearn10/">集合视图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/iOSLearn21/">图片选择器的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/iOSLearn15-4/">处理后台状态样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/iOSLearn15-3/">处理不活跃状态小样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/iOSLearn15-2/">后台处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/iOSLearn8-5/">UITableView的使用(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/iOSLearn15-1/">GCD简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOSLearn13-4/">数据持久化-Core Data简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOSLearn8-4/">UITableView的使用(4)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/iOSLearn13-1/">数据持久化-属性列表序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/iOSLearn8-3/">UITableView的使用(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/iOSLearn8-2/">UITableView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/iOSLearn8-1/">UITableView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/iOSLearn7-2/">UIPickerView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/iOSLearn7-1/">UIPickerView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/NSDatePicker_use/">UIDatePicker的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/iOSLearn6/">多视图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/22/iOSLearn-5-1/">自动旋转和自动调整大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Singleton/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Objective-C_nil/">Object-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/RESideMenu_usage/">RESideMenu的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTFul api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/UIView_layer_Setting/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/cocoapod_use1/">CocoaPods的使用</a></li></ul>
     <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
     <script>
         $(".post-list").addClass("toc-article");
