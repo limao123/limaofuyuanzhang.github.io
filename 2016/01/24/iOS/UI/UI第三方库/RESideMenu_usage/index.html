@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hans">
 <head>
   <meta charset="utf-8">
   
@@ -25,15 +25,18 @@
     <link rel="icon" href="/favicon.png">
   
   
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   
   
-      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
   
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
   <script>
       var yiliaConfig = {
           fancybox: true,
@@ -43,9 +46,22 @@
           isArchive: false,
           isTag: false,
           isCategory: false,
-          open_in_new: false
+          open_in_new: false,
       }
   </script>
+
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
+  
+
+  
+
+  
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
 </head>
 <body>
   <div id="container">
@@ -54,11 +70,8 @@
 <div class="intrude-less">
     <header id="header" class="inner">
         <a href="/" class="profilepic">
-            
-            <img lazy-src="/img/avatar.png" class="js-avatar">
-            
+            <img src="/img/avatar.png" class="animated zoomIn">
         </a>
-
         <hgroup>
           <h1 class="header-author"><a href="/">狸猫副园长</a></h1>
         </hgroup>
@@ -179,7 +192,7 @@
     <div class="intrude-less">
         <header id="header" class="inner">
             <a href="/" class="profilepic">
-                <img lazy-src="/img/avatar.png" class="js-avatar">
+                <img src="/img/avatar.png" class="animated zoomIn">
             </a>
             <hgroup>
               <h1 class="header-author"><a href="/" title="回到主页">狸猫副园长</a></h1>
@@ -293,7 +306,7 @@
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -327,8 +340,6 @@
 </style>
 
 <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
-
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
 <script>
     var valueHide = "隐藏目录";
     var valueShow = "显示目录";
@@ -359,7 +370,7 @@
 
 
 
-<div class="share">
+    <div class="share">
     <div class="bdsharebuttonbox">
     <a href="#" class="bds_more" data-cmd="more"></a>
     <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
@@ -416,26 +427,6 @@
     </div>
 
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/iOS/iOS其它/Xcode/XcodePlugin/">Xcode插件管理及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/iOS/开发语言/Objective-C/Foundation框架/NSData/NSData-1/">NSData</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/iOS/数据存储/SQLite/iOSLearn13-3/">数据持久化-iOS内嵌SQLite</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/iOS/数据存储/数据归档/iOSLearn13-2/">数据持久化-对模型对象进行归档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/iOS/数据存储/NSUserDefaults/iOSLearn12/">应用设置操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/iOS/UI/高级控件/UICollectionView/iOSLearn10/">集合视图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/iOS/UI/高级控件/UIPickerView/iOSLearn21/">图片选择器的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/iOS/后台处理/iOSLearn15-4/">处理后台状态样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/iOS/后台处理/iOSLearn15-3/">处理不活跃状态小样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/iOS/后台处理/iOSLearn15-2/">后台处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/iOS/UI/高级控件/UITableView/iOSLearn8-5/">UITableView的使用(5)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/iOS/多线程/GCD/iOSLearn15-1/">GCD简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOS/UI/高级控件/UITableView/iOSLearn8-4/">UITableView的使用(4)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/iOS/数据存储/CoreData/iOSLearn13-4/">数据持久化-Core Data简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/iOS/数据存储/数据归档/iOSLearn13-1/">数据持久化-属性列表序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/iOS/UI/高级控件/UITableView/iOSLearn8-3/">UITableView的使用(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/iOS/UI/高级控件/UITableView/iOSLearn8-2/">UITableView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/iOS/UI/高级控件/UITableView/iOSLearn8-1/">UITableView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/iOS/UI/高级控件/UIPickerView/iOSLearn7-2/">UIPickerView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/iOS/UI/高级控件/UIPickerView/iOSLearn7-1/">UIPickerView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/iOS/UI/高级控件/UIPickerView/NSDatePicker_use/">UIDatePicker的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/iOS/UI/iOSLearn6/">多视图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/22/iOS/UI/自动旋转/iOSLearn-5-1/">自动旋转和自动调整大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/Xcode/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapod_use1/">CocoaPods的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/Objective-C_nil/">Objective-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/项目实践/第三方库使用/Bmob/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTFul api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/打包流程/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/开发证书/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/设计模式/单例/Singleton/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/基础控件/UIView/UIView_layer_Setting-1/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/基础控件/UIImageView/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/Xcode/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/UI第三方库/RESideMenu_usage/">RESideMenu的使用</a></li></ul>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-    <script>
-        $(".post-list").addClass("toc-article");
-        $(".post-list-item a").attr("target","_blank");
-        $("#post-nav-button > a:nth-child(2)").click(function() {
-            $(".fa-bars, .fa-times").toggle();
-            $(".post-list").toggle(300);
-            if ($(".toc").length > 0) {
-                $("#toc, #tocButton").toggle(200, function() {
-                    if ($(".switch-area").is(":visible")) {
-                        $("#toc, .switch-btn, .switch-area").toggle();
-                        $("#tocButton").attr("value", valueHide);
-                        }
-                    })
-            }
-            else {
-                $(".switch-btn, .switch-area").fadeToggle(300);
-            }
-        })
-    </script>
 
 
 
@@ -451,51 +442,51 @@
                 &copy; 2016 狸猫副园长
             </div>
             <div class="footer-right">
-                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的静态博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减双栏 Hexo 博客主题">Yelee</a> by MOxFIVE
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
             </div>
         </div>
-        <div class="visit">
-            <span id="busuanzi_container_site_pv" style='display:none'>
-                <span id="site-visit" >本站到访数: 
-                    <span id="busuanzi_value_site_uv"></span>
-                </span>
-            </span>
-            <span id="busuanzi_container_page_pv" style='display:none'>
-                <span id="page-visit">, 本页阅读量: 
-                    <span id="busuanzi_value_page_pv"></span>
-                </span>
-            </span>
-        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
     </div>
 </footer>
     </div>
-    <script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+    
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
 
-    <style>
-        body {
-          background: lightgray;
-        }
-        #container .left-col {
-          background: white;
-        }
-        .article-inner {
-          background: white;
-          margin-bottom: 1em;
-        }
-        .post-nav-button {
-          background: #ececec;
-        }
-        #header .header-nav .social #GitHub {
-          background-color: #bfd3ec;
-        }
-        #post-nav-button a {
-          background: rgba(215, 216, 215, .2);
-        }
-        .post-list {
-          background: white;
-        }
-    </style>
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
 
@@ -505,14 +496,6 @@
     <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
     <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
 </div>
-
-<script>
-    $(document).ready(function() {
-        if ($("#comments").length < 1) {
-            $("#scroll > a:nth-child(2)").hide();
-        };
-    })
-</script>
 
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
