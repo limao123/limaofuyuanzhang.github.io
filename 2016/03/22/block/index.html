@@ -3,20 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>添加pch文件 | 狸猫副园长的技术窝</title>
+  <title>block | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="添加pch文件的方法">
+  <meta name="description" content="写法及声明123456789101112//定义typedef void(^SkillDictionaryBlock)(NSDictionary *dictionary);//声明@property (copy, nonatomic) SkillDictionaryBlock block;//赋值__weak typeof(ProjectDescriptionEditorViewControlle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="添加pch文件">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/Xcode/add_pch/index.html">
+<meta property="og:title" content="block">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/22/block/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="添加pch文件的方法">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14525996886340.jpg">
-<meta property="og:image" content="http://limaofuyuanzhang.github.io/images/14525999445523.jpg">
-<meta property="og:updated_time" content="2016-01-23T16:00:00.000Z">
+<meta property="og:description" content="写法及声明123456789101112//定义typedef void(^SkillDictionaryBlock)(NSDictionary *dictionary);//声明@property (copy, nonatomic) SkillDictionaryBlock block;//赋值__weak typeof(ProjectDescriptionEditorViewControlle">
+<meta property="og:updated_time" content="2016-03-22T12:57:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="添加pch文件">
-<meta name="twitter:description" content="添加pch文件的方法">
+<meta name="twitter:title" content="block">
+<meta name="twitter:description" content="写法及声明123456789101112//定义typedef void(^SkillDictionaryBlock)(NSDictionary *dictionary);//声明@property (copy, nonatomic) SkillDictionaryBlock block;//赋值__weak typeof(ProjectDescriptionEditorViewControlle">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -231,11 +229,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-iOS/iOS其它/Xcode/add_pch" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-block" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/01/24/iOS/iOS其它/Xcode/add_pch/" class="article-date">
-      <time datetime="2016-01-23T16:00:00.000Z" itemprop="datePublished">2016-01-24</time>
+      <a href="/2016/03/22/block/" class="article-date">
+      <time datetime="2016-03-22T12:57:23.000Z" itemprop="datePublished">2016-03-22</time>
 </a>
     </div>
   
@@ -248,7 +246,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      添加pch文件
+      block
     </h1>
   
 
@@ -263,7 +261,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Xcode/">Xcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS其它/">iOS其它</a></li></ul>
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -273,11 +271,12 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1 id="u6B63_u6587"><a href="#u6B63_u6587" class="headerlink" title="正文"></a>正文</h1><p>1.创建phc文件</p>
-<p><img src="/images/14525996886340.jpg" alt=""></p>
-<p>2.在Build Setting/Prefix Header中添加 $(SRCROOT)/fileName.pch</p>
-<p><img src="/images/14525999445523.jpg" alt=""></p>
-<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/huang2009303513/article/details/40375235" target="_blank" rel="external">Xcode6中添加pch文件</a></p>
+        <h1 id="u5199_u6CD5_u53CA_u58F0_u660E"><a href="#u5199_u6CD5_u53CA_u58F0_u660E" class="headerlink" title="写法及声明"></a>写法及声明</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^SkillDictionaryBlock)(<span class="built_in">NSDictionary</span> *dictionary);</span><br><span class="line"></span><br><span class="line"><span class="comment">//声明</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) SkillDictionaryBlock block;</span><br><span class="line"></span><br><span class="line"><span class="comment">//赋值</span></span><br><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(ProjectDescriptionEditorViewController *)weakVC = vc;</span><br><span class="line">weakVC<span class="variable">.block</span> = ^(<span class="built_in">NSString</span> *string)&#123;</span><br><span class="line">    <span class="keyword">self</span><span class="variable">.projectDic</span>[<span class="string">@"descr"</span>] = string;</span><br><span class="line">    [<span class="keyword">self</span><span class="variable">.tableView</span> reloadData];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="block_u7684_u5199_u6CD5"><a href="#block_u7684_u5199_u6CD5" class="headerlink" title="block的写法"></a>block的写法</h1><p><returntype> (^blockname)(list of arguments) = ^(arguments){};<br>例：void (^block)() = ^{NSLog(@”Hello Blocks”);}</returntype></p>
+<p>使用typedef关键字</p>
+<p>typedef <returntype> (^blockname)(list of arguments);<br>例：typedef void(^xxxBlock)(NSString *name, NSIngeter number);</returntype></p>
+<p>如果block只是在某个类定义中使用，可以这么写<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MessageToolBarView</span> : <span class="title">UIView</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="keyword">void</span> (^messageSentBlock)(<span class="built_in">AVIMMessage</span>*);</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure></p>
+<p>调用时使用messageSentBlock即可<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span><span class="variable">.messageToolBar</span> = [[MessageToolBarView alloc] init];</span><br><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"><span class="keyword">self</span><span class="variable">.messageToolBar</span><span class="variable">.messageSentBlock</span> = ^(<span class="built_in">AVIMMessage</span> *message)&#123;</span><br><span class="line">    [weakSelf<span class="variable">.messages</span> addObject:message];</span><br><span class="line">    [weakSelf<span class="variable">.messageTableView</span> reloadData];</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -286,13 +285,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/01/24/iOS/iOS其它/Xcode/add_pch/">添加pch文件</a></p>
+        <p><span>本文标题:</span><a href="/2016/03/22/block/">block</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
-        <p><span>发布时间:</span>2016年01月24日 - 00时00分</p>
-        <p><span>最后更新:</span>2016年01月24日 - 00时00分</p>
+        <p><span>发布时间:</span>2016年03月22日 - 20时57分</p>
+        <p><span>最后更新:</span>2016年03月22日 - 20时57分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/01/24/iOS/iOS其它/Xcode/add_pch/" title="添加pch文件">http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/Xcode/add_pch/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/Xcode/add_pch/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/22/block/" title="block">http://limaofuyuanzhang.github.io/2016/03/22/block/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/22/block/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -305,12 +304,12 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/different_id_instancetype/">
-                    id和instancetype区别
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/03/22/iOS/UI/高级控件/UITableView/2016-03-22/">
+                    UITableViewCell小知识记录
                 </a>
             </div>
-        
         
     </nav>
 
@@ -319,7 +318,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u6B63_u6587"><span class="toc-number">1.</span> <span class="toc-text">正文</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5199_u6CD5_u53CA_u58F0_u660E"><span class="toc-number">1.</span> <span class="toc-text">写法及声明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#block_u7684_u5199_u6CD5"><span class="toc-number">2.</span> <span class="toc-text">block的写法</span></a></li></ol>
 </div>
 <style>
     .left-col .switch-btn {
@@ -381,7 +380,7 @@
     
       <div class="duoshuo" id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="2016/01/24/iOS/iOS其它/Xcode/add_pch/" data-title="添加pch文件" data-url="http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/Xcode/add_pch/"></div>
+    <div class="ds-thread" data-thread-key="2016/03/22/block/" data-title="block" data-url="http://limaofuyuanzhang.github.io/2016/03/22/block/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -405,15 +404,15 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/different_id_instancetype/" title="上一篇: id和instancetype区别">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2016/03/22/iOS/UI/高级控件/UITableView/2016-03-22/" title="下一篇: UITableViewCell小知识记录">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
 
