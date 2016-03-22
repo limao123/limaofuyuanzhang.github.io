@@ -1,57 +1,11 @@
-<!doctype html>
-<html class="theme-next   use-motion ">
+<!DOCTYPE html>
+<html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="git,iOS," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
-
-
-
-
-
-
-<meta name="description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
+  <meta charset="utf-8">
+  
+  <title>如何修改git旧提交 | 狸猫副园长的技术窝</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何修改git旧提交">
 <meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/git/git_modift_commit/index.html">
@@ -62,268 +16,259 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何修改git旧提交">
 <meta name="twitter:description" content="我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。">
-
-
-
-<script type="text/javascript" id="hexo.configuration">
-  var CONFIG = {
-    scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
-  };
-</script>
-
-  <title> 如何修改git旧提交 | 狸猫副园长的技术窝 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?d13b769d9ade1558a1d08005d0d";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
+    <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" type="text/css">
+  
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  <script src="//cdn.bootcss.com/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false,
+      }
   </script>
 
-
-
-
-  <div class="container one-column page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
+  
+      <script>
+          yiliaConfig.rootUrl = "/";
+      </script>
   
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">狸猫副园长的技术窝</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-  </div>
-  <p class="site-subtitle">iOS开发，技术渣渣</p>
+  
+
+  
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/avatar.png" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">狸猫副园长</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">iOS开发，技术渣渣</p>
+        
+                
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/tags/iOS">iOS</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/limaofuyuanzhang" title="GitHub"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Bmob/" style="font-size: 10px;">Bmob</a> <a href="/tags/CocoaPods/" style="font-size: 15px;">CocoaPods</a> <a href="/tags/GCD/" style="font-size: 10px;">GCD</a> <a href="/tags/NSData/" style="font-size: 10px;">NSData</a> <a href="/tags/RESideMenu/" style="font-size: 10px;">RESideMenu</a> <a href="/tags/Restful/" style="font-size: 10px;">Restful</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/UIPickerView/" style="font-size: 15px;">UIPickerView</a> <a href="/tags/UITableView/" style="font-size: 17.5px;">UITableView</a> <a href="/tags/Xcode/" style="font-size: 12.5px;">Xcode</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/id/" style="font-size: 10px;">id</a> <a href="/tags/instancetype/" style="font-size: 10px;">instancetype</a> <a href="/tags/nil/" style="font-size: 10px;">nil</a> <a href="/tags/初始化方法/" style="font-size: 10px;">初始化方法</a> <a href="/tags/可选项型/" style="font-size: 10px;">可选项型</a> <a href="/tags/后台处理/" style="font-size: 12.5px;">后台处理</a> <a href="/tags/开发证书/" style="font-size: 10px;">开发证书</a> <a href="/tags/打包流程/" style="font-size: 10px;">打包流程</a> <a href="/tags/枚举/" style="font-size: 10px;">枚举</a> <a href="/tags/第三方库使用/" style="font-size: 10px;">第三方库使用</a> <a href="/tags/自动旋转/" style="font-size: 10px;">自动旋转</a> <a href="/tags/集合视图/" style="font-size: 10px;">集合视图</a> <a href="/tags/项目实践/" style="font-size: 10px;">项目实践</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">MOxFIVE</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于技术</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
 </div>
-
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
-
-<nav class="site-nav">
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">狸猫副园长</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/avatar.png" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">狸猫副园长</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">iOS开发，技术渣渣</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/tags/iOS">iOS</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="GitHub"><a class="GitHub" target="_blank" href="https://github.com/limaofuyuanzhang" title="GitHub"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-iOS/iOS其它/git/git_modift_commit" class="article article-type-post" itemscope itemprop="blogPost">
   
-
-  
-    <ul id="menu" class="menu menu-left">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', '5BFvFRN96sqNzcCdaTe5','2.0.0');
-</script>
-
-
-
+    <div class="article-meta">
+      <a href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/" class="article-date">
+      <time datetime="2016-01-23T16:00:00.000Z" itemprop="datePublished">2016-01-24</time>
+</a>
     </div>
   
-</nav>
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          
-
-  <div id="posts" class="posts-expand">
+  <div class="article-inner">
     
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
+      <input type="hidden" class="isFancy" />
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                如何修改git旧提交
-              
-            
-          </h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      如何修改git旧提交
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-01-24T00:00:00+08:00" content="2016-01-24">
-              2016-01-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/iOS其它/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS其它</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/iOS/iOS其它/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/24/iOS/iOS其它/git/git_modift_commit/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
       </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/iOS/iOS其它/">iOS其它</a><a class="article-category-link" href="/categories/iOS/iOS其它/git/">git</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
     
-
-
-    <div class="post-body">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        <span itemprop="articleBody"><p>我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。</p>
+          
+        <p>我们在使用git的使用可能会遇到如下场景，在做了多个提交后，突然发现前面的某个提交需要进行修改，但是我们又不希望创建一个新提交，而是希望在原提交上进行修改。此时，我们可以使用git rebase来完成。</p>
 <a id="more"></a>
 <h1 id="u89E3_u51B3_u65B9_u6848"><a href="#u89E3_u51B3_u65B9_u6848" class="headerlink" title="解决方案"></a>解决方案</h1><p>总结下来为以下几步</p>
 <p>1.使用git rebase命令，其中commit-Id为你需要修改的commit的ID，你会进入到git的默认编辑器，在您需要修改的提交前将pick修改为edit，如下图。</p>
@@ -337,432 +282,228 @@
 <h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://stackoverflow.com/questions/1186535/how-to-modify-a-specified-commit-in-git" target="_blank" rel="external">How to modify a specified commit in git?</a></p>
 <p><a href="http://backlogtool.com/git-guide/cn/stepup/stepup7_6.html" target="_blank" rel="external">6. 用rebase -i 修改提交</a></p>
 <p>如果想了解整个修改过程的原理，可以查看下面这篇文章。<br><a href="http://gitbook.liuhui998.com/4_3.html" target="_blank" rel="external">交互式rebase</a></p>
-</span>
+
       
     </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/git/" rel="tag">#git</a>
-          
-            <a href="/tags/iOS/" rel="tag">#iOS</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/01/24/iOS/设计模式/单例/Singleton/" rel="next" title="单例">
-                <i class="fa fa-chevron-left"></i> 单例
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/24/iOS/iOS其它/开发证书/iOS_certificate/" rel="prev" title="iOS开发证书介绍">
-                iOS开发证书介绍 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-        </div>
-
-        
-
-
-        
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/01/24/iOS/iOS其它/git/git_modift_commit/"
-           data-title="如何修改git旧提交" data-url="http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/git/git_modift_commit/">
-      </div>
     
   </div>
-
-
-      </div>
-
-      
-        
   
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/">如何修改git旧提交</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
+        <p><span>发布时间:</span>2016年01月24日 - 00时00分</p>
+        <p><span>最后更新:</span>2016年01月24日 - 00时00分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/" title="如何修改git旧提交">http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/git/git_modift_commit/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/git/git_modift_commit/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
 
-      
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.png" alt="狸猫副园长" itemprop="image"/>
-          <p class="site-author-name" itemprop="name">狸猫副园长</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">欢迎吐槽～～～</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">45</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">33</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">25</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
+    <nav id="article-nav">
         
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/limaofuyuanzhang" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> github
-                  
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/01/24/iOS/iOS其它/开发证书/iOS_certificate/">
+                    iOS开发证书介绍
                 </a>
-              </span>
-            
-          
-        </div>
-
+            </div>
         
         
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
-            </a>
-          </div>
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/01/24/iOS/设计模式/单例/Singleton/">
+                    单例
+                </a>
+            </div>
         
+    </nav>
 
-        <div class="links-of-author motion-element">
-          
-        </div>
+  
+</article>
 
-      </section>
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u89E3_u51B3_u65B9_u6848"><span class="toc-number">1.</span> <span class="toc-text">解决方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u89E3_u51B3_u65B9_u6848"><span class="nav-number">1.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u53C2_u8003"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
-            
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
-          </div>
-        </section>
-      
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
     </div>
-  </aside>
-
-
-      
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2015 - 
-  <span itemprop="copyrightYear">2016</span>
-  <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">狸猫副园长</span>
-</div>
-
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
 </div>
 
 
 
-      </div>
-    </footer>
-
-    <div class="back-to-top"></div>
-  </div>
-
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  
-
-  
     
-
-  
-    
-  
-
-  <script type="text/javascript">
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/01/24/iOS/iOS其它/git/git_modift_commit/" data-title="如何修改git旧提交" data-url="http://limaofuyuanzhang.github.io/2016/01/24/iOS/iOS其它/git/git_modift_commit/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
     var duoshuoQuery = {short_name:"limaofuyuanzhang1"};
     (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
-  </script>
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
     
-     
 
 
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/01/24/iOS/iOS其它/开发证书/iOS_certificate/" title="上一篇: iOS开发证书介绍">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2016/01/24/iOS/设计模式/单例/Singleton/" title="下一篇: 单例">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/22/iOS/UI/高级控件/UITableView/2016-03-22/">UITableViewCell小知识记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/16/iOS/iOS其它/Xcode/XcodePlugin/">Xcode插件管理及使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/15/iOS/开发语言/Objective-C/Foundation框架/NSData/NSData-1/">NSData</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/iOS/数据存储/SQLite/iOSLearn13-3/">数据持久化-iOS内嵌SQLite</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/13/iOS/数据存储/数据归档/iOSLearn13-2/">数据持久化-对模型对象进行归档</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/12/iOS/数据存储/NSUserDefaults/iOSLearn12/">应用设置操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/11/iOS/UI/高级控件/UICollectionView/iOSLearn10/">集合视图</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/iOS/UI/高级控件/UIPickerView/iOSLearn21/">图片选择器的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/09/iOS/后台处理/iOSLearn15-4/">处理后台状态样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/08/iOS/后台处理/iOSLearn15-3/">处理不活跃状态小样例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/07/iOS/后台处理/iOSLearn15-2/">后台处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/06/iOS/UI/高级控件/UITableView/iOSLearn8-5/">UITableView的使用(5)-UITableView小知识</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/05/iOS/多线程/GCD/iOSLearn15-1/">GCD简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/04/iOS/UI/高级控件/UITableView/iOSLearn8-4/">UITableView的使用(4)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/03/iOS/数据存储/CoreData/iOSLearn13-4/">数据持久化-Core Data简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/02/iOS/数据存储/数据归档/iOSLearn13-1/">数据持久化-属性列表序列化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/01/iOS/UI/高级控件/UITableView/iOSLearn8-3/">UITableView的使用(3)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/29/iOS/UI/高级控件/UITableView/iOSLearn8-2/">UITableView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/28/iOS/UI/高级控件/UITableView/iOSLearn8-1/">UITableView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/27/iOS/UI/高级控件/UIPickerView/iOSLearn7-2/">UIPickerView的使用(2)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/26/iOS/UI/高级控件/UIPickerView/iOSLearn7-1/">UIPickerView的使用(1)</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/25/iOS/UI/高级控件/UIPickerView/NSDatePicker_use/">UIDatePicker的简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/iOS/UI/iOSLearn6/">多视图应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/22/iOS/UI/自动旋转/iOSLearn-5-1/">自动旋转和自动调整大小</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/Xcode/pragma_mark_use/">pragma mark的用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapods_use4/">CocoaPods-podspec文件详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapods_use3/">CocoaPods-Podfile进阶使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapod_use2/">使用CocoaPods上传自己的库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/CocoaPods/cocoapod_use1/">CocoaPods的使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/Objective-C_nil/">Objective-C中各类空值的分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/Objective-C_init/">Objective-C初始化方法实现</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/项目实践/第三方库使用/Bmob/Bmob_Restful_API_Use/">iOS开发中使用Bmob RESTFul api</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_string/">swift 字符串</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_range_operator/">swift区间运算符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Swift/swift_optional/">swift可选类型</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/enum_use/">Objective-C中枚举类型的写法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/打包流程/iOS_Framework/">Framework制作步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/开发证书/iOS_certificate/">iOS开发证书介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/git/git_modift_commit/">如何修改git旧提交</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/设计模式/单例/Singleton/">单例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/iOS其它/Xcode/add_pch/">添加pch文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/基础控件/UIView/UIView_layer_Setting-1/">UIView layer属性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/基础控件/UIImageView/UIImageView_UIContentView/">UIImageView适应模式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/开发语言/Objective-C/OC语法/different_id_instancetype/">id和instancetype区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/24/iOS/UI/UI第三方库/RESideMenu_usage/">RESideMenu的使用</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2016 狸猫副园长
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题">Yelee</a> by MOxFIVE
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
     
-  
+    <script src="/js/GithubRepoWidget.js" type="text/javascript"></script>
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.1.22/require.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum = 5;
+                var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
 
 
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
 
-  
-  
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
-
-
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
-
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
-
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
-
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
-
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
-
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    motionMiddleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
-        }
-      }
-    };
-  });
-</script>
-
-
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
-
-  
-  
-
-  
-  
-
+  </div>
 </body>
 </html>
