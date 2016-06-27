@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>狸猫副园长的技术窝</title>
+  <title>iOS多线程 | 狸猫副园长的技术窝</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="欢迎吐槽～～～">
-<meta property="og:type" content="website">
-<meta property="og:title" content="狸猫副园长的技术窝">
-<meta property="og:url" content="http://limaofuyuanzhang.github.io/index.html">
+  <meta name="description" content="GCD异步调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS多线程">
+<meta property="og:url" content="http://limaofuyuanzhang.github.io/2016/03/30/iOS多线程/index.html">
 <meta property="og:site_name" content="狸猫副园长的技术窝">
-<meta property="og:description" content="欢迎吐槽～～～">
+<meta property="og:description" content="GCD异步调用">
+<meta property="og:updated_time" content="2016-03-30T05:16:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="狸猫副园长的技术窝">
-<meta name="twitter:description" content="欢迎吐槽～～～">
+<meta name="twitter:title" content="iOS多线程">
+<meta name="twitter:description" content="GCD异步调用">
   
     <link rel="alternative" href="/atom.xml" title="狸猫副园长的技术窝" type="application/atom+xml">
   
@@ -26,13 +27,8 @@
   
   <link rel="stylesheet" href="/css/style.css" type="text/css">
   
-      <style> .article { opacity: 0;} </style>
-  
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
-    
-    
   
   
     <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
@@ -42,8 +38,8 @@
       var yiliaConfig = {
           fancybox: true,
           animate: true,
-          isHome: true,
-          isPost: false,
+          isHome: false,
+          isPost: true,
           isArchive: false,
           isTag: false,
           isCategory: false,
@@ -229,9 +225,7 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap">
-  
-    <article id="post-iOS多线程" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS多线程" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/03/30/iOS多线程/" class="article-date">
@@ -247,56 +241,171 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/30/iOS多线程/">iOS多线程</a>
+    <h1 class="article-title" itemprop="name">
+      iOS多线程
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-          
-              GCD异步调用
-          
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
+      <div class="article-info article-info-post">
+        
     <div class="article-category tagcloud">
     <a class="article-category-link" href="/categories/iOS/">iOS</a><a class="article-category-link" href="/categories/iOS/多线程/">多线程</a><a class="article-category-link" href="/categories/iOS/多线程/GCD/">GCD</a>
     </div>
 
 
-      
+        
     <div class="article-tag tagcloud">
         <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCD异步调用/">GCD异步调用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
     </div>
 
+        <div class="clearfix"></div>
+      </div>
       
-        <p class="article-more-link">
-          <a href="/2016/03/30/iOS多线程/#more">阅读全文 >></a>
-        </p>
+    
+    <div class="article-entry" itemprop="articleBody">
       
-      <div class="clearfix"></div>
+          
+        <h1 id="u5F02_u6B65_u8C03_u7528"><a href="#u5F02_u6B65_u8C03_u7528" class="headerlink" title="异步调用"></a>异步调用</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, <span class="number">0</span>), ^&#123; <span class="comment">// 1 </span></span><br><span class="line">        <span class="built_in">UIImage</span> *overlayImage = [<span class="keyword">self</span> faceOverlayImageFromImage:_image]; </span><br><span class="line">        <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123; <span class="comment">// 2 </span></span><br><span class="line">            [<span class="keyword">self</span> fadeInNewImage:overlayImage]; <span class="comment">// 3 </span></span><br><span class="line">        &#125;); </span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="u53C2_u8003"><a href="#u53C2_u8003" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cocoachina.com/ios/20150513/11808.html" target="_blank" rel="external">NSRecursiveLock递归锁的使用</a></p>
+<p><a href="http://blog.devtang.com/blog/2012/02/22/use-gcd/" target="_blank" rel="external">使用GCD</a></p>
+<p><a href="http://www.raywenderlich.com/4295/multithreading-and-grand-central-dispatch-on-ios-for-beginners-tutorial" target="_blank" rel="external">Multithreading and Grand Central Dispatch on iOS for Beginners Tutorial</a></p>
+<p><a href="http://www.cocoachina.com/industry/20140428/8248.html" target="_blank" rel="external">GCD 深入理解（一）</a><br><a href="http://www.cocoachina.com/industry/20140515/8433.html" target="_blank" rel="external">GCD 深入理解（二）</a><br><a href="http://blog.csdn.net/joosonmao/article/details/22645383" target="_blank" rel="external">项目会报错的问题</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzA3NzM0NzkxMQ==&amp;mid=401433103&amp;idx=1&amp;sn=6c5a6fff74f302f627fc07e49724d8a3&amp;scene=0&amp;key=d72a47206eca0ea91c4911c57d3dddfb7eea9370dbd814c89e8f9a3a24432d31ea9984533027312b2a10268660937730&amp;ascene=0&amp;uin=MTM1NzYwMTk2MA==&amp;devicetype=iMac%20MacBookAir6,2%20OSX%20OSX%2010.11.1%20build%2815B42%29&amp;version=11020113&amp;pass_ticket=ITbQB9Yj%2bJYKLvsqcV5NtS/B3ZOWwYAWQgA5z3pip3hcFxHt%2bkhDK3N1VFQhGX4F" target="_blank" rel="external">深入理解dispatch_queue</a><br><a href="http://www.bubuko.com/infodetail-642754.html" target="_blank" rel="external">用GCD线程组与GCD信号量将异步线程转换为同步线程</a></p>
+
+      
     </div>
     
   </div>
   
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2016/03/30/iOS多线程/">iOS多线程</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 狸猫副园长 的个人博客">狸猫副园长</a></p>
+        <p><span>发布时间:</span>2016年03月30日 - 13时16分</p>
+        <p><span>最后更新:</span>2016年03月30日 - 13时16分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/30/iOS多线程/" title="iOS多线程">http://limaofuyuanzhang.github.io/2016/03/30/iOS多线程/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://limaofuyuanzhang.github.io/2016/03/30/iOS多线程/　　作者: 狸猫副园长" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+  
 </article>
 
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#u5F02_u6B65_u8C03_u7528"><span class="toc-number">1.</span> <span class="toc-text">异步调用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#u53C2_u8003"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
 
 
 
 
+    <div class="share">
+    <div class="bdsharebuttonbox">
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+    <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+    <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config={
+            "common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+    </script>
+</div>
 
 
 
-  
-  
+    
+      <div class="duoshuo" id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="2016/03/30/iOS多线程/" data-title="iOS多线程" data-url="http://limaofuyuanzhang.github.io/2016/03/30/iOS多线程/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"limaofuyuanzhang1"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+</div>
+
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2016/03/30/iOS多线程/">iOS多线程</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
 </div>
       <footer id="footer">
     <div class="outer">
